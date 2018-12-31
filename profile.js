@@ -1,68 +1,8 @@
-const elements = {
-  profile: {
-    selector: 'section.pv-profile-section.pv-top-card-section',
-    fields: {
-      name: 'h1[class~=pv-top-card-section__name]',
-      headline: 'h2[class~=pv-top-card-section__headline]',
-      location: 'h3[class~=pv-top-card-section__location]',
-      summary: 'p[class~=pv-top-card-section__summary-text]'
-    }
-  },
-  experiences: {
-    selector: 'section[id=experience-section] li',
-    fields: {
-       title: 'h3',
-       company: 'span[class~=pv-entity__secondapv-profile-sectionry-title]',
-       description: 'p[class~=pv-entity__description]',
-       date1: 'h4.pv-entity__date-range span:nth-child(2)',
-       date2: '.pv-entity__bullet-item-v2'
-    }
-  },
-  educations: {
-    selector: 'section[id=education-section] li',
-    fields: {
-       title: 'h3',
-       degree: 'span[class=pv-entity__comma-item]',
-       date1: 'p.pv-entity__dates time:nth-child(1)',
-       date2: 'p.pv-entity__dates time:nth-child(2)',
-    }
-  },
-  skills: {
-    top: {
-      selector: 'li.pv-skill-category-entity__top-skill',
-      fields: {
-        title: 'p.pv-skill-category-entity__name',
-        count: 'span.pv-skill-category-entity__endorsement-count'
-      },
-    },
-    others: {
-      selector: 'div.pv-skill-category-entity__skill-wrapper',
-      fields: {
-        title: 'span.pv-skill-category-entity__name-text',
-        count: 'span.pv-skill-category-entity__endorsement-count'
-      }
-    }
-  },
-  recommendations: {
-    selector: 'li.pv-recommendation-entity',
-    fields: {
-      user: {
-        selector: 'a.pv-recommendation-entity__member',
-        attribute: 'href'
-      },
-      text: 'blockquote.pv-recommendation-entity__text'
-    },
-    givenButton: '.recommendations-inlining .artdeco-scrolling-container artdeco-tab:nth-child(1)'
-  },
-  seeMoreButtons: [
-    '.pv-top-card-section__summary button[class~=pv-top-card-section__summary-toggle-button]', //summary
-    '.pv-experience-section__see-more button', //experiences
-    '.pv-skill-categories-section button[class~=pv-skills-section__additional-skills]', //skills
-    '#recommendation-list + .artdeco-container-card-action-bar button' // recommendations
-  ]
-}
+const frame = require('./frame')
 
-const sectionRead = async(page, section) => {
+const sectionRead = async(browser, section) => {
+  const page = await browser.newPage()
+
   const experiencesElement = await page.$$(section.selector)
   return await Promise.all(
     experiencesElement.map((experience) =>
@@ -71,11 +11,19 @@ const sectionRead = async(page, section) => {
           const fieldObject = section.fields[field]
           const selector = fieldObject.selector || fieldObject
           const hasField = await experience.$(selector)
+
           if(hasField){
             if(fieldObject.attribute && fieldObject.attribute === 'href') {
-              obj[field] = await experience.$eval(selector, (e) => e ? e.href : '<none>')
+              obj[field] = await experience.$eval(selector, (e) => e ? e.href : '')
+            } else if (fieldObject.isMultipleFields) {
+              const fields = await experience.$$(fieldObject.selector)
+
+              obj[field] = []
+              for(let i = 0; i < fields.length; i++) {
+                obj[field] = await experience.$$eval(fieldObject.selector, (e) => e.map(x => x.innerText))
+              }
             } else {
-              obj[field] = await experience.$eval(selector, (e) => e ? e.innerText : '<none>')
+              obj[field] = await experience.$eval(selector, (e) => e ? e.innerText : '')
             }
           }
           return obj
@@ -101,29 +49,32 @@ module.exports = async(page, url) => {
       break;
   }
 
-  console.log("vai ir")
 
   //click see more buttons
-  for(i = 0; i < elements.seeMoreButtons.length;i++) {
-    const elem = await page.$(elements.seeMoreButtons[i])
-    if(elem) {
+  for(i = 0; i < frame.seeMoreButtons.length;i++) {
+    const elem = await page.$(frame.seeMoreButtons[i].selector)
+    if(elem){
       await elem.click()
     }
   }
 
-  const profile = await sectionRead(page, elements.profile)
-  const experiences = await sectionRead(page, elements.experiences)
-  const educations = await sectionRead(page, elements.educations)
-  const skillsTop = await sectionRead(page, elements.skills.top)
-  const skillsOther = await sectionRead(page, elements.skills.others)
-  const recommendations = await sectionRead(page, elements.recommendations)
+  const [profile] = await sectionRead(page, frame.profile)
+  const experiences = await sectionRead(page, frame.experiences)
+  const educations = await sectionRead(page, frame.educations)
+  const skillsTop = await sectionRead(page, frame.skills.top)
+  const skillsOther = await sectionRead(page, frame.skills.others)
+  const recommendations = await sectionRead(page, frame.recommendations)
+  const recommendationsGiven = await sectionRead(page, frame.recommendationsGiven)
+  const accomplishments = await sectionRead(page, frame.accomplishments)
+  const peopleAlsoViewed = await sectionRead(page, frame.peopleAlsoViewed)
 
-
-
-  console.log("profile", profile)
-  //console.log("recommendations", recommendations)
-
-
-
-
+  return {
+    profile,
+    experiences,
+    educations,
+    skills: skillsTop.concat(skillsOther),
+    recommendations,
+    recommendationsGiven,
+    peopleAlsoViewed
+  }
 }

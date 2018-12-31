@@ -1,15 +1,28 @@
 {
-  "name": "scrapedin",
-  "version": "0.0.0",
+  "name": "linkelies",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node manualTest",
+    "test": "mocha profile.test",
+    "coverage": "nyc npm test",
+    "coverage:report": "nyc --reporter=lcov npm test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^1.11.0"
+    "express": "^4.16.4",
+    "puppeteer": "^1.11.0",
+    "request": "^2.88.0",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "faker": "^4.1.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "sinon": "^7.2.2"
   }
 }
