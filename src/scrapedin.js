@@ -3,12 +3,12 @@ const login = require('./login')
 const profile = require('./profile')
 const logger = require('./logger')
 
-module.exports = ({ email, password, isHeadless, hasToLog } = { isHeadless: true, hasToLog: false }) => new Promise(async(resolve, reject) => {
+module.exports = ({ email, password, isHeadless, hasToLog } = { isHeadless: true, hasToLog: false }) => new Promise(async (resolve, reject) => {
   logger.info('index', 'initializing')
 
-  if(!email || !password) {
+  if (!email || !password) {
     logger.warn('index', 'required parameters email and password was not provided')
-    return reject('scrapedin: email and password are required to access linkedin profiles')
+    return reject(new Error('scrapedin: email and password are required to access linkedin profiles'))
   }
 
   logger.info('index', 'required parameters email and password was provided')
@@ -21,13 +21,12 @@ module.exports = ({ email, password, isHeadless, hasToLog } = { isHeadless: true
   //   height: 15000
   // })
 
-  try{
+  try {
     await login(page, email, password, logger)
-  }catch(e){
+  } catch (e) {
     await browser.close()
     return reject(e)
   }
-
 
   return Promise.resolve((url) => profile(browser, url))
 })

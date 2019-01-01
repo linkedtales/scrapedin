@@ -12,20 +12,20 @@ module.exports = {
   experiences: {
     selector: 'section[id=experience-section] li',
     fields: {
-       title: 'h3',
-       company: 'span[class~=pv-entity__secondapv-profile-sectionry-title]',
-       description: 'p[class~=pv-entity__description]',
-       date1: 'h4.pv-entity__date-range span:nth-child(2)',
-       date2: '.pv-entity__bullet-item-v2'
+      title: 'h3',
+      company: 'span[class~=pv-entity__secondapv-profile-sectionry-title]',
+      description: 'p[class~=pv-entity__description]',
+      date1: 'h4.pv-entity__date-range span:nth-child(2)',
+      date2: '.pv-entity__bullet-item-v2'
     }
   },
   educations: {
     selector: 'section[id=education-section] li',
     fields: {
-       title: 'h3',
-       degree: 'span[class=pv-entity__comma-item]',
-       date1: 'p.pv-entity__dates time:nth-child(1)',
-       date2: 'p.pv-entity__dates time:nth-child(2)',
+      title: 'h3',
+      degree: 'span[class=pv-entity__comma-item]',
+      date1: 'p.pv-entity__dates time:nth-child(1)',
+      date2: 'p.pv-entity__dates time:nth-child(2)'
     }
   },
   skills: {
@@ -34,7 +34,7 @@ module.exports = {
       fields: {
         title: 'p.pv-skill-category-entity__name',
         count: 'span.pv-skill-category-entity__endorsement-count'
-      },
+      }
     },
     others: {
       selector: 'div.pv-skill-category-entity__skill-wrapper',
@@ -85,10 +85,10 @@ module.exports = {
     }
   },
   seeMoreButtons: [
-    { id: 'summary', selector:'.pv-top-card-section__summary button[class~=pv-top-card-section__summary-toggle-button]' },
-    { id: 'experiences', selector:'.pv-experience-section__see-more button' },
+    { id: 'summary', selector: '.pv-top-card-section__summary button[class~=pv-top-card-section__summary-toggle-button]' },
+    { id: 'experiences', selector: '.pv-experience-section__see-more button' },
     { id: 'education', selector: '#education-section button.pv-profile-section__see-more-inline' },
-    { id: 'skills', selector:'.pv-skill-categories-section button[class~=pv-skills-section__additional-skills]' },
-    { id: 'recommendations', selector:'#recommendation-list + .artdeco-container-card-action-bar button' }
+    { id: 'skills', selector: '.pv-skill-categories-section button[class~=pv-skills-section__additional-skills]' },
+    { id: 'recommendations', selector: '#recommendation-list + .artdeco-container-card-action-bar button' }
   ]
 }

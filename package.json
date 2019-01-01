@@ -1,21 +1,26 @@
 {
   "name": "scrapedin",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "linedin scraper for 2019 website",
+  "keywords": [ "linkedin", "scraper" ],
+  "main": "src/scrapedin.js",
   "scripts": {
-    "start": "node manualTest",
-    "test": "mocha profile.test",
+    "test": "mocha src/**.test.js",
+    "lint": "standard --fix 'src/*.js'",
     "coverage": "nyc npm test",
     "coverage:report": "nyc --reporter=lcov npm test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leonardiwagner/scrapedin"
+  },
+  "bugs": {
+    "url": "https://github.com/leonardiwagner/scrapedin/issues"
+  },
+  "author": "Wagner Leonardi <leonardiwagner@gmail.company>",
+  "license": "Apache-2.0",
   "dependencies": {
-    "express": "^4.16.4",
     "puppeteer": "^1.11.0",
-    "request": "^2.88.0",
     "winston": "^3.1.0"
   },
   "devDependencies": {
@@ -23,6 +28,10 @@
     "faker": "^4.1.0",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
-    "sinon": "^7.2.2"
+    "sinon": "^7.2.2",
+    "standard": "^12.0.1"
+  },
+  "engines": {
+    "node": ">= 7.6.0"
   }
 }
