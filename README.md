@@ -1,32 +1,33 @@
-# scrapedin
-scrape LinkedIn new website 2018-2019
+![](https://github.com/leonardiwagner/scrapedin/raw/master/logo.png)
 
-#### Install from NPM package manager
-```
-npm i scrapedin
-```
+Scraper for LinkedIn full profile data, working for 2019 new website layout.  
 
-#### Usage
+Install via npm package manager: `npm i scrapedin`
+
+[![Build Status](https://travis-ci.org/leonardiwagner/scrapedin.svg?branch=master)](https://travis-ci.org/leonardiwagner/scrapedin) [![Coverage Status](https://coveralls.io/repos/github/leonardiwagner/scrapedin/badge.svg?branch=master)](https://coveralls.io/github/leonardiwagner/scrapedin?branch=master)
+
+
+
+#### Usage Example:
 
 ```
 const scrapedin = require('scrapedin')
 
-const profileScraper = await scrapedin({ email: 'some@user.com', password: 'pass' })
-const profile = await profileScraper('https://www.linkedin.com/in/some-user/')
+const profileScraper = await scrapedin({ email: 'login@mail.com', password: 'pass' })
+const profile = await profileScraper('https://www.linkedin.com/in/some-profile/')
 ```
 
-### Documentation
+#### Documentation:
 
 - `scrapedin(options)`
   - options *Object*:
-    - **email** *string (required)*: A LinkedIn e-mail address to login
-    - **password** *string (required)*: A LinkedIn password address to login
-    - **isLogVisible** *bool*: Prints on stdout scrapedin log, default value: *false*
-  - returns: Promise of *profileScraper* Object
+    - email: LinkedIn login e-mail *(required)*
+    - password: LinkedIn login password *(required)*
+  - returns: Promise of *profileScraper* function
 
 - `profileScraper(url)`
   - url *string*: A LinkedIn profile URL
-  - returns: promise of *profile* Object
+  - returns: Promise of *profile* Object
 
 - `profile` Object:
   ```
@@ -49,8 +50,17 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-user/')
     recommendationsGiven: [
       { user, text }
     ],
+    accomplishments: [
+     { count, title, items }
+    ],
     peopleAlsoViewed: [
       { user }
     ]
   }
   ```
+
+### License
+
+[Apache 2.0][apache-license]
+
+[apache-license]:./LICENSE
