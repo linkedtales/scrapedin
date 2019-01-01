@@ -13,7 +13,11 @@ const logger = winston.createLogger({
 const loggerWrapper = {
   info: (file, message) => logger.info(`[${file}] ${message}`),
   warn: (file, message) => logger.warn(`[${file}] ${message}`),
-  error: (file, message, error) => logger.error(`[${file}] ${message}${error && error.stack ? error.stack : error}`)
+  error: (file, message, error) => logger.error(`[${file}] ${message}${error && error.stack ? error.stack : (error || '')}`),
+  stopLogging: () => {
+    logger.silent = true
+  }
 }
+
 
 module.exports = loggerWrapper

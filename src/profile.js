@@ -1,4 +1,7 @@
+const openPage = require('./openPage')
+const logger = require('./logger')
 const template = require('./profileScraperTemplate')
+
 
 const sectionRead = async (page, section) => {
   const experiencesElement = await page.$$(section.selector)
@@ -31,9 +34,13 @@ const sectionRead = async (page, section) => {
   )
 }
 module.exports = async (browser, url) => {
-  const page = await browser.newPage()
-  await page.goto(url)
-  await page.waitFor("h1[class~='pv-top-card-section__name']")
+  logger.info('profile', `starting scraping url: ${url}`)
+  const page = await openPage(browser, url)
+  await page.waitFor("h1[class~='pv-top-card-section__name']", { timeout: 5000 })
+    .catch(() => {
+      logger.warn('profile', 'profile selector was not found')
+      throw new Error('linkedin: profile not found')
+    })
 
   for (let i = 0; i < 15; i++) {
     await page.evaluate(() => window.scrollBy(0, window.innerHeight))
@@ -65,6 +72,8 @@ module.exports = async (browser, url) => {
   const accomplishments = await sectionRead(page, template.accomplishments)
   const peopleAlsoViewed = await sectionRead(page, template.peopleAlsoViewed)
 
+  await page.close()
+  logger.info('profile', `finished scraping url: ${url}`)
   return {
     profile,
     experiences,

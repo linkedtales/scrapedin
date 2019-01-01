@@ -1,10 +1,13 @@
 const faker = require('faker')
 const { expect } = require('chai')
 const profile = require('./profile')
+const logger = require('./logger')
 const { mock, match } = require('sinon')
 const profileScraperTemplate = require('./profileScraperTemplate')
 const url = faker.internet.url()
 const fakeEvalResult = faker.lorem.words(1)
+
+logger.stopLogging()
 
 it('should get complete profile', async () => {
   const browserMock = prepareBrowserMock()
@@ -76,6 +79,9 @@ it('should get an incomplete profile', async () => {
 const prepareBrowserMock = (isIncompleteProfile) => {
   const Page = function () {
     this.goto = mock().once().withExactArgs(url).resolves()
+    this.setUserAgent = mock().once().resolves()
+    this.setExtraHTTPHeaders = mock().once().resolves()
+    this.setViewport = mock().once().resolves()
     this.waitFor = mock().once().resolves()
 
     this.evaluate = mock().twice().withExactArgs(match.func).atLeast(1).resolves()
@@ -93,6 +99,8 @@ const prepareBrowserMock = (isIncompleteProfile) => {
       .withExactArgs(match.string, match.func).atLeast(1)
       .callsArgWith(1, isIncompleteProfile ? undefined : fakeEvalResult)
       .resolves(isIncompleteProfile ? '' : fakeEvalResult)
+
+    this.close = mock().once().resolves()
   }
 
   Page.prototype.$ = () => new Page()

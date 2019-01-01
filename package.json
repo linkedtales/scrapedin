@@ -2,7 +2,10 @@
   "name": "scrapedin",
   "version": "0.0.1",
   "description": "linedin scraper for 2019 website",
-  "keywords": [ "linkedin", "scraper" ],
+  "keywords": [
+    "linkedin",
+    "scraper"
+  ],
   "main": "src/scrapedin.js",
   "scripts": {
     "test": "mocha src/**.test.js",
@@ -25,6 +28,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
     "faker": "^4.1.0",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",

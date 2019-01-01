@@ -1,7 +1,9 @@
+const openPage = require('./openPage')
 const logger = require('./logger')
 
-module.exports = async (page, email, password) => {
+module.exports = async (browser, email, password) => {
   const loginUrl = 'https://www.linkedin.com'
+  const page = await openPage(browser, loginUrl)
   logger.info('login', `logging at: ${loginUrl}`)
 
   await page.goto(loginUrl)
@@ -18,7 +20,11 @@ module.exports = async (page, email, password) => {
   return page.waitFor('input[role=combobox]', {
     timeout: 5000
   })
-    .then(() => Promise.resolve())
+    .then(async() => {
+      logger.info('login', 'logged feed page selector found')
+      await page.close()
+      return
+    })
     .catch(async () => {
       logger.warn('login', 'successful login element was not found')
       const emailError = await page.evaluate(() => {
@@ -43,6 +49,11 @@ module.exports = async (page, email, password) => {
       if (passwordError) {
         logger.info('login', 'wrong password element found')
         return Promise.reject(new Error('linkedin: invalid password'))
+      }
+
+      if(page.$(".flow-challenge-content")){
+        logger.warn('login', 'manual check was required')
+        return Promise.reject(new Error('linkedin: manual check was required, verify if your login is properly working manually or report this issue: https://github.com/leonardiwagner/scrapedin/issues'))
       }
 
       logger.error('login', 'could not find any element to retrieve a proper error')
