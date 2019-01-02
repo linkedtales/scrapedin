@@ -63,7 +63,7 @@ module.exports = async (browser, url) => {
   }
 
   const [profile] = await sectionRead(page, template.profile)
-  const experiences = await sectionRead(page, template.experiences)
+  const positions = await sectionRead(page, template.positions)
   const educations = await sectionRead(page, template.educations)
   const skillsTop = await sectionRead(page, template.skills.top)
   const skillsOther = await sectionRead(page, template.skills.others)
@@ -76,7 +76,7 @@ module.exports = async (browser, url) => {
   logger.info('profile', `finished scraping url: ${url}`)
   return {
     profile,
-    experiences,
+    positions,
     educations,
     skills: skillsTop.concat(skillsOther),
     recommendations,
