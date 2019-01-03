@@ -11,7 +11,7 @@ logger.stopLogging()
 
 it('should get complete profile', async () => {
   const browserMock = prepareBrowserMock()
-  const result = await profile(browserMock, url)
+  const result = await profile(browserMock, url, 0)
   const expectedResult = {
     profile: {
       name: fakeEvalResult,
@@ -38,7 +38,6 @@ it('should get complete profile', async () => {
       date2: fakeEvalResult
     }],
     skills: [
-      { title: fakeEvalResult, count: fakeEvalResult },
       { title: fakeEvalResult, count: fakeEvalResult }
     ],
     recommendations: [{
@@ -56,6 +55,10 @@ it('should get complete profile', async () => {
     }],
     volunteerExperience: [{
       title: fakeEvalResult,
+      description: fakeEvalResult,
+      location: fakeEvalResult,
+      date1: fakeEvalResult,
+      date2: fakeEvalResult,
       experience: fakeEvalResult
     }],
     peopleAlsoViewed: [{
@@ -69,16 +72,16 @@ it('should get complete profile', async () => {
 it('should get an incomplete profile', async () => {
   const browser = prepareBrowserMock(true)
 
-  const result = await profile(browser, url)
+  const result = await profile(browser, url, 0)
   const expectedResult = {
     profile: { name: '', headline: '', location: '', summary: '', connections: '' },
     positions: [{ companyName: '', description: '', date1: '', date2: '', location: '', roles: [{ date1: '', date2: '', location: '' }] }],
     educations: [{ degree: '', date1: '', date2: '' }],
-    skills: [{ title: '', count: '' }, { title: '', count: '' }],
+    skills: [{ title: '', count: '' }],
     recommendations: [{ user: '', text: '' }],
     recommendationsGiven: [{ user: '', text: '' }],
     accomplishments: [{ count: '', items: [fakeEvalResult], title: '' }],
-    volunteerExperience: [{ experience: '' }],
+    volunteerExperience: [{ experience: '', date1: '', date2: '', description: '', location: '' }],
     peopleAlsoViewed: [{ user: '' }]
   }
 

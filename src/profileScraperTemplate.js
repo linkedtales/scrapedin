@@ -40,19 +40,10 @@ module.exports = {
     }
   },
   skills: {
-    top: {
-      selector: 'li.pv-skill-category-entity__top-skill',
-      fields: {
-        title: 'p.pv-skill-category-entity__name',
-        count: 'span.pv-skill-category-entity__endorsement-count'
-      }
-    },
-    others: {
-      selector: 'div.pv-skill-category-entity__skill-wrapper',
-      fields: {
-        title: 'span.pv-skill-category-entity__name-text',
-        count: 'span.pv-skill-category-entity__endorsement-count'
-      }
+    selector: '.pv-skill-category-entity__skill-wrapper',
+    fields: {
+      title: 'span.pv-skill-category-entity__name-text',
+      count: 'span.pv-skill-category-entity__endorsement-count'
     }
   },
   recommendations: {
@@ -96,10 +87,14 @@ module.exports = {
     }
   },
   volunteerExperience: {
-    selector: 'section[id=ember184] li',
+    selector: 'section.volunteering-section li',
     fields: {
       title: 'h3',
-      experience: 'span[class=pv-entity__secondary-title]'
+      experience: 'span[class=pv-entity__secondary-title]',
+      location: 'pv-entity__location span:nth-child(2)',
+      description: '.pv-volunteer-causes',
+      date1: 'h4.pv-entity__date-range span:nth-child(2)',
+      date2: '.pv-entity__bullet-item'
     }
   }
 }

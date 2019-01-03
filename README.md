@@ -25,8 +25,9 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-profile/'
     - password: LinkedIn login password *(required)*
   - returns: Promise of *profileScraper* function
 
-- `profileScraper(url)`
+- `profileScraper(url, waitTimeMs = 500)`
   - url *string*: A LinkedIn profile URL
+  - waitTimeMs *integer*: milliseconds to wait page load before scraping
   - returns: Promise of *profile* Object
 
 - `profile` Object:

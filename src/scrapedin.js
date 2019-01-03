@@ -26,5 +26,5 @@ module.exports = ({ email, password, isHeadless, hasToLog } = { isHeadless: true
     return reject(e)
   }
 
-  return resolve(Promise.resolve((url) => profile(browser, url)))
+  return resolve(Promise.resolve((url, waitMs) => profile(browser, url, waitMs)))
 })
