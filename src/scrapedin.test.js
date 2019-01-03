@@ -51,8 +51,12 @@ it('should get complete profile', async () => {
     }],
     accomplishments: [{
       count: fakeEvalResult,
-      items: [ fakeEvalResult ],
+      items: [fakeEvalResult],
       title: fakeEvalResult
+    }],
+    volunteerExperience: [{
+      title: fakeEvalResult,
+      experience: fakeEvalResult
     }],
     peopleAlsoViewed: [{
       user: fakeEvalResult
@@ -68,13 +72,14 @@ it('should get an incomplete profile', async () => {
   const result = await profile(browser, url)
   const expectedResult = {
     profile: { name: '', headline: '', location: '', summary: '', connections: '' },
-    positions: [ { companyName: '', description: '', date1: '', date2: '', location: '', roles: [{ date1: '', date2: '', location: ''}] } ],
-    educations: [ { degree: '', date1: '', date2: '' } ],
-    skills: [ { title: '', count: '' }, { title: '', count: '' } ],
-    recommendations: [ { user: '', text: '' } ],
-    recommendationsGiven: [ { user: '', text: '' } ],
-    accomplishments: [{ count: '', items: [ fakeEvalResult ], title: '' }],
-    peopleAlsoViewed: [ { user: '' } ]
+    positions: [{ companyName: '', description: '', date1: '', date2: '', location: '', roles: [{ date1: '', date2: '', location: '' }] }],
+    educations: [{ degree: '', date1: '', date2: '' }],
+    skills: [{ title: '', count: '' }, { title: '', count: '' }],
+    recommendations: [{ user: '', text: '' }],
+    recommendationsGiven: [{ user: '', text: '' }],
+    accomplishments: [{ count: '', items: [fakeEvalResult], title: '' }],
+    volunteerExperience: [{ experience: '' }],
+    peopleAlsoViewed: [{ user: '' }]
   }
 
   expect(result).to.deep.equals(expectedResult)

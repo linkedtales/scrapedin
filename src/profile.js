@@ -41,6 +41,7 @@ module.exports = async (browser, url) => {
   const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
   const accomplishments = await scrapSection(page, template.accomplishments)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
+  const volunteerExperience = await scrapSection(page, template.volunteerExperience)
 
   await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
@@ -52,6 +53,7 @@ module.exports = async (browser, url) => {
     recommendations,
     recommendationsGiven,
     accomplishments,
-    peopleAlsoViewed
+    peopleAlsoViewed,
+    volunteerExperience
   }
 }
