@@ -96,10 +96,14 @@ module.exports = {
     }
   },
   volunteerExperience: {
-    selector: 'section[id=ember184] li',
+    selector: 'section.volunteering-section li',
     fields: {
       title: 'h3',
-      experience: 'span[class=pv-entity__secondary-title]'
+      experience: 'span[class=pv-entity__secondary-title]',
+      location: 'pv-entity__location span:nth-child(2)',
+      description: '.pv-volunteer-causes',
+      date1: 'h4.pv-entity__date-range span:nth-child(2)',
+      date2: '.pv-entity__bullet-item'
     }
   },
   seeMoreButtons: [
