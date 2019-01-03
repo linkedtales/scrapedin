@@ -56,6 +56,10 @@ it('should get complete profile', async () => {
     }],
     volunteerExperience: [{
       title: fakeEvalResult,
+      description: fakeEvalResult,
+      location: fakeEvalResult,
+      date1: fakeEvalResult,
+      date2: fakeEvalResult,
       experience: fakeEvalResult
     }],
     peopleAlsoViewed: [{
@@ -78,7 +82,7 @@ it('should get an incomplete profile', async () => {
     recommendations: [{ user: '', text: '' }],
     recommendationsGiven: [{ user: '', text: '' }],
     accomplishments: [{ count: '', items: [fakeEvalResult], title: '' }],
-    volunteerExperience: [{ experience: '' }],
+    volunteerExperience: [{ location: '', date1: '', date2: '', description: '', experience: '' }],
     peopleAlsoViewed: [{ user: '' }]
   }
 
