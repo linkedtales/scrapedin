@@ -42,7 +42,7 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
 
-  //await page.close()
+  await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
 
   return {

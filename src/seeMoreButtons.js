@@ -1,3 +1,4 @@
+const logger = require('./logger')
 const seeMoreButtons = [
   { id: 'summary', selector: '.pv-top-card-section__summary button[class~=pv-top-card-section__summary-toggle-button]' },
   { id: 'positions', selector: '.pv-experience-section__see-more button' },
@@ -14,6 +15,7 @@ const clickAll = async(page) => {
       const elem = await page.$(button.selector)
       if (elem) {
         await elem.click()
+          .catch((e) => logger.warn('seeMoreButtons', `couldn't click on ${button.selector}, it's probably invisible`))
       }
     }
 
@@ -21,6 +23,7 @@ const clickAll = async(page) => {
       const elems = await page.$$(button.selectors)
       for (let j = 0; j < elems.length; j++) {
         await elems[j].click()
+          .catch((e) => logger.warn('seeMoreButtons', `couldn't click on ${button.selectors}, it's probably invisible`))
       }
     }
   }
