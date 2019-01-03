@@ -95,6 +95,13 @@ module.exports = {
       }
     }
   },
+  volunteerExperience: {
+    selector: 'section[id=ember184] li',
+    fields: {
+      title: 'h3',
+      experience: 'span[class=pv-entity__secondary-title]'
+    }
+  },
   seeMoreButtons: [
     { id: 'summary', selector: '.pv-top-card-section__summary button[class~=pv-top-card-section__summary-toggle-button]' },
     { id: 'experiences', selector: '.pv-experience-section__see-more button' },
