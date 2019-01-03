@@ -20,12 +20,16 @@ it('should get complete profile', async () => {
       summary: fakeEvalResult,
       connections: fakeEvalResult
     },
-    experiences: [{
+    positions: [{
       title: fakeEvalResult,
-      company: fakeEvalResult,
+      companyName: fakeEvalResult,
+      location: fakeEvalResult,
       description: fakeEvalResult,
       date1: fakeEvalResult,
-      date2: fakeEvalResult
+      date2: fakeEvalResult,
+      roles: [
+        { title: fakeEvalResult, date1: fakeEvalResult, date2: fakeEvalResult, location: fakeEvalResult }
+      ]
     }],
     educations: [{
       title: fakeEvalResult,
@@ -64,7 +68,7 @@ it('should get an incomplete profile', async () => {
   const result = await profile(browser, url)
   const expectedResult = {
     profile: { name: '', headline: '', location: '', summary: '', connections: '' },
-    experiences: [ { company: '', description: '', date1: '', date2: '' } ],
+    positions: [ { companyName: '', description: '', date1: '', date2: '', location: '', roles: [{ date1: '', date2: '', location: ''}] } ],
     educations: [ { degree: '', date1: '', date2: '' } ],
     skills: [ { title: '', count: '' }, { title: '', count: '' } ],
     recommendations: [ { user: '', text: '' } ],
@@ -108,7 +112,7 @@ const prepareBrowserMock = (isIncompleteProfile) => {
   if (isIncompleteProfile) {
     // I couldn't do that with sinon :(
     Page.prototype.$ = (arg) =>
-      (arg === profileScraperTemplate.experiences.fields.title || arg === profileScraperTemplate.seeMoreButtons[2].selector)
+      (arg === profileScraperTemplate.positions.fields.title || arg === profileScraperTemplate.seeMoreButtons[2].selector)
         ? undefined : Promise.resolve(new Page())
   }
 

@@ -1,38 +1,8 @@
 const openPage = require('./openPage')
 const logger = require('./logger')
 const template = require('./profileScraperTemplate')
+const scrapSection = require('./scrapSection')
 
-
-const sectionRead = async (page, section) => {
-  const experiencesElement = await page.$$(section.selector)
-  return Promise.all(
-    experiencesElement.map((experience) =>
-      Object.keys(section.fields).reduce((acc, field) =>
-        acc.then(async (obj) => {
-          const fieldObject = section.fields[field]
-          const selector = fieldObject.selector || fieldObject
-          const hasField = await experience.$(selector)
-
-          if (hasField) {
-            if (fieldObject.attribute && fieldObject.attribute === 'href') {
-              obj[field] = await experience.$eval(selector, (e) => e ? e.href : '')
-            } else if (fieldObject.isMultipleFields) {
-              const fields = await experience.$$(fieldObject.selector)
-
-              obj[field] = []
-              for (let i = 0; i < fields.length; i++) {
-                obj[field] = await experience.$$eval(fieldObject.selector, (e) => e.map(x => x.innerText))
-              }
-            } else {
-              obj[field] = await experience.$eval(selector, (e) => e ? e.innerText : '')
-            }
-          }
-          return obj
-        })
-      , Promise.resolve({}))
-    )
-  )
-}
 module.exports = async (browser, url) => {
   logger.info('profile', `starting scraping url: ${url}`)
   const page = await openPage(browser, url)
@@ -62,21 +32,21 @@ module.exports = async (browser, url) => {
     }
   }
 
-  const [profile] = await sectionRead(page, template.profile)
-  const experiences = await sectionRead(page, template.experiences)
-  const educations = await sectionRead(page, template.educations)
-  const skillsTop = await sectionRead(page, template.skills.top)
-  const skillsOther = await sectionRead(page, template.skills.others)
-  const recommendations = await sectionRead(page, template.recommendations)
-  const recommendationsGiven = await sectionRead(page, template.recommendationsGiven)
-  const accomplishments = await sectionRead(page, template.accomplishments)
-  const peopleAlsoViewed = await sectionRead(page, template.peopleAlsoViewed)
+  const [profile] = await scrapSection(page, template.profile)
+  const positions = await scrapSection(page, template.positions)
+  const educations = await scrapSection(page, template.educations)
+  const skillsTop = await scrapSection(page, template.skills.top)
+  const skillsOther = await scrapSection(page, template.skills.others)
+  const recommendations = await scrapSection(page, template.recommendations)
+  const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
+  const accomplishments = await scrapSection(page, template.accomplishments)
+  const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
 
   await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
   return {
     profile,
-    experiences,
+    positions,
     educations,
     skills: skillsTop.concat(skillsOther),
     recommendations,

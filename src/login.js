@@ -18,7 +18,7 @@ module.exports = async (browser, email, password) => {
     .then((button) => button.click())
 
   return page.waitFor('input[role=combobox]', {
-    timeout: 5000
+    timeout: 15000
   })
     .then(async() => {
       logger.info('login', 'logged feed page selector found')
@@ -41,6 +41,13 @@ module.exports = async (browser, email, password) => {
         return style && style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0'
       })
 
+      const manualChallengeRequested = await page.evaluate(() => {
+        const e = document.querySelector(".flow-challenge-content")
+        if (!e) { return false }
+        const style = window.getComputedStyle(node)
+        return style && style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0'
+      })
+
       if (emailError) {
         logger.info('login', 'wrong username element found')
         return Promise.reject(new Error(`linkedin: invalid username: ${email}`))
@@ -51,7 +58,7 @@ module.exports = async (browser, email, password) => {
         return Promise.reject(new Error('linkedin: invalid password'))
       }
 
-      if(page.$(".flow-challenge-content")){
+      if(page.$(manualChallengeRequested)){
         logger.warn('login', 'manual check was required')
         return Promise.reject(new Error('linkedin: manual check was required, verify if your login is properly working manually or report this issue: https://github.com/leonardiwagner/scrapedin/issues'))
       }
