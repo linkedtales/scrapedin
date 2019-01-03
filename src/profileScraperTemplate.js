@@ -10,13 +10,24 @@ module.exports = {
     }
   },
   positions: {
-    selector: 'section[id=experience-section] li',
+    selector: 'section[id=experience-section] li.pv-profile-section',
     fields: {
       title: 'h3',
       companyName: 'span[class~=pv-entity__secondapv-profile-sectionry-title]',
+      location: 'pv-entity__location span:nth-child(2)',
       description: 'p[class~=pv-entity__description]',
       date1: 'h4.pv-entity__date-range span:nth-child(2)',
-      date2: '.pv-entity__bullet-item-v2'
+      date2: '.pv-entity__bullet-item-v2',
+      roles: {
+        selector: '.pv-entity__role-details-container',
+        hasChildrenFields: true,
+        fields: {
+          title: 'h3',
+          date1: 'h4.pv-entity__date-range span:nth-child(2)',
+          date2: '.pv-entity__bullet-item-v2',
+          location: 'pv-entity__location span:nth-child(2)'
+        }
+      }
     }
   },
   educations: {

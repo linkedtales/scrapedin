@@ -23,9 +23,13 @@ it('should get complete profile', async () => {
     positions: [{
       title: fakeEvalResult,
       companyName: fakeEvalResult,
+      location: fakeEvalResult,
       description: fakeEvalResult,
       date1: fakeEvalResult,
-      date2: fakeEvalResult
+      date2: fakeEvalResult,
+      roles: [
+        { title: fakeEvalResult, date1: fakeEvalResult, date2: fakeEvalResult, location: fakeEvalResult }
+      ]
     }],
     educations: [{
       title: fakeEvalResult,
@@ -64,7 +68,7 @@ it('should get an incomplete profile', async () => {
   const result = await profile(browser, url)
   const expectedResult = {
     profile: { name: '', headline: '', location: '', summary: '', connections: '' },
-    positions: [ { companyName: '', description: '', date1: '', date2: '' } ],
+    positions: [ { companyName: '', description: '', date1: '', date2: '', location: '', roles: [{ date1: '', date2: '', location: ''}] } ],
     educations: [ { degree: '', date1: '', date2: '' } ],
     skills: [ { title: '', count: '' }, { title: '', count: '' } ],
     recommendations: [ { user: '', text: '' } ],
