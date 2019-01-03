@@ -56,10 +56,6 @@ it('should get complete profile', async () => {
     }],
     volunteerExperience: [{
       title: fakeEvalResult,
-      description: fakeEvalResult,
-      location: fakeEvalResult,
-      date1: fakeEvalResult,
-      date2: fakeEvalResult,
       experience: fakeEvalResult
     }],
     peopleAlsoViewed: [{
@@ -82,7 +78,7 @@ it('should get an incomplete profile', async () => {
     recommendations: [{ user: '', text: '' }],
     recommendationsGiven: [{ user: '', text: '' }],
     accomplishments: [{ count: '', items: [fakeEvalResult], title: '' }],
-    volunteerExperience: [{ location: '', date1: '', date2: '', description: '', experience: '' }],
+    volunteerExperience: [{ experience: '' }],
     peopleAlsoViewed: [{ user: '' }]
   }
 
@@ -103,7 +99,7 @@ const prepareBrowserMock = (isIncompleteProfile) => {
       .onCall(0).rejects()
       .onCall(1).resolves(true)
 
-    this.click = mock().exactly(profileScraperTemplate.seeMoreButtons.length).withExactArgs().resolves()
+    this.click = mock().atLeast(1).withExactArgs().resolves()
     this.$$eval = mock().withExactArgs(match.string, match.func).atLeast(1)
       .callsArgWith(1, [fakeEvalResult])
       .resolves([fakeEvalResult])
@@ -121,7 +117,7 @@ const prepareBrowserMock = (isIncompleteProfile) => {
   if (isIncompleteProfile) {
     // I couldn't do that with sinon :(
     Page.prototype.$ = (arg) =>
-      (arg === profileScraperTemplate.positions.fields.title || arg === profileScraperTemplate.seeMoreButtons[2].selector)
+      (arg === profileScraperTemplate.positions.fields.title)
         ? undefined : Promise.resolve(new Page())
   }
 

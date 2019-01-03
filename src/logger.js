@@ -19,5 +19,4 @@ const loggerWrapper = {
   }
 }
 
-
 module.exports = loggerWrapper

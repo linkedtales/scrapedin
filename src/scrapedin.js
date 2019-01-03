@@ -11,7 +11,7 @@ module.exports = ({ email, password, isHeadless, hasToLog } = { isHeadless: true
     return reject(new Error('scrapedin: email and password are required to access linkedin profiles'))
   }
 
-  if(!hasToLog) {
+  if (!hasToLog) {
     logger.stopLogging()
   }
 

@@ -19,7 +19,7 @@ module.exports = {
       date1: 'h4.pv-entity__date-range span:nth-child(2)',
       date2: '.pv-entity__bullet-item-v2',
       roles: {
-        selector: '.pv-entity__role-details-container',
+        selector: '.pv-entity__role-details',
         hasChildrenFields: true,
         fields: {
           title: 'h3',
@@ -96,21 +96,10 @@ module.exports = {
     }
   },
   volunteerExperience: {
-    selector: 'section.volunteering-section li',
+    selector: 'section[id=ember184] li',
     fields: {
       title: 'h3',
-      experience: 'span[class=pv-entity__secondary-title]',
-      location: 'pv-entity__location span:nth-child(2)',
-      description: '.pv-volunteer-causes',
-      date1: 'h4.pv-entity__date-range span:nth-child(2)',
-      date2: '.pv-entity__bullet-item'
+      experience: 'span[class=pv-entity__secondary-title]'
     }
-  },
-  seeMoreButtons: [
-    { id: 'summary', selector: '.pv-top-card-section__summary button[class~=pv-top-card-section__summary-toggle-button]' },
-    { id: 'experiences', selector: '.pv-experience-section__see-more button' },
-    { id: 'education', selector: '#education-section button.pv-profile-section__see-more-inline' },
-    { id: 'skills', selector: '.pv-skill-categories-section button[class~=pv-skills-section__additional-skills]' },
-    { id: 'recommendations', selector: '#recommendation-list + .artdeco-container-card-action-bar button' }
-  ]
+  }
 }
