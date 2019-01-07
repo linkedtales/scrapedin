@@ -3,6 +3,7 @@ const scrapSection = require('./scrapSection')
 const scrollToPageBottom = require('./scrollToPageBottom')
 const seeMoreButtons = require('./seeMoreButtons')
 const template = require('./profileScraperTemplate')
+const cleanProfileData = require('./cleanProfileData')
 
 const logger = require('./logger')
 
@@ -35,7 +36,8 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
   const [profile] = await scrapSection(page, template.profile)
   const positions = await scrapSection(page, template.positions)
   const educations = await scrapSection(page, template.educations)
-  const recommendations = await scrapSection(page, template.recommendations)
+  const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
+  const recommendationsReceived = await scrapSection(page, template.recommendationsReceived)
   const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
   const skills = await scrapSection(page, template.skills)
   const accomplishments = await scrapSection(page, template.accomplishments)
@@ -45,15 +47,22 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
   await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
 
-  return {
+  const rawProfile = {
     profile,
     positions,
     educations,
     skills,
-    recommendations,
-    recommendationsGiven,
+    recommendations: {
+      givenCount: recommendationsCount.given,
+      receivedCount: recommendationsCount.received,
+      given: recommendationsReceived,
+      received: recommendationsGiven
+    },
     accomplishments,
     peopleAlsoViewed,
     volunteerExperience
   }
+
+  const cleanedProfile = cleanProfileData(rawProfile)
+  return cleanedProfile
 }

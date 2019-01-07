@@ -5,7 +5,8 @@ const seeMoreButtons = [
   { id: 'educations', selector: '#education-section button.pv-profile-section__see-more-inline' },
   { id: 'skills', selector: 'button.pv-skills-section__additional-skills' },
   { id: 'recommendations', selector: '#recommendation-list + .artdeco-container-card-action-bar button' },
-  { id: 'positions-roles', selectors: '.pv-position-entity button.pv-profile-section__see-more-inline' }
+  { id: 'positions-roles', selectors: '.pv-position-entity button.pv-profile-section__see-more-inline' },
+  { id: 'recommendations-see-more', selectors: '.pv-recommendation-entity__text a.lt-line-clamp__more'}
 ]
 
 const clickAll = async(page) => {

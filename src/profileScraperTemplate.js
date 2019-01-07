@@ -6,7 +6,7 @@ module.exports = {
       headline: 'h2[class~=pv-top-card-section__headline]',
       location: 'h3[class~=pv-top-card-section__location]',
       summary: 'p[class~=pv-top-card-section__summary-text]',
-      connections: '.pv-top-card-v2-section__connections'
+      connections: '.pv-top-card-v2-section__connections',
     }
   },
   positions: {
@@ -46,7 +46,14 @@ module.exports = {
       count: 'span.pv-skill-category-entity__endorsement-count'
     }
   },
-  recommendations: {
+  recommendationsCount: {
+    selector: '.recommendations-inlining',
+    fields: {
+      received: 'artdeco-tab:nth-child(1)',
+      given: 'artdeco-tab:nth-child(2)'
+    }
+  },
+  recommendationsReceived: {
     selector: 'artdeco-tabpanel[aria-hidden=false] li.pv-recommendation-entity',
     fields: {
       user: {
