@@ -40,14 +40,12 @@ it('should get complete profile', async () => {
     skills: [
       { title: fakeEvalResult, count: fakeEvalResult }
     ],
-    recommendations: [{
-      user: fakeEvalResult,
-      text: fakeEvalResult
-    }],
-    recommendationsGiven: [{
-      user: fakeEvalResult,
-      text: fakeEvalResult
-    }],
+    recommendations: {
+      givenCount: '',
+      receivedCount: '',
+      given: [{ text: fakeEvalResult, user: fakeEvalResult }],
+      received: [{ text: fakeEvalResult, user: fakeEvalResult }]
+    },
     accomplishments: [{
       count: fakeEvalResult,
       items: [fakeEvalResult],
@@ -78,8 +76,7 @@ it('should get an incomplete profile', async () => {
     positions: [{ companyName: '', description: '', date1: '', date2: '', location: '', roles: [{ date1: '', date2: '', location: '' }] }],
     educations: [{ degree: '', date1: '', date2: '' }],
     skills: [{ title: '', count: '' }],
-    recommendations: [{ user: '', text: '' }],
-    recommendationsGiven: [{ user: '', text: '' }],
+    recommendations: { givenCount: '', receivedCount: '', given: [{ user: '', text: '' }], received: [{ user: '', text: '' }] },
     accomplishments: [{ count: '', items: [fakeEvalResult], title: '' }],
     volunteerExperience: [{ experience: '', date1: '', date2: '', description: '', location: '' }],
     peopleAlsoViewed: [{ user: '' }]

@@ -47,21 +47,22 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
   await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
 
-  const p = {
+  const rawProfile = {
     profile,
     positions,
     educations,
     skills,
-    recommendationsCount,
-    recommendationsReceived,
-    recommendationsGiven,
+    recommendations: {
+      givenCount: recommendationsCount.given,
+      receivedCount: recommendationsCount.received,
+      given: recommendationsReceived,
+      received: recommendationsGiven
+    },
     accomplishments,
     peopleAlsoViewed,
     volunteerExperience
   }
 
-  const p2 = cleanProfileData(p)
-  console.log(JSON.stringify(p2, undefined, 2))
-
-  return p2
+  const cleanedProfile = cleanProfileData(rawProfile)
+  return cleanedProfile
 }

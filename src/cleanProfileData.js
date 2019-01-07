@@ -22,8 +22,11 @@ module.exports = (profile) => {
     }
   })
 
-  if(profile.recommendationsReceived) {
-    profile.recommendationsReceived.forEach((recommendation) => {
+  profile.recommendations.receivedCount = profile.recommendations.receivedCount.replace(/[^\d]/g, '')
+  profile.recommendations.givenCount = profile.recommendations.givenCount.replace(/[^\d]/g, '')
+
+  if(profile.recommendations.received) {
+    profile.recommendations.received.forEach((recommendation) => {
       if(recommendation.summary){
         recommendation.summary = recommendation.summary.replace('See more', '')
         recommendation.summary = recommendation.summary.replace('See less', '')
@@ -31,14 +34,17 @@ module.exports = (profile) => {
     })
   }
 
-  if(profile.recommendationsGiven) {
-    profile.recommendationsGiven.forEach((recommendation) => {
+  if(profile.recommendations.given) {
+    profile.recommendations.given.forEach((recommendation) => {
       if(recommendation.summary){
         recommendation.summary = recommendation.summary.replace('See more', '')
         recommendation.summary = recommendation.summary.replace('See less', '')
       }
     })
   }
+
+
+
 
   return profile
 }
