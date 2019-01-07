@@ -60,7 +60,8 @@ it('should get complete profile', async () => {
       experience: fakeEvalResult
     }],
     peopleAlsoViewed: [{
-      user: fakeEvalResult
+      user: fakeEvalResult,
+      text: fakeEvalResult
     }]
   }
 
@@ -79,7 +80,7 @@ it('should get an incomplete profile', async () => {
     recommendations: { givenCount: '', receivedCount: '', given: [{ user: '', text: '' }], received: [{ user: '', text: '' }] },
     accomplishments: [{ count: '', items: [fakeEvalResult], title: '' }],
     volunteerExperience: [{ experience: '', date1: '', date2: '', description: '', location: '' }],
-    peopleAlsoViewed: [{ user: '' }]
+    peopleAlsoViewed: [{ user: '', text: '' }]
   }
 
   expect(result).to.deep.equals(expectedResult)
