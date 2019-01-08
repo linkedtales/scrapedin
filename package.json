@@ -1,7 +1,7 @@
 {
   "name": "scrapedin",
-  "version": "0.0.1",
-  "description": "linedin scraper for 2019 website",
+  "version": "1.0.0",
+  "description": "linkedin scraper for 2019 website",
   "keywords": [
     "linkedin",
     "scraper"
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/leonardiwagner/scrapedin/issues"
   },
-  "author": "Wagner Leonardi <leonardiwagner@gmail.company>",
+  "author": "Wagner Leonardi <leonardiwagner@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
     "puppeteer": "^1.11.0",
