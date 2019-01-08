@@ -90,7 +90,8 @@ module.exports = {
       user: {
         selector: 'a',
         attribute: 'href'
-      }
+      },
+      text: 'p'
     }
   },
   volunteerExperience: {
