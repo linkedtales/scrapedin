@@ -22,7 +22,7 @@ module.exports = {
         selector: '.pv-entity__role-details',
         hasChildrenFields: true,
         fields: {
-          title: 'h3',
+          title: 'h3 span:not(.visually-hidden)',
           date1: 'h4.pv-entity__date-range span:nth-child(2)',
           date2: '.pv-entity__bullet-item-v2',
           location: 'pv-entity__location span:nth-child(2)'
