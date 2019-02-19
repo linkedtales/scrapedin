@@ -53,8 +53,8 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
     educations,
     skills,
     recommendations: {
-      givenCount: recommendationsCount && recommendationsCount.given,
-      receivedCount: recommendationsCount && recommendationsCount.received,
+      givenCount: recommendationsCount ? recommendationsCount.given : "0",
+      receivedCount: recommendationsCount ? recommendationsCount.received : "0",
       given: recommendationsReceived,
       received: recommendationsGiven
     },

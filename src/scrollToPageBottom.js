@@ -1,7 +1,7 @@
 const logger = require('./logger')
 
 module.exports = async (page) => {
-  const MAX_TIMES_TO_SCROLL = 15
+  const MAX_TIMES_TO_SCROLL = 25
   const TIMEOUT_BETWEEN_SCROLLS = 500
   const PAGE_BOTTOM_SELECTOR_STRING = '#footer-logo'
 
