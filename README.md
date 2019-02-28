@@ -78,6 +78,8 @@ Usually in the first run LinkedIn asks for a manual check, to solve that you sho
 - set `isHeadless` to `false` on scrapedin to solve the manual check in the browser.
 - set `waitTimeMs` with a large number (such as  `10000`) to you have time to solve the manual check.
 
+After doing the manual check once you can go back with `isHeadless` and `waitTimeMs` previous values and start the scraping.
+
 We still don't have a solution for that on remote servers without GUI, if you have any idea [please tell us!](https://github.com/linkedtales/scrapedin/issues)
 
 ### Contribution
