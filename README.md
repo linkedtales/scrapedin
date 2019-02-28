@@ -1,12 +1,11 @@
 ![](https://github.com/leonardiwagner/scrapedin/raw/master/logo.png)
-
-Scraper for LinkedIn full profile data, working for 2019 new website layout.  
-
-Install via npm package manager: `npm i scrapedin`
-
 [![Build Status](https://travis-ci.org/leonardiwagner/scrapedin.svg?branch=master)](https://travis-ci.org/leonardiwagner/scrapedin) [![Coverage Status](https://coveralls.io/repos/github/leonardiwagner/scrapedin/badge.svg?branch=master)](https://coveralls.io/github/leonardiwagner/scrapedin?branch=master)
 [![NPM version](https://img.shields.io/npm/v/scrapedin.svg)](https://www.npmjs.com/package/scrapedin)
 
+Scraper for LinkedIn full profile data.<br/>
+Unlike others scrapers, it's working in 2019 with their new website.
+
+Install via npm package manager: `npm i scrapedin`
 
 #### Usage Example:
 
@@ -23,6 +22,9 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-profile/'
   - options *Object*:
     - email: LinkedIn login e-mail *(required)*
     - password: LinkedIn login password *(required)*
+    - isHeadless: display browser *(default `false`)*
+    - hasToLog: print logs on stdout *(default `false`)*
+    - proxyAddress: use a proxy address in the format `"address:port"` *(default `undefined`)*
   - returns: Promise of *profileScraper* function
 
 - `profileScraper(url, waitTimeMs = 500)`
@@ -38,9 +40,8 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-profile/'
     },
     positions:[
       { title, company, description, date1, date2,
-      roles: [
-       { title, description, date1, date2 }
-      ] }
+        roles: [{ title, description, date1, date2 }]
+      }
     ],
     educations: [
       { title, degree, date1, date2 }
@@ -71,6 +72,13 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-profile/'
     ]
   }
   ```
+### Tips
+
+Usually in the first run LinkedIn asks for a manual check, to solve that you should:
+- set `isHeadless` to `false` on scrapedin to solve the manual check in the browser.
+- set `waitTimeMs` with a large number (such as  `10000`) to you have time to solve the manual check.
+
+We still don't have a solution for that on remote servers without GUI, if you have any idea [please tell us!](https://github.com/linkedtales/scrapedin/issues)
 
 ### Contribution
 
