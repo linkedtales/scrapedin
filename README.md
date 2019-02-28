@@ -7,7 +7,7 @@ Unlike others scrapers, it's working in 2019 with their new website.
 
 Install via npm package manager: `npm i scrapedin`
 
-#### Usage Example:
+### Usage Example:
 
 ```
 const scrapedin = require('scrapedin')
@@ -16,7 +16,7 @@ const profileScraper = await scrapedin({ email: 'login@mail.com', password: 'pas
 const profile = await profileScraper('https://www.linkedin.com/in/some-profile/')
 ```
 
-#### Documentation:
+### Documentation:
 
 - `scrapedin(options)`
   - options *Object*:
