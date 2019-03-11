@@ -29,21 +29,21 @@ module.exports = async (browser, email, password) => {
       const emailError = await page.evaluate(() => {
         const e = document.querySelector('div[error-for=username]')
         if (!e) { return false }
-        const style = window.getComputedStyle(node)
+        const style = window.getComputedStyle(e)
         return style && style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0'
       })
 
       const passwordError = await page.evaluate(() => {
         const e = document.querySelector('div[error-for=password]')
         if (!e) { return false }
-        const style = window.getComputedStyle(node)
+        const style = window.getComputedStyle(e)
         return style && style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0'
       })
 
       const manualChallengeRequested = await page.evaluate(() => {
         const e = document.querySelector('.flow-challenge-content')
         if (!e) { return false }
-        const style = window.getComputedStyle(node)
+        const style = window.getComputedStyle(e)
         return style && style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0'
       })
 
