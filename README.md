@@ -9,7 +9,7 @@ Install via npm package manager: `npm i scrapedin`
 
 ### Usage Example:
 
-```
+```javascript
 const scrapedin = require('scrapedin')
 
 const profileScraper = await scrapedin({ email: 'login@mail.com', password: 'pass' })
@@ -33,7 +33,7 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-profile/'
   - returns: Promise of *profile* Object
 
 - `profile` Object:
-  ```
+  ```javascript
   {
     profile: {
       name, headline, location, summary, connections
