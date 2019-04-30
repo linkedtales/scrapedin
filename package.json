@@ -1,6 +1,6 @@
 {
   "name": "scrapedin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "linkedin scraper for 2019 website",
   "keywords": [
     "linkedin",
@@ -23,7 +23,7 @@
   "author": "Wagner Leonardi <leonardiwagner@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "puppeteer": "^1.11.0",
+    "puppeteer": "^1.13.0",
     "winston": "^3.1.0"
   },
   "devDependencies": {
