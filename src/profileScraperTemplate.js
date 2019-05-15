@@ -1,12 +1,19 @@
+const profileSelector = '.core-rail > * > section:first-child >'
+
 module.exports = {
   profile: {
-    selector: 'section.pv-profile-section.pv-top-card-section',
+    selector: '.pv-content',
     fields: {
-      name: 'h1[class~=pv-top-card-section__name]',
-      headline: 'h2[class~=pv-top-card-section__headline]',
-      location: 'h3[class~=pv-top-card-section__location]',
-      summary: 'p[class~=pv-top-card-section__summary-text]',
-      connections: '.pv-top-card-v2-section__connections',
+      name: `${profileSelector} div:last-child > div:last-child > div:first-child ul:first-child > li:first-child`,
+      headline: `${profileSelector} div:last-child h2`,
+      location: `${profileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
+      connections: `${profileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`
+    }
+  },
+  about: {
+    selector: '.pv-about-section',
+    fields: {
+      text: '.pv-about__summary-text'
     }
   },
   positions: {

@@ -12,7 +12,7 @@ const scrapSelectorFields = (selector, section) => async (scrapedObjectPromise, 
   if (!isFieldPresent) { return scrapedObject }
 
   if (field.isMultipleFields) {
-    scrapedObject[fieldKey] = await selector.$$eval(fieldSelectorString, (elems) => elems.map(elem => elem.innerText))
+    scrapedObject[fieldKey] = await selector.$$eval(fieldSelectorString, (elems) => elems.map(elem => elem.innerText.trim()))
   } else if (field.hasChildrenFields) {
     const fieldChildrenSelectors = await selector.$$(field.selector)
 
@@ -20,9 +20,9 @@ const scrapSelectorFields = (selector, section) => async (scrapedObjectPromise, 
       fieldChildrenSelectors.map((s) => scrapSelector(s, field))
     )
   } else if (field.attribute && field.attribute === 'href') {
-    scrapedObject[fieldKey] = await selector.$eval(fieldSelectorString, (elem) => elem ? elem.href : '')
+    scrapedObject[fieldKey] = await selector.$eval(fieldSelectorString, (elem) => elem ? elem.href.trim() : '')
   } else {
-    scrapedObject[fieldKey] = await selector.$eval(fieldSelectorString, (elem) => elem ? elem.innerText : '')
+    scrapedObject[fieldKey] = await selector.$eval(fieldSelectorString, (elem) => elem ? elem.innerText.trim() : '')
   }
 
   return scrapedObject

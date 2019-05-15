@@ -11,7 +11,8 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
   logger.info('profile', `starting scraping url: ${url}`)
 
   const page = await openPage(browser, url)
-  await page.waitFor("h1[class~='pv-top-card-section__name']", { timeout: 5000 })
+  const profilePageIndicatorSelector = "ul.pv-top-card-v3--list"
+  await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
       logger.warn('profile', 'profile selector was not found')
       throw new Error('linkedin: profile not found')
@@ -33,7 +34,9 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
 
+
   const [profile] = await scrapSection(page, template.profile)
+  const [about] = await scrapSection(page, template.about)
   const positions = await scrapSection(page, template.positions)
   const educations = await scrapSection(page, template.educations)
   const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
@@ -49,6 +52,7 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
 
   const rawProfile = {
     profile,
+    about,
     positions,
     educations,
     skills,
