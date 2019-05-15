@@ -2,7 +2,7 @@ const openPage = require('./openPage')
 const logger = require('./logger')
 
 module.exports = async (browser, email, password) => {
-  const loginUrl = 'https://www.linkedin.com/uas/login?trk=guest_homepage-basic_nav-header-signin'
+  const loginUrl = 'https://www.linkedin.com/login'
   const page = await openPage(browser, loginUrl)
   logger.info('login', `logging at: ${loginUrl}`)
 
