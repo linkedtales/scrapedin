@@ -7,6 +7,13 @@ Unlike others scrapers, it's working in 2019 with their new website.
 
 Install via npm package manager: `npm i scrapedin`
 
+### Please check your version!
+[v1.0.5](https://github.com/linkedtales/scrapedin/releases/tag/v1.0.5) (latest 15 may 2019) - new login + new profile layout
+
+[v1.0.4](https://github.com/linkedtales/scrapedin/pull/18) - new login at www.linkedin.com/login (legacy profile)
+
+v1.0.3 - old login at homepage www.linkedin.com (legacy profile)
+
 ### Usage Example:
 
 ```javascript
@@ -24,7 +31,7 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-profile/'
     - password: LinkedIn login password *(required)*
     - isHeadless: display browser *(default `false`)*
     - hasToLog: print logs on stdout *(default `false`)*
-    - proxyAddress: use a proxy address in the format `"address:port"` *(default `undefined`)*
+    - puppeteerArgs: puppeteer [launch options Object](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions). It's very useful, you can also pass [Chromium parameters](https://peter.sh/experiments/chromium-command-line-switches/) at its `args` property, example: `{ args: ['--no-sandbox'] }`  *(default `undefined`)*
   - returns: Promise of *profileScraper* function
 
 - `profileScraper(url, waitTimeMs = 500)`
@@ -36,7 +43,7 @@ const profile = await profileScraper('https://www.linkedin.com/in/some-profile/'
   ```javascript
   {
     profile: {
-      name, headline, location, summary, connections
+      name, headline, location, summary, connections, followers
     },
     positions:[
       { title, company, description, date1, date2,
