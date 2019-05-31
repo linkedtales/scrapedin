@@ -8,7 +8,7 @@ Unlike others scrapers, it's working in 2019 with their new website.
 Install via npm package manager: `npm i scrapedin`
 
 ### Please check your version!
-[v1.0.5](https://github.com/linkedtales/scrapedin/releases/tag/v1.0.5) (latest 15 may 2019) - new login + new profile layout
+[v1.0.6](https://github.com/linkedtales/scrapedin/releases/tag/v1.0.6) (latest 31 may 2019) - new login + new profile layout
 
 [v1.0.4](https://github.com/linkedtales/scrapedin/pull/18) - new login at www.linkedin.com/login (legacy profile)
 

@@ -11,7 +11,8 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
   logger.info('profile', `starting scraping url: ${url}`)
 
   const page = await openPage(browser, url)
-  const profilePageIndicatorSelector = "ul.pv-top-card-v3--list"
+  const profilePageIndicatorSelector = ".pv-profile-section"
+  
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
       logger.warn('profile', 'profile selector was not found')
