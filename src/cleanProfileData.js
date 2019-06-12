@@ -1,6 +1,11 @@
 const logger = require('./logger')
 
 module.exports = (profile) => {
+  profile.profile = profile.profileLegacy
+  if(!profile.profile){
+    profile.profile = profile.profileAlternative
+  }
+
   if(!profile.profile) {
     const messageError = 'LinkedIn website changed and scrapedin can\'t read basic data. Please report this issue at https://github.com/linkedtales/scrapedin/issues'
     logger.error('cleanMessageData', messageError, '')
@@ -18,8 +23,11 @@ module.exports = (profile) => {
   }
 
   //backward compatibility only
-  if(profile.about && profile.about.text) {
-    profile.profile.summary = profile.about.text
+  if(profile.aboutLegacy && profile.aboutLegacy.text) {
+    profile.profile.summary = profile.aboutLegacy.text
+  }
+  if(profile.aboutAlternative && profile.aboutAlternative.text) {
+    profile.profile.summary = profile.aboutAlternative.text
   }
 
   profile.positions.forEach((position) => {

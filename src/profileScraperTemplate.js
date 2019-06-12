@@ -1,7 +1,7 @@
-const profileSelector = '.pv-profile-section'
+const alternativeProfileSelector = '.core-rail > *:first-child section >'
 
 module.exports = {
-  profile: {
+  profileLegacy: {
     selector: '.pv-content .pv-top-card-section',
     fields: {
       name: `.pv-top-card-section__name`,
@@ -10,10 +10,25 @@ module.exports = {
       connections: `.pv-top-card-v2-section__connections`
     }
   },
-  about: {
+  profileAlternative: {
+    selector: '.pv-content',
+    fields: {
+      name: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:first-child > li:first-child`,
+      headline: `${alternativeProfileSelector} div:last-child h2`,
+      location: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
+      connections: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`
+    }
+  },
+  aboutLegacy: {
     selector: '.pv-top-card-section__summary',
     fields: {
       text: '.pv-top-card-section__summary-text'
+    }
+  },
+  aboutAlternative: {
+    selector: '.pv-about-section',
+    fields: {
+      text: 'p'
     }
   },
   positions: {

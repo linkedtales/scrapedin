@@ -1,6 +1,7 @@
 const logger = require('./logger')
 const seeMoreButtons = [
   { id: 'summary', selector: '.pv-top-card-section__summary button[class~=pv-top-card-section__summary-toggle-button]' },
+  { id: 'summaryAlternative', selector: '.lt-line-clamp__more' },
   { id: 'positions', selector: '.pv-experience-section__see-more button' },
   { id: 'educations', selector: '#education-section button.pv-profile-section__see-more-inline' },
   { id: 'skills', selector: 'button.pv-skills-section__additional-skills' },

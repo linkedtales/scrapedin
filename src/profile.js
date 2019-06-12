@@ -36,8 +36,10 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
   }
 
 
-  const [profile] = await scrapSection(page, template.profile)
-  const [about] = await scrapSection(page, template.about)
+  const [profileLegacy] = await scrapSection(page, template.profileLegacy)
+  const [profileAlternative] = await scrapSection(page, template.profileAlternative)
+  const [aboutLegacy] = await scrapSection(page, template.aboutLegacy)
+  const [aboutAlternative] = await scrapSection(page, template.aboutAlternative)
   const positions = await scrapSection(page, template.positions)
   const educations = await scrapSection(page, template.educations)
   const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
@@ -52,8 +54,10 @@ module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
   logger.info('profile', `finished scraping url: ${url}`)
 
   const rawProfile = {
-    profile,
-    about,
+    profileLegacy,
+    profileAlternative,
+    aboutLegacy,
+    aboutAlternative,
     positions,
     educations,
     skills,

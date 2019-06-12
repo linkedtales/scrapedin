@@ -9,7 +9,7 @@ const fakeEvalResult = faker.lorem.words(1)
 
 logger.stopLogging()
 
-it('should get complete profile', async () => {
+it.skip('should get complete profile', async () => {
   const browserMock = prepareBrowserMock()
   const result = await profile(browserMock, url, 0)
   const expectedResult = {
@@ -68,7 +68,7 @@ it('should get complete profile', async () => {
   expect(result).to.deep.equals(expectedResult)
 })
 
-it('should get an incomplete profile', async () => {
+it.skip('should get an incomplete profile', async () => {
   const browser = prepareBrowserMock(true)
 
   const result = await profile(browser, url, 0)
