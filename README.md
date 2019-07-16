@@ -7,14 +7,9 @@ Unlike others scrapers, it's working in 2019 with their new website.
 
 Install via npm package manager: `npm i scrapedin`
 
-### Please check your version!
-[v1.0.7](https://github.com/linkedtales/scrapedin/releases/tag/v1.0.7) (latest 12 jun 2019) - new login + suport for both legacy and new profile
-
-[v1.0.6](https://github.com/linkedtales/scrapedin/releases/tag/v1.0.6) - new login + new profile layout
-
-[v1.0.4](https://github.com/linkedtales/scrapedin/pull/18) - new login at www.linkedin.com/login (legacy profile)
-
-v1.0.3 - old login at homepage www.linkedin.com (legacy profile)
+### Check your version!
+We need to update at every LinkedIn change. Please check if you have the latest version.
+- Latest release: [v1.0.8](https://github.com/linkedtales/scrapedin/releases/tag/v1.0.8) (latest 16 jul 2019)
 
 ### Usage Example:
 
