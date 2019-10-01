@@ -21,6 +21,8 @@ const scrapSelectorFields = (selector, section) => async (scrapedObjectPromise, 
     )
   } else if (field.attribute && field.attribute === 'href') {
     scrapedObject[fieldKey] = await selector.$eval(fieldSelectorString, (elem) => elem ? elem.href.trim() : '')
+  } else if (field.attribute && field.attribute === 'src') {
+	scrapedObject[fieldKey] = await selector.$eval(fieldSelectorString, (elem) => elem ? elem.src.trim() : '')
   } else {
     scrapedObject[fieldKey] = await selector.$eval(fieldSelectorString, (elem) => elem ? elem.innerText.trim() : '')
   }

@@ -15,7 +15,11 @@ module.exports = {
     fields: {
       name: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:first-child > li:first-child`,
       headline: `${alternativeProfileSelector} div:last-child h2`,
-      location: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
+      imageurl: {
+		  selector: `${alternativeProfileSelector} div:last-child > div:first-child > div:first-child [src^="https"]`,
+		  attribute: 'src'
+	  },
+	  location: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
       connections: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`
     }
   },
