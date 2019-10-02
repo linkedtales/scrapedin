@@ -39,7 +39,7 @@ module.exports = {
     selector: 'section[id=experience-section] li.pv-profile-section',
     fields: {
       title: 'h3',
-      companyName: 'p.span.pv-entity__secondary-title',
+      companyName: 'p.pv-entity__secondary-title',
       location: 'h4.pv-entity__location span:nth-child(2)',
       description: 'p[class~=pv-entity__description]',
       date1: 'h4.pv-entity__date-range span:nth-child(2)',
@@ -61,6 +61,7 @@ module.exports = {
     fields: {
       title: 'h3',
       degree: 'span[class=pv-entity__comma-item]',
+	  fieldofstudy: 'p.pv-entity__fos span:nth-child(2)',
       date1: 'p.pv-entity__dates time:nth-child(1)',
       date2: 'p.pv-entity__dates time:nth-child(2)'
     }
