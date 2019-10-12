@@ -10,11 +10,11 @@ module.exports = async({ email, password, isHeadless, hasToLog, puppeteerArgs } 
   logger.info('scrapedin', 'initializing')
 
   if (!email || !password) {
-    logger.warn('scrapedin', 'required parameters email and password was not provided')
+    logger.warn('scrapedin', 'required parameters email and password were not provided')
     throw new Error('scrapedin: email and password are required to access linkedin profiles')
   }
 
-  logger.info('scrapedin', 'required parameters email and password was provided')
+  logger.info('scrapedin', 'required parameters email and password were provided')
 
   const args = Object.assign({ headless: isHeadless }, puppeteerArgs)
   const browser = await puppeteer.launch(args)
