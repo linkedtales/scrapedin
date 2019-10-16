@@ -1,16 +1,18 @@
 const logger = require('./logger')
 const seeMoreButtons = [
-  { id: 'summary', selector: '.pv-top-card-section__summary button[class~=pv-top-card-section__summary-toggle-button]' },
-  { id: 'summaryAlternative', selector: '#oc-about-section a.lt-line-clamp__more' },
-  { id: 'positions', selector: '#experience-section a.lt-line-clamp__more' },
-  { id: 'educations', selector: '#education-section button.pv-profile-section__see-more-inline' },
-  { id: 'skills', selector: 'button.pv-skills-section__additional-skills' },
-  { id: 'recommendations', selector: '#recommendation-list + .artdeco-container-card-action-bar button' },
-  { id: 'positions-roles', selectors: '.pv-position-entity button.pv-profile-section__see-more-inline' },
-  { id: 'recommendations-see-more', selectors: '.pv-recommendation-entity__text a.lt-line-clamp__more'},
-  { id: 'recommendations-show-more', selectors: '#recommendation-list + .artdeco-container-card-action-bar .pv-profile-section__see-more-inline'}
+  {
+    id: 'SEE_MORE_EXPERIENCE_DESCRIPTION',
+    selector: '.lt-line-clamp__more'
+  },{
+    id: 'SHOW_MORE_EXPERIENCES',
+    //buton to avoid activities click which are <a> and will redirect to other page
+    selector: 'button.pv-profile-section__see-more-inline'
+  },{
+    id: 'SHOW_MORE_SECTIONS',
+    //button to avoid followers click which are <a> and will open a modal
+    selector: 'button.pv-profile-section__card-action-bar'
+  }
 ]
-
 
 const clickAll = async(page) => {
   for(let i = 0; i < seeMoreButtons.length; i ++){
