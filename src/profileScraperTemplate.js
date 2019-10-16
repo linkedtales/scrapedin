@@ -36,22 +36,22 @@ module.exports = {
     }
   },
   positions: {
-    selector: 'section[id=experience-section] li.pv-profile-section',
+    selector: 'section[id=experience-section] li',
     fields: {
       title: 'h3',
-      companyName: 'p.pv-entity__secondary-title',
-      location: 'h4.pv-entity__location span:nth-child(2)',
+      companyName: '.pv-entity__secondary-title',
+      location: '.pv-entity__location span:nth-child(2)',
       description: 'p[class~=pv-entity__description]',
-      date1: 'h4.pv-entity__date-range span:nth-child(2)',
+      date1: '.pv-entity__date-range span:nth-child(2)',
       date2: '.pv-entity__bullet-item-v2',
       roles: {
         selector: '.pv-entity__role-details',
         hasChildrenFields: true,
         fields: {
           title: 'h3 span:not(.visually-hidden)',
-          date1: 'h4.pv-entity__date-range span:nth-child(2)',
+          date1: '.pv-entity__date-range span:nth-child(2)',
           date2: '.pv-entity__bullet-item-v2',
-          location: 'pv-entity__location span:nth-child(2)'
+          location: '.pv-entity__location span:nth-child(2)'
         }
       }
     }
