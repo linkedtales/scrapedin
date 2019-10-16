@@ -3,28 +3,29 @@ const login = require('./login')
 const profile = require('./profile')
 const logger = require('./logger')
 
-module.exports = async({ email, password, isHeadless, hasToLog, puppeteerArgs } = { isHeadless: true, hasToLog: false }) => {
+module.exports = async({ cookies, email, password, isHeadless, hasToLog, puppeteerArgs } = { isHeadless: true, hasToLog: false }) => {
   if (!hasToLog) {
     logger.stopLogging()
   }
   logger.info('scrapedin', 'initializing')
 
-  if (!email || !password) {
-    logger.warn('scrapedin', 'required parameters email and password were not provided')
-    throw new Error('scrapedin: email and password are required to access linkedin profiles')
-  }
-
-  logger.info('scrapedin', 'required parameters email and password were provided')
-
-  const args = Object.assign({ headless: isHeadless }, puppeteerArgs)
+  const args = Object.assign({ headless: isHeadless, args: ['--no-sandbox'] }, puppeteerArgs)
   const browser = await puppeteer.launch(args)
 
-  try {
-    await login(browser, email, password, logger)
-  } catch (e) {
-    await browser.close()
-    throw e
-  }
+  if(cookies) {
+    logger.info('scrapedin', 'using cookies, login will be bypassed')
+  } else if (email && password) {
+    logger.info('scrapedin', 'email and password was provided, we\'re going to login...')
 
-  return (url, waitMs) => profile(browser, url, waitMs)
+    try {
+      await login(browser, email, password, logger)
+    } catch (e) {
+      await browser.close()
+      throw e
+    }
+  } else{ 
+    logger.warn('scrapedin', 'email/password and cookies wasn\'t provided, only public data will be collected')
+  }
+ 
+  return (url, waitMs) => profile(browser, cookies, url, waitMs)
 }

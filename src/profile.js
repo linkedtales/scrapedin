@@ -7,10 +7,10 @@ const cleanProfileData = require('./cleanProfileData')
 
 const logger = require('./logger')
 
-module.exports = async (browser, url, waitTimeToScrapMs = 500) => {
+module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500) => {
   logger.info('profile', `starting scraping url: ${url}`)
 
-  const page = await openPage(browser, url)
+  const page = await openPage(browser, cookies, url)
   const profilePageIndicatorSelector = ".pv-profile-section"
   
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
