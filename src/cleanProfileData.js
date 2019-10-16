@@ -8,7 +8,7 @@ module.exports = (profile) => {
 
   if(!profile.profile) {
     const messageError = 'LinkedIn website changed and scrapedin can\'t read basic data. Please report this issue at https://github.com/linkedtales/scrapedin/issues'
-    logger.error('cleanProfileData', messageError, '')
+    logger.error('cleanMessageData', messageError, '')
     throw new Error(messageError)
   }
 
@@ -36,7 +36,7 @@ module.exports = (profile) => {
     }
     if(position.description) {
       position.description = position.description.replace('See more', '');
-	  position.description = position.description.replace('See less', '');
+	    position.description = position.description.replace('See less', '');
     }
     if(position.roles) {
       position.roles.forEach((role) => {
@@ -52,15 +52,6 @@ module.exports = (profile) => {
 
   profile.recommendations.receivedCount = profile.recommendations.receivedCount.replace(/[^\d]/g, '')
   profile.recommendations.givenCount = profile.recommendations.givenCount.replace(/[^\d]/g, '')
-
-  //Log any time we still have "see more" in the text - most likely this is something WE SHOULD be clicking...
-  for (var key in profile) {
-	  if ((profile.hasOwnProperty(key)) && (typeof profile[key] === 'object')) {
-		  if (JSON.stringify(profile[key]).toLowerCase().indexOf('see more') > 0) {
-		   logger.warn('cleanProfileData', `JSON property "${key}" appears to need some button click work (see more - exists in text)`);
-		  }
-	  }
-  }
 
   if(profile.recommendations.received) {
     profile.recommendations.received.forEach((recommendation) => {
