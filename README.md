@@ -1,15 +1,10 @@
 ![](https://github.com/leonardiwagner/scrapedin/raw/master/logo.png)
-[![Build Status](https://travis-ci.org/leonardiwagner/scrapedin.svg?branch=master)](https://travis-ci.org/leonardiwagner/scrapedin) [![Coverage Status](https://coveralls.io/repos/github/leonardiwagner/scrapedin/badge.svg?branch=master)](https://coveralls.io/github/leonardiwagner/scrapedin?branch=master)
+[![Build Status](https://travis-ci.org/leonardiwagner/scrapedin.svg?branch=master)](https://travis-ci.org/leonardiwagner/scrapedin)
 [![NPM version](https://img.shields.io/npm/v/scrapedin.svg)](https://www.npmjs.com/package/scrapedin)
+----
+Scraper for LinkedIn full profile data. Unlike others scrapers, it's working in 2019 with their new website.
 
-Scraper for LinkedIn full profile data.<br/>
-Unlike others scrapers, it's working in 2019 with their new website.
-
-Install via npm package manager: `npm i scrapedin`
-
-### Check your version!
-We need to update at every LinkedIn change. Please check if you have the latest version.
-- Latest release: [v1.0.8](https://github.com/linkedtales/scrapedin/releases/tag/v1.0.8) (latest 16 jul 2019)
+`npm i scrapedin`
 
 ### Usage Example:
 
@@ -20,73 +15,15 @@ const profileScraper = await scrapedin({ email: 'login@mail.com', password: 'pas
 const profile = await profileScraper('https://www.linkedin.com/in/some-profile/')
 ```
 
-### Documentation:
+- If you are looking for a crawler to automatically extract multiple profiles see [scrapedin-crawler](https://github.com/linkedtales/scrapedin-linkedin-crawler)
 
-- `scrapedin(options)`
-  - options *Object*:
-    - email: LinkedIn login e-mail *(required)*
-    - password: LinkedIn login password *(required)*
-    - isHeadless: display browser *(default `false`)*
-    - hasToLog: print logs on stdout *(default `false`)*
-    - puppeteerArgs: puppeteer [launch options Object](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions). It's very useful, you can also pass [Chromium parameters](https://peter.sh/experiments/chromium-command-line-switches/) at its `args` property, example: `{ args: ['--no-sandbox'] }`  *(default `undefined`)*
-  - returns: Promise of *profileScraper* function
+### Start Guide:
 
-- `profileScraper(url, waitTimeMs = 500)`
-  - url *string*: A LinkedIn profile URL
-  - waitTimeMs *integer*: milliseconds to wait page load before scraping
-  - returns: Promise of *profile* Object
+- [Basic Tutorial](https://github.com/linkedtales/scrapedin/wiki/Basic-Tutorial)
+- [Using Cookies to Login](https://github.com/linkedtales/scrapedin/wiki/Using-Cookies-To-Login)
+- [Tips](https://github.com/linkedtales/scrapedin/wiki/Tips)
+- [Documentation](https://github.com/linkedtales/scrapedin/wiki/Documentation)
 
-- `profile` Object:
-  ```javascript
-  {
-    profile: {
-      name, headline, location, summary, connections, followers
-    },
-    positions:[
-      { title, company, description, date1, date2,
-        roles: [{ title, description, date1, date2 }]
-      }
-    ],
-    educations: [
-      { title, degree, date1, date2 }
-    ],
-    skills: [
-      { title, count }
-    ],
-    recommendations: [
-      { user, text }
-    ],
-    recommendationsCount: {
-      received, given
-    },
-    recommendationsReceived: [
-      { user, text }
-    ],
-    recommendationsGiven: [
-      { user, text }
-    ],
-    accomplishments: [
-     { count, title, items }
-    ],
-    volunteerExperience: {
-      title, experience, location, description, date1, date2
-    },
-    peopleAlsoViewed: [
-      { user, text }
-    ]
-  }
-  ```
-### Tips
-
-- We already built a crawler to automatically collect multiple profiles, so check it out: [scrapedin-linkedin-crawler](https://github.com/linkedtales/scrapedin-linkedin-crawler)
-
-- Usually in the first run LinkedIn asks for a manual check, to solve that you should:
-  - set `isHeadless` to `false` on scrapedin to solve the manual check in the browser.
-  - set `waitTimeMs` with a large number (such as  `10000`) to you have time to solve the manual check.
-
-  After doing the manual check once you can go back with `isHeadless` and `waitTimeMs` previous values and start the scraping.
-
-  We still don't have a solution for that on remote servers without GUI, if you have any idea [please tell us!](https://github.com/linkedtales/scrapedin/issues)
 
 ### Contribution
 
