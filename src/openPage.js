@@ -14,10 +14,6 @@ module.exports = async (browser, cookies, url) => {
   const page = await browser.newPage()
 
   if(cookies) {
-    console.log("ce acredita?")
-    console.log(...cookies)
-    console.log("ce acredita?")
-
     page.setCookie(...cookies)
   }
   await page.setUserAgent(agents[Math.floor(Math.random()*agents.length)])

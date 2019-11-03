@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer')
 const login = require('./login')
-const profile = require('./profile')
+const profile = require('./profile/profile')
 const logger = require('./logger')
 
-module.exports = async({ cookies, email, password, isHeadless, hasToLog, puppeteerArgs } = { isHeadless: true, hasToLog: false }) => {
+module.exports = async({ cookies, email, password, isHeadless, hasToLog, hasToGetContactInfo, puppeteerArgs } = { isHeadless: true, hasToLog: false }) => {
   if (!hasToLog) {
     logger.stopLogging()
   }
@@ -27,5 +27,5 @@ module.exports = async({ cookies, email, password, isHeadless, hasToLog, puppete
     logger.warn('scrapedin', 'email/password and cookies wasn\'t provided, only public data will be collected')
   }
  
-  return (url, waitMs) => profile(browser, cookies, url, waitMs)
+  return (url, waitMs) => profile(browser, cookies, url, waitMs, hasToGetContactInfo)
 }
