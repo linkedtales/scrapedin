@@ -1,4 +1,4 @@
-const logger = require('./logger')
+const logger = require('../logger')
 
 module.exports = async (page) => {
   const MAX_TIMES_TO_SCROLL = 25

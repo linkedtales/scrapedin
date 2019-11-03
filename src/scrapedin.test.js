@@ -1,9 +1,9 @@
 const faker = require('faker')
 const { expect } = require('chai')
-const profile = require('./profile')
+const profile = require('./profile/profile')
 const logger = require('./logger')
 const { mock, match } = require('sinon')
-const profileScraperTemplate = require('./profileScraperTemplate')
+const profileScraperTemplate = require('./profile/profileScraperTemplate')
 const url = faker.internet.url()
 const fakeEvalResult = faker.lorem.words(1)
 

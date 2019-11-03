@@ -1,11 +1,11 @@
-const openPage = require('./openPage')
-const scrapSection = require('./scrapSection')
+const openPage = require('../openPage')
+const scrapSection = require('../scrapSection')
 const scrollToPageBottom = require('./scrollToPageBottom')
 const seeMoreButtons = require('./seeMoreButtons')
 const template = require('./profileScraperTemplate')
 const cleanProfileData = require('./cleanProfileData')
 
-const logger = require('./logger')
+const logger = require('../logger')
 
 module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500) => {
   logger.info('profile', `starting scraping url: ${url}`)
