@@ -36,7 +36,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
 
-  const contact = await contactInfo(page)
+  const contact = hasToGetContactInfo ? await contactInfo(page) : {}
   const [profileLegacy] = await scrapSection(page, template.profileLegacy)
   const [profileAlternative] = await scrapSection(page, template.profileAlternative)
   const [aboutLegacy] = await scrapSection(page, template.aboutLegacy)
