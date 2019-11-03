@@ -1,4 +1,4 @@
-const logger = require('./logger')
+const logger = require('../logger')
 const seeMoreButtons = [
   {
     id: 'SHOW_MORE_SECTIONS',
