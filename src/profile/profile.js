@@ -17,7 +17,6 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
       logger.warn('profile', 'profile selector was not found')
-      //throw new Error('linkedin: profile not found')
     })
 
   logger.info('profile', 'scrolling page to the bottom')

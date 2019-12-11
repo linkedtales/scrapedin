@@ -36,22 +36,23 @@ module.exports = {
     }
   },
   positions: {
-    selector: 'section[id=experience-section] li',
+    selector: '.pv-profile-section__list-item',
     fields: {
       title: 'h3',
       companyName: '.pv-entity__secondary-title',
-      location: '.pv-entity__location span:nth-child(2)',
-      description: 'p[class~=pv-entity__description]',
-      date1: '.pv-entity__date-range span:nth-child(2)',
+      location: '.pv-entity__location span:last-child',
+      description: '.pv-entity__description',
+      date1: '.pv-entity__date-range span:last-child',
       date2: '.pv-entity__bullet-item-v2',
       roles: {
         selector: '.pv-entity__role-details',
         hasChildrenFields: true,
         fields: {
-          title: 'h3 span:not(.visually-hidden)',
-          date1: '.pv-entity__date-range span:nth-child(2)',
+          title: 'h3 span:last-child',
+          description: '.pv-entity__description',
+          date1: '.pv-entity__date-range span:last-child',
           date2: '.pv-entity__bullet-item-v2',
-          location: '.pv-entity__location span:nth-child(2)'
+          location: '.pv-entity__location span:last-child'
         }
       }
     }
@@ -101,10 +102,10 @@ module.exports = {
     }
   },
   accomplishments: {
-    selector: 'section.pv-accomplishments-section div.ember-view',
+    selector: '.pv-accomplishments-section',
     fields: {
-      count: '.pv-accomplishments-block__count span:nth-child(2)',
-      title: '.accomplishments-block__content .pv-accomplishments-block__title',
+      count: 'h3 span:last-child',
+      title: '.pv-accomplishments-block__title',
       items: {
         selector: 'li',
         isMultipleFields: true

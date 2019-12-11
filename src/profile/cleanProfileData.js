@@ -36,6 +36,7 @@ module.exports = (profile) => {
     }
     if(position.description) {
       position.description = position.description.replace('See more', '');
+      position.description = position.description.replace('see more', '');
 	    position.description = position.description.replace('See less', '');
     }
     if(position.roles) {
@@ -45,6 +46,7 @@ module.exports = (profile) => {
         }
         if(role.description) {
           role.description = role.description.replace('See more', '')
+          role.description = role.description.replace('see more', '')
         }
       })
     }

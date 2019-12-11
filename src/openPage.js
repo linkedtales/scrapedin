@@ -14,7 +14,7 @@ module.exports = async (browser, cookies, url) => {
   const page = await browser.newPage()
 
   if(cookies) {
-    page.setCookie(...cookies)
+    await page.setCookie(...cookies)
   }
   await page.setUserAgent(agents[Math.floor(Math.random()*agents.length)])
   await page.setExtraHTTPHeaders({ 'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8' })
