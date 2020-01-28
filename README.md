@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/leonardiwagner/scrapedin.svg?branch=master)](https://travis-ci.org/leonardiwagner/scrapedin)
 [![NPM version](https://img.shields.io/npm/v/scrapedin.svg)](https://www.npmjs.com/package/scrapedin)
 ----
-Scraper for LinkedIn full profile data. Unlike others scrapers, it's working in 2019 with their new website.
+Scraper for LinkedIn full profile data. Unlike others scrapers, it's working in 2020 with their new website.
 
 `npm i scrapedin`
 
