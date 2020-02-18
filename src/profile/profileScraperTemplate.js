@@ -36,7 +36,7 @@ module.exports = {
     }
   },
   positions: {
-    selector: '.pv-profile-section__list-item',
+    selector: 'section[id=experience-section] li',
     fields: {
       title: 'h3',
       companyName: '.pv-entity__secondary-title',
