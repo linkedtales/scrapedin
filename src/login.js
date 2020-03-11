@@ -16,13 +16,22 @@ module.exports = async (browser, email, password) => {
 
   await page.$x("//button[contains(text(), 'Sign in')]")
     .then((button) => button[0].click())
-
+  var linkedinLiAt = '';
+  const cookies = await page.cookies();
+  const linkedinLiAt = '';
+  for (let cookie of cookies){
+    if (cookie.name === 'li_at'){
+      linkedinLiAt = cookie.value;
+    }
+  }
+  
   return page.waitFor('input[role=combobox]', {
     timeout: 15000
     })
     .then(async () => {
-      logger.info('login', 'logged feed page selector found')
-      await page.close()
+      logger.info('login', 'logged feed page selector found');
+      await page.close();
+      return linkedinLiAt;
     })
     .catch(async () => {
       logger.warn('login', 'successful login element was not found')
