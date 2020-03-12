@@ -50,7 +50,9 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
 
-  await page.goto("https://www.linkedin.com/m/logout/")
+  if(!cookies) {
+    await page.goto("https://www.linkedin.com/m/logout/")
+  }
   await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
 
