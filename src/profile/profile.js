@@ -13,7 +13,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
 
   const page = await openPage(browser, cookies, url)
   const profilePageIndicatorSelector = '.pv-profile-section'
-  
+
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
       logger.warn('profile', 'profile selector was not found')
@@ -50,6 +50,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
 
+  await page.goto("https://www.linkedin.com/m/logout/")
   await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
 
