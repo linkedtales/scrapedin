@@ -8,12 +8,12 @@ const cleanProfileData = require('./cleanProfileData')
 
 const logger = require('../logger')
 
-module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGetContactInfo = false) => {
+module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGetContactInfo = false, puppeteerAuthenticate = undefined) => {
   logger.info('profile', `starting scraping url: ${url}`)
 
-  const page = await openPage(browser, cookies, url)
+  const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
   const profilePageIndicatorSelector = '.pv-profile-section'
-  
+
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
       logger.warn('profile', 'profile selector was not found')
@@ -50,6 +50,9 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
 
+  if(!cookies) {
+    await page.goto("https://www.linkedin.com/m/logout/")
+  }
   await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
 

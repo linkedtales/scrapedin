@@ -13,7 +13,7 @@ module.exports = {
   profileAlternative: {
     selector: '.pv-content',
     fields: {
-      name: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:first-child > li:first-child`,
+      name: `${alternativeProfileSelector} div:last-child > div:nth-child(2) > div:first-child ul:first-child > li:first-child`,
       headline: `${alternativeProfileSelector} div:last-child h2`,
       imageurl: {
 		  selector: `${alternativeProfileSelector} div:last-child > div:first-child > div:first-child [src^="https"]`,
