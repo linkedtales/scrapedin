@@ -3,7 +3,7 @@ const login = require('./login')
 const profile = require('./profile/profile')
 const logger = require('./logger')
 
-module.exports = async({ cookies, email, password, isHeadless, hasToLog, hasToGetContactInfo, puppeteerArgs } = { isHeadless: true, hasToLog: false }) => {
+module.exports = async({ cookies, email, password, isHeadless, hasToLog, hasToGetContactInfo, puppeteerArgs, puppeteerAuthenticate } = { isHeadless: true, hasToLog: false }) => {
   if (!hasToLog) {
     logger.stopLogging()
   }
@@ -27,5 +27,5 @@ module.exports = async({ cookies, email, password, isHeadless, hasToLog, hasToGe
     logger.warn('scrapedin', 'email/password and cookies wasn\'t provided, only public data will be collected')
   }
  
-  return (url, waitMs) => profile(browser, cookies, url, waitMs, hasToGetContactInfo)
+  return (url, waitMs) => profile(browser, cookies, url, waitMs, hasToGetContactInfo, puppeteerAuthenticate)
 }
