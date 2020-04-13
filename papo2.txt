@@ -1,0 +1,372 @@
+{
+  "contact": [],
+  "profileAlternative": {
+    "name": "Ahmad Abdelqader PMP,OSHA,ISO",
+    "headline": "Business, Project and Sales Manager at Freelancer",
+    "imageurl": "https://media-exp1.licdn.com/dms/image/C4E03AQFU856anbDWzA/profile-displayphoto-shrink_200_200/0?e=1592438400&v=beta&t=pJNTxAwficq-H0VOfIBeaQ015mXkBTuIUZCUP9UtW6Y",
+    "location": "Saudi Arabia",
+    "connections": "500+",
+    "summary": "A competent Business, Strategic, Marketing, sales, and Project manager, holding a litany of certifications in PMP (Passed), IRCA Lead Auditor ISO 9001:2015, OSHA, SOILDWORK, NABCEP Solar energy, FIDIC, Primavera P6, PLC, SCADA, Fire Warden, fire risk assessment, ARAMCO Work Permit Issuer/Receiver, Safety Management & Leadership. Combined with 13+ years proven track record & rich experience in Strategic, Project, marketing, sales, business and technical management and project control in Solar energy, and non renewable energy, in multiple disciplines such as E& I, mechanical, piping, Civil, during various stages of the project (Business analysis, sales, site survey, estimation, bidding, KOM, Planning, construction, completion and commissioning). Worked extensively on all contracts such as LSTK, UR, Cost plus, EPC, others in varied sectors including Solar, oil & gas, industrial, airport and infrastructure projects. Proficient in ensuring that Renewable and non renewable systems are estimated, analyzed, Tendered, designed, fabricated, installed, inspected, operated and maintained properly. Seeking a dynamic position with a progressive organization to implement project savvy and engineering expertise to fuel organizational growth."
+  },
+  "aboutAlternative": {
+    "text": "A competent Business, Strategic, Marketing, sales, and Project manager, holding a litany of certifications in PMP (Passed), IRCA Lead Auditor ISO 9001:2015, OSHA, SOILDWORK, NABCEP Solar energy, FIDIC, Primavera P6, PLC, SCADA, Fire Warden, fire risk assessment, ARAMCO Work Permit Issuer/Receiver, Safety Management & Leadership. Combined with 13+ years proven track record & rich experience in Strategic, Project, marketing, sales, business and technical management and project control in Solar energy, and non renewable energy, in multiple disciplines such as E& I, mechanical, piping, Civil, during various stages of the project (Business analysis, sales, site survey, estimation, bidding, KOM, Planning, construction, completion and commissioning). Worked extensively on all contracts such as LSTK, UR, Cost plus, EPC, others in varied sectors including Solar, oil & gas, industrial, airport and infrastructure projects. Proficient in ensuring that Renewable and non renewable systems are estimated, analyzed, Tendered, designed, fabricated, installed, inspected, operated and maintained properly. Seeking a dynamic position with a progressive organization to implement project savvy and engineering expertise to fuel organizational growth."
+  },
+  "positions": [
+    {
+      "title": "Project, Business & Sales Manager",
+      "companyName": "Freelancer Freelance",
+      "location": "Jordan",
+      "description": "Project Director of more than 2 Megawatt as of total several Solar energy project inside Jordan.\n\nDuties and responsibilities:\n\nLead and apply strategic analysis, set target, vision, mission, set KPI, apply balanced scored cards, analyse and take corrective and preventive actions aganst all internal and external issues or threats using SWOT & PESTEL techniques;\nLead and apply the marketing processes using several strategies, Study Consumer, Market & Competitors behaviour, pricing and estimation, using 8P's;\nLead & apply Sales management by using sales pipeline, sales funnel and CRM, Minimize the gaps wirh targeted customers or stakeholders;\nLead and apply business analysis and generate NPV, PBP, ROI, BCR & PI and other factors are important to add in Feasibility study such as Environmental, Economical, Financial, Social, Legal using PESTEL & SWOT, and what if scenarios techniques;\nLead and apply site visit and fill the site survey reports and collect the required information to finalize feasibility study.\nCommunicate closely with all Vendors or suppliers who are related to procure, install, operate, diagnose and maintenance of Solar systems;\nExtracting the electrical bills, calculate the consumption rate annually and estimate the sizing the Solar energy system;\nDefine the scope of work that included and excluded in the project;\nTracking and tracing the Government approvals and instructions;\nEstimate the resources, time and cost required to implement the project;\nLead the procurement processes;\nFollow up the local and international standard for safety and quality NEC;\nBuild the proper organizational structural;\nPrepare of contract with all stakeholders;\nManage all variation orders;\nCreate ideas, alternative options, efficient solutions and mock up solar models;\nPrepare all documentations and records required to deliver Solar project to client and Electric grid company;\nMeet and exceed all client requirements.\n…\n",
+      "date1": "Apr 2017 – Present",
+      "date2": "3 yrs 1 mo"
+    },
+    {
+      "title": "Senior Mechanical Engineer",
+      "companyName": "Dar Al Handasah",
+      "location": "King Abdulaziz Inter. Airport - Jeddah - Saudi Arabia",
+      "description": "-Review and comment on Method of Statement, Inspection and Test Plan, Welding Procedure Specification, Procedure Qualification Reports, Qualification of Welders, Job Safety Analysis, Risk Assessments, Material Submittal and Design & Shop Drawings for related Chilled water , Grey water, Potable Water, Fire Fighting water, Foul water at Utility Corridor (Underground Piping) and New Jet Fuel Hydrant System Network at Aprons 17,18 & 19 of Airport.\n-Supervising & Monitoring Installation in addition to Perform Pressure Hydro-static Test, Gravity Test and Air Test for more than 200 000 Linear Meter for different type of material such as Pre-Insulated Carbon Steel, GRE, GRP, UPVC, HDPE, RC PIPE.\n-Inspection of Fit-up, full weld visual , thickness of painting, Insulation and Jacketing of welding joints, holiday test, Radio-graphic Test Results, Magnetic Particle Test results, Dye Penetrant Test results.\n-Supervise, qualify and train beginner Engineers.\n-Issue all necessary Site Instruction and NCR regarding to all non conform work, activities, drawings or material at site as per Project Specification and all International Standards & codes.\n…\n",
+      "date1": "Jan 2013 – May 2017",
+      "date2": "4 yrs 5 mos"
+    },
+    {
+      "title": "Project Engineer",
+      "companyName": "ALBDOUR for Construction",
+      "location": "Jordan",
+      "description": "-Supervising all Fire-Fighting, Plumbing and Mechanical activities for buildings.\n-Perform and inspect all necessary Test for the mentioned activities.",
+      "date1": "Aug 2011 – Dec 2012",
+      "date2": "1 yr 5 mos"
+    },
+    {
+      "title": "Senior Piping Engineer",
+      "companyName": "Dolphin for Water Technology",
+      "location": "Jordan",
+      "date1": "Mar 2010 – May 2011",
+      "date2": "1 yr 3 mos"
+    },
+    {
+      "title": "Consolidated Contractors International Company",
+      "location": "Princess Nora University for Women - Riyadh - Saudi Arabia",
+      "description": "•Supervising all erection, fit-up, leveling and releasing all underground lines such as gravity lines(storm derange& sewage) and pressure lines(drinking water, potable water, irrigation, internal firefighting & external firefighting).\n•Installation of HDPE Lines such as drinking water & potable water and jointing by electric welding (butt weld & electro fusion).\n•Installation of DUCTILE Lines such as irrigation and firefighting and jointing by special soap and Rubber Seal.\n-Installation of UPVC and CPVC Lines such as storm derange& sewage and jointing by special adhesive or Rubber Seal.\n• installation of GRP, GRE Lines such as storm derange& sewage and jointing by one of these methods such as rubber seal coupler, adhesive, rubber seal lock joint & lamination.\n•Apply all DAR ALHANDSAH, OSHA & CCC safety regulation that related to environment, fire hazards, driving inside site, health matters....etc.\n…\n",
+      "date1": "Sep 2009 – Mar 2010",
+      "date2": "7 mos",
+      "roles": [
+        {
+          "title": "Senior Piping Engineer",
+          "description": "•Supervising all erection, fit-up, leveling and releasing all underground lines such as gravity lines(storm derange& sewage) and pressure lines(drinking water, potable water, irrigation, internal firefighting & external firefighting).\n•Installation of HDPE Lines such as drinking water & potable water and jointing by electric welding (butt weld & electro fusion).\n•Installation of DUCTILE Lines such as irrigation and firefighting and jointing by special soap and Rubber Seal.\n-Installation of UPVC and CPVC Lines such as storm derange& sewage and jointing by special adhesive or Rubber Seal.\n• installation of GRP, GRE Lines such as storm derange& sewage and jointing by one of these methods such as rubber seal coupler, adhesive, rubber seal lock joint & lamination.\n•Apply all DAR ALHANDSAH, OSHA & CCC safety regulation that related to environment, fire hazards, driving inside site, health matters....etc.\n…\n",
+          "date1": "Sep 2009 – Mar 2010",
+          "date2": "7 mos",
+          "location": "Princess Nora University for Women - Riyadh - Saudi Arabia"
+        },
+        {
+          "title": "Piping Engineer / Test Package Coordinator Engineer / Mechanical Completion Punch-list Engineer",
+          "description": "-Piping erection and Test Package coordinator for inlet gas and bullets area which is separating to four areas; I have been working also as a construction mechanical completion punch list engineer. In addition, preparing materials for construction and coordinates with other sections such as electrical and civil sections.\n-make fully studying and planning for all Isometrics and P&ID drawings to prepare fabrication and erection plans.\n-follow up all lifting, erection, fit-up and welding plans.\n-apply Saudi Aramco Engineering Standards (SAES) for piping and welding procedure.\n-closing all piping punch lists that contains (A\\Y\\N) items & ARAMCO exception items.\n-follow up all welding requirements to avoid any defects will happen on joints such as (porosity, undercut, incomplete fusion, incomplete penetration, and root concavity….etc.).\n-preparation for Non-Destructive Tests (NDT) to discover the defect joints.\n- review Isometric Control Sheets (ICS) to close all welding reports, NDT reports & punch lists prior to release Test Package for testing.\n-apply SAUDI ARAMCO. Regulations to prevent any incidents or accidents on site.\n- I have some safety orientations and certificates from OSHA, SAUDI ARAMCO. and C.C.C company; such as following:\n• OSHA Certificate (10 hours) registered and Valid.\n• Safety Management and Leadership from CCC.\n• Work Permit Issuer Certificate for HOT & COLD work at ARAMCO Project.\n• Work Permit Receiver Certificate for HOT & COLD work at ARAMCO Project.\n• Supervision Level 1 certificate form TECHNIP / ARAMCO.\n• Contractor Card which give me authority to get in all SAUDI ARAMCO projects.\n• Attend all OSHA,SAUDI ARAMCO & C.C.C. safety courses which related to (H2S, PPE, Supervision at Site, Toxic Material (MSDS), Driving at Site, Rigging and Lifting, Confined Space Area, Working at Height, Scaffolding Inspection, Material Management, Pressure and Non Pressure Test, Fire Hazards, Heat Stress & Work under Operation Risks, Hot Tapping, etc...).\n…\n",
+          "date1": "Jul 2008 – Sep 2009",
+          "date2": "1 yr 3 mos",
+          "location": "SAUDI ARAMCO Khursaniya Gas Plant - Eastern Province - Saudi Arabia"
+        }
+      ]
+    },
+    {
+      "title": "Title\nSenior Piping Engineer",
+      "location": "Princess Nora University for Women - Riyadh - Saudi Arabia",
+      "description": "•Supervising all erection, fit-up, leveling and releasing all underground lines such as gravity lines(storm derange& sewage) and pressure lines(drinking water, potable water, irrigation, internal firefighting & external firefighting).\n•Installation of HDPE Lines such as drinking water & potable water and jointing by electric welding (butt weld & electro fusion).\n•Installation of DUCTILE Lines such as irrigation and firefighting and jointing by special soap and Rubber Seal.\n-Installation of UPVC and CPVC Lines such as storm derange& sewage and jointing by special adhesive or Rubber Seal.\n• installation of GRP, GRE Lines such as storm derange& sewage and jointing by one of these methods such as rubber seal coupler, adhesive, rubber seal lock joint & lamination.\n•Apply all DAR ALHANDSAH, OSHA & CCC safety regulation that related to environment, fire hazards, driving inside site, health matters....etc.\n…\n",
+      "date1": "Sep 2009 – Mar 2010",
+      "date2": "7 mos",
+      "roles": [
+        {
+          "title": "Senior Piping Engineer",
+          "description": "•Supervising all erection, fit-up, leveling and releasing all underground lines such as gravity lines(storm derange& sewage) and pressure lines(drinking water, potable water, irrigation, internal firefighting & external firefighting).\n•Installation of HDPE Lines such as drinking water & potable water and jointing by electric welding (butt weld & electro fusion).\n•Installation of DUCTILE Lines such as irrigation and firefighting and jointing by special soap and Rubber Seal.\n-Installation of UPVC and CPVC Lines such as storm derange& sewage and jointing by special adhesive or Rubber Seal.\n• installation of GRP, GRE Lines such as storm derange& sewage and jointing by one of these methods such as rubber seal coupler, adhesive, rubber seal lock joint & lamination.\n•Apply all DAR ALHANDSAH, OSHA & CCC safety regulation that related to environment, fire hazards, driving inside site, health matters....etc.\n…\n",
+          "date1": "Sep 2009 – Mar 2010",
+          "date2": "7 mos",
+          "location": "Princess Nora University for Women - Riyadh - Saudi Arabia"
+        }
+      ]
+    },
+    {
+      "title": "Title\nPiping Engineer / Test Package Coordinator Engineer / Mechanical Completion Punch-list Engineer",
+      "location": "SAUDI ARAMCO Khursaniya Gas Plant - Eastern Province - Saudi Arabia",
+      "description": "-Piping erection and Test Package coordinator for inlet gas and bullets area which is separating to four areas; I have been working also as a construction mechanical completion punch list engineer. In addition, preparing materials for construction and coordinates with other sections such as electrical and civil sections.\n-make fully studying and planning for all Isometrics and P&ID drawings to prepare fabrication and erection plans.\n-follow up all lifting, erection, fit-up and welding plans.\n-apply Saudi Aramco Engineering Standards (SAES) for piping and welding procedure.\n-closing all piping punch lists that contains (A\\Y\\N) items & ARAMCO exception items.\n-follow up all welding requirements to avoid any defects will happen on joints such as (porosity, undercut, incomplete fusion, incomplete penetration, and root concavity….etc.).\n-preparation for Non-Destructive Tests (NDT) to discover the defect joints.\n- review Isometric Control Sheets (ICS) to close all welding reports, NDT reports & punch lists prior to release Test Package for testing.\n-apply SAUDI ARAMCO. Regulations to prevent any incidents or accidents on site.\n- I have some safety orientations and certificates from OSHA, SAUDI ARAMCO. and C.C.C company; such as following:\n• OSHA Certificate (10 hours) registered and Valid.\n• Safety Management and Leadership from CCC.\n• Work Permit Issuer Certificate for HOT & COLD work at ARAMCO Project.\n• Work Permit Receiver Certificate for HOT & COLD work at ARAMCO Project.\n• Supervision Level 1 certificate form TECHNIP / ARAMCO.\n• Contractor Card which give me authority to get in all SAUDI ARAMCO projects.\n• Attend all OSHA,SAUDI ARAMCO & C.C.C. safety courses which related to (H2S, PPE, Supervision at Site, Toxic Material (MSDS), Driving at Site, Rigging and Lifting, Confined Space Area, Working at Height, Scaffolding Inspection, Material Management, Pressure and Non Pressure Test, Fire Hazards, Heat Stress & Work under Operation Risks, Hot Tapping, etc...).\n…\n",
+      "date1": "Jul 2008 – Sep 2009",
+      "date2": "1 yr 3 mos",
+      "roles": [
+        {
+          "title": "Piping Engineer / Test Package Coordinator Engineer / Mechanical Completion Punch-list Engineer",
+          "description": "-Piping erection and Test Package coordinator for inlet gas and bullets area which is separating to four areas; I have been working also as a construction mechanical completion punch list engineer. In addition, preparing materials for construction and coordinates with other sections such as electrical and civil sections.\n-make fully studying and planning for all Isometrics and P&ID drawings to prepare fabrication and erection plans.\n-follow up all lifting, erection, fit-up and welding plans.\n-apply Saudi Aramco Engineering Standards (SAES) for piping and welding procedure.\n-closing all piping punch lists that contains (A\\Y\\N) items & ARAMCO exception items.\n-follow up all welding requirements to avoid any defects will happen on joints such as (porosity, undercut, incomplete fusion, incomplete penetration, and root concavity….etc.).\n-preparation for Non-Destructive Tests (NDT) to discover the defect joints.\n- review Isometric Control Sheets (ICS) to close all welding reports, NDT reports & punch lists prior to release Test Package for testing.\n-apply SAUDI ARAMCO. Regulations to prevent any incidents or accidents on site.\n- I have some safety orientations and certificates from OSHA, SAUDI ARAMCO. and C.C.C company; such as following:\n• OSHA Certificate (10 hours) registered and Valid.\n• Safety Management and Leadership from CCC.\n• Work Permit Issuer Certificate for HOT & COLD work at ARAMCO Project.\n• Work Permit Receiver Certificate for HOT & COLD work at ARAMCO Project.\n• Supervision Level 1 certificate form TECHNIP / ARAMCO.\n• Contractor Card which give me authority to get in all SAUDI ARAMCO projects.\n• Attend all OSHA,SAUDI ARAMCO & C.C.C. safety courses which related to (H2S, PPE, Supervision at Site, Toxic Material (MSDS), Driving at Site, Rigging and Lifting, Confined Space Area, Working at Height, Scaffolding Inspection, Material Management, Pressure and Non Pressure Test, Fire Hazards, Heat Stress & Work under Operation Risks, Hot Tapping, etc...).\n…\n",
+          "date1": "Jul 2008 – Sep 2009",
+          "date2": "1 yr 3 mos",
+          "location": "SAUDI ARAMCO Khursaniya Gas Plant - Eastern Province - Saudi Arabia"
+        }
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "title": "Jordan University of Science and Technology",
+      "degree": "Good",
+      "fieldofstudy": "Mechanical Engineering",
+      "date1": "2001",
+      "date2": "2006"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Piping",
+      "count": "18"
+    },
+    {
+      "title": "Inspection",
+      "count": "15"
+    },
+    {
+      "title": "Construction",
+      "count": "14"
+    },
+    {
+      "title": "Project Planning",
+      "count": "14"
+    },
+    {
+      "title": "Project Control",
+      "count": "10"
+    },
+    {
+      "title": "Project Engineering",
+      "count": "7"
+    },
+    {
+      "title": "Power Plants",
+      "count": "4"
+    },
+    {
+      "title": "Materials",
+      "count": "4"
+    },
+    {
+      "title": "Project Management",
+      "count": "4"
+    },
+    {
+      "title": "Pumps",
+      "count": "3"
+    },
+    {
+      "title": "Welding",
+      "count": "1"
+    },
+    {
+      "title": "Metal Fabrication",
+      "count": "1"
+    },
+    {
+      "title": "Valves",
+      "count": "1"
+    },
+    {
+      "title": "Occupational Health",
+      "count": "1"
+    },
+    {
+      "title": "Pressure",
+      "count": "1"
+    },
+    {
+      "title": "Plumbing",
+      "count": "1"
+    },
+    {
+      "title": "ASME",
+      "count": "1"
+    },
+    {
+      "title": "Gas",
+      "count": "1"
+    },
+    {
+      "title": "Pipelines",
+      "count": "1"
+    },
+    {
+      "title": "Petroleum",
+      "count": "1"
+    },
+    {
+      "title": "Oil/Gas",
+      "count": "1"
+    },
+    {
+      "title": "ASME Standards",
+      "count": "1"
+    },
+    {
+      "title": "Oil & Gas",
+      "count": "1"
+    },
+    {
+      "title": "NDT"
+    },
+    {
+      "title": "Risk Assessment"
+    },
+    {
+      "title": "Quantity Surveying"
+    },
+    {
+      "title": "Completion"
+    },
+    {
+      "title": "MEP"
+    },
+    {
+      "title": "PMP"
+    },
+    {
+      "title": "Mechanical Engineering"
+    },
+    {
+      "title": "Piping and Instrumentation Drawing (P&ID)"
+    },
+    {
+      "title": "Engineering"
+    },
+    {
+      "title": "Steel"
+    },
+    {
+      "title": "Strategic Planning"
+    },
+    {
+      "title": "AutoCAD",
+      "count": "4"
+    },
+    {
+      "title": "AutoCAD Mechanical",
+      "count": "1"
+    },
+    {
+      "title": "Primavera P6"
+    },
+    {
+      "title": "Microsoft Office"
+    },
+    {
+      "title": "ASTM"
+    },
+    {
+      "title": "APIs"
+    },
+    {
+      "title": "Pipefitting"
+    },
+    {
+      "title": "FIDIC"
+    },
+    {
+      "title": "OSHA 10-Hour"
+    },
+    {
+      "title": "Tanks"
+    },
+    {
+      "title": "Senior Piping Infrastructure Engineer",
+      "count": "1"
+    },
+    {
+      "title": "Fire Fighting Engineer",
+      "count": "1"
+    },
+    {
+      "title": "Senior Piping/Mechanical Engineer ( Oil & Gas, Power Plant, Desalination Plant)"
+    },
+    {
+      "title": "QC piping / Mechanical Engineer"
+    },
+    {
+      "title": "Equipment Erection Engineer ( Rotary & Static)"
+    },
+    {
+      "title": "Safety management and Leadership"
+    }
+  ],
+  "recommendations": {
+    "givenCount": "1",
+    "receivedCount": "1",
+    "given": [
+      {
+        "user": "https://www.linkedin.com/in/khaled-a-315052145/",
+        "text": "It was an extraordinary time that i worked together with Ahmad for KAIA project in Jeddah/Saudi Arabia for 4 years, he is smart, hard working and dynamically active, decision maker and leader in nature. he is proficient engineer in most mechanical systems and has very good ... See more"
+      }
+    ],
+    "received": [
+      {
+        "user": "https://www.linkedin.com/in/khaled-a-315052145/",
+        "text": "\" It was an extraordinary time that i worked together with Khalid, he is open-minded, honest, decision maker and leader in nature. he is proficient engineer in most mechanical systems, also he can apply all interpersonal skills, project management  knowledge, tools and techniques to implement project objectives effectively and efficiently. Thank you Khalid for all your help. \"\n\n... See more"
+      }
+    ]
+  },
+  "accomplishments": [
+    {
+      "count": "5",
+      "title": "Organizations",
+      "items": [
+        "PMI project management institute",
+        "Occupation Safety Health Administration OSHA 1926",
+        "Saudi Engineers Assocaition",
+        "Jordanian Engineers Assocaition",
+        "Work Permit Reciever",
+        "Arabic",
+        "English"
+      ]
+    }
+  ],
+  "peopleAlsoViewed": [
+    {
+      "user": "https://www.linkedin.com/in/eng-baker-inshasi-278128a6/",
+      "text": "Project Manager and Business Development Manager at MID Arabia contracting company"
+    },
+    {
+      "user": "https://www.linkedin.com/in/martin-weallans-6768ba4a/",
+      "text": "Experienced Project/Programme Manager and Business Manager"
+    },
+    {
+      "user": "https://www.linkedin.com/in/eng-nasir-zraigat-4a5b0919/",
+      "text": "Director Of Sales And Business Development at Mitsubishi Hitachi Power Systems Middle East"
+    },
+    {
+      "user": "https://www.linkedin.com/in/ajay-chacko-41810019/",
+      "text": "Working at Baker Hughes, KSA"
+    },
+    {
+      "user": "https://www.linkedin.com/in/noah-melhem-cissp%C2%AE-sabsa-scf%C2%AE-77145998/",
+      "text": "System Engineer at FireEye, Inc."
+    },
+    {
+      "user": "https://www.linkedin.com/in/firas-al-masri-8b949650/",
+      "text": "Accountant at Consolidated Contractors International Company"
+    },
+    {
+      "user": "https://www.linkedin.com/in/eng-mohamed-reyad-nabcep-pva%E2%84%A2-b3a02929/",
+      "text": "Senior Electrical Engineer at POSCO E&C Saudi Arabia (PECSA)"
+    },
+    {
+      "user": "https://www.linkedin.com/in/maher-hanna-11049021/",
+      "text": "Higher Intermediat Diploma in Civil engineering at Technical Architectural Intitute"
+    },
+    {
+      "user": "https://www.linkedin.com/in/norah-alwaal-041a7012a/",
+      "text": "Trainer at Chalhoub Group"
+    },
+    {
+      "user": "https://www.linkedin.com/in/mohammed-rayaan-630a25122/",
+      "text": "Mechanical Site Engineer at First Fix - KSA"
+    }
+  ],
+  "volunteerExperience": [],
+  "profile": {
+    "name": "Ahmad Abdelqader PMP,OSHA,ISO",
+    "headline": "Business, Project and Sales Manager at Freelancer",
+    "imageurl": "https://media-exp1.licdn.com/dms/image/C4E03AQFU856anbDWzA/profile-displayphoto-shrink_200_200/0?e=1592438400&v=beta&t=pJNTxAwficq-H0VOfIBeaQ015mXkBTuIUZCUP9UtW6Y",
+    "location": "Saudi Arabia",
+    "connections": "500+",
+    "summary": "A competent Business, Strategic, Marketing, sales, and Project manager, holding a litany of certifications in PMP (Passed), IRCA Lead Auditor ISO 9001:2015, OSHA, SOILDWORK, NABCEP Solar energy, FIDIC, Primavera P6, PLC, SCADA, Fire Warden, fire risk assessment, ARAMCO Work Permit Issuer/Receiver, Safety Management & Leadership. Combined with 13+ years proven track record & rich experience in Strategic, Project, marketing, sales, business and technical management and project control in Solar energy, and non renewable energy, in multiple disciplines such as E& I, mechanical, piping, Civil, during various stages of the project (Business analysis, sales, site survey, estimation, bidding, KOM, Planning, construction, completion and commissioning). Worked extensively on all contracts such as LSTK, UR, Cost plus, EPC, others in varied sectors including Solar, oil & gas, industrial, airport and infrastructure projects. Proficient in ensuring that Renewable and non renewable systems are estimated, analyzed, Tendered, designed, fabricated, installed, inspected, operated and maintained properly. Seeking a dynamic position with a progressive organization to implement project savvy and engineering expertise to fuel organizational growth."
+  }
+}
