@@ -8,10 +8,10 @@ const cleanProfileData = require('./cleanProfileData')
 
 const logger = require('../logger')
 
-module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGetContactInfo = false) => {
+module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGetContactInfo = false, puppeteerAuthenticate = undefined) => {
   logger.info('profile', `starting scraping url: ${url}`)
 
-  const page = await openPage(browser, cookies, url)
+  const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
   const profilePageIndicatorSelector = '.pv-profile-section'
   
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
