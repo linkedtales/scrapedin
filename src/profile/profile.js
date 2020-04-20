@@ -1,5 +1,6 @@
 const openPage = require('../openPage')
 const scrapSection = require('../scrapSection')
+const openAccomplishmentPanel = require('./openAccomplishmentPanel')
 const scrollToPageBottom = require('./scrollToPageBottom')
 const seeMoreButtons = require('./seeMoreButtons')
 const contactInfo = require('./contactInfo')
@@ -13,7 +14,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
 
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
   const profilePageIndicatorSelector = '.pv-profile-section'
-
+  
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
       logger.warn('profile', 'profile selector was not found')
@@ -47,10 +48,16 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
   const skills = await scrapSection(page, template.skills)
   const accomplishments = await scrapSection(page, template.accomplishments)
+  
+  await openAccomplishmentPanel(page, 'courses');
+  await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
+  const courses = await scrapSection(page, template.courses)
+  console.log('courses', courses);
+  
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
 
-  await page.close()
+  // await page.close()
   logger.info('profile', `finished scraping url: ${url}`)
 
   const rawProfile = {
@@ -69,6 +76,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
       received: recommendationsGiven
     },
     accomplishments,
+    courses,
     peopleAlsoViewed,
     volunteerExperience
   }
