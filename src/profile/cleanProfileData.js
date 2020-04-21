@@ -83,5 +83,24 @@ module.exports = (profile) => {
     });
   }
 
+  profile.courses = profile.courses.map(({ name, year }) => ({
+    name: name.replace('Course name\n', ''),
+    year: year.replace('Course number\n', ''),
+  }));
+
+  profile.languages = profile.languages.map(({ name, proficiency }) => ({
+    name: name.replace('Language name\n', ''),
+    proficiency,
+  }));
+
+  profile.projects = profile.projects.map(
+    ({ name, date, description, link }) => ({
+      name: name.replace('Project name\n', ''),
+      date,
+      description: description.replace('Project description\n', ''),
+      link,
+    }),
+  );
+
   return profile;
 };

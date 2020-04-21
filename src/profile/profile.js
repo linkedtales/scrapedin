@@ -1,6 +1,6 @@
 const openPage = require('../openPage')
 const scrapSection = require('../scrapSection')
-const openAccomplishmentPanel = require('./openAccomplishmentPanel')
+const scrapAccomplishmentPanel = require('./scrapAccomplishmentPanel')
 const scrollToPageBottom = require('./scrollToPageBottom')
 const seeMoreButtons = require('./seeMoreButtons')
 const contactInfo = require('./contactInfo')
@@ -49,10 +49,9 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const skills = await scrapSection(page, template.skills)
   const accomplishments = await scrapSection(page, template.accomplishments)
   
-  await openAccomplishmentPanel(page, 'courses');
-  await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
-  const courses = await scrapSection(page, template.courses)
-  console.log('courses', courses);
+  const courses = await scrapAccomplishmentPanel(page, 'courses')
+  const languages = await scrapAccomplishmentPanel(page, 'languages')
+  const projects = await scrapAccomplishmentPanel(page, 'projects')
   
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
@@ -77,6 +76,8 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     },
     accomplishments,
     courses,
+    languages,
+    projects,
     peopleAlsoViewed,
     volunteerExperience
   }

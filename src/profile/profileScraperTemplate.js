@@ -119,6 +119,25 @@ module.exports = {
       year: '.pv-accomplishment-entity__course-number',
     },
   },
+  languages: {
+    selector: 'li.pv-accomplishment-entity',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      proficiency: '.pv-accomplishment-entity__proficiency',
+    },
+  },
+  projects: {
+    selector: 'li.pv-accomplishment-entity',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      description: '.pv-accomplishment-entity__description',
+      link: {
+        selector: '.pv-accomplishment-entity__external-source',
+        attribute: 'href',
+      },
+    },
+  },
   peopleAlsoViewed: {
     selector: 'li.pv-browsemap-section__member-container',
     fields: {
