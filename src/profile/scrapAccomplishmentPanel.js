@@ -13,9 +13,7 @@ const scrapAccomplishmentPanel = async (page, section) => {
     }, 500);
   });
 
-  const result = scrapSection(page, template[section]);
-
-  return result;
+  return scrapSection(page, template[section]);
 };
 
 module.exports = scrapAccomplishmentPanel;

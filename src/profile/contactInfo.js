@@ -1,8 +1,8 @@
 const logger = require('../logger')
-
-const showSelector = 'a[data-control-name=contact_see_more]'
 const scrapSection = require('../scrapSection')
-const closeButtonSelector = '.artdeco-modal__dismiss';
+
+const SEE_MORE_SELECTOR = 'a[data-control-name=contact_see_more]'
+const CLOSE_MODAL_SELECTOR = '.artdeco-modal__dismiss';
 
 const template = {
   selector: '.pv-contact-info__contact-type',
@@ -15,18 +15,18 @@ const template = {
   }
 } 
 const getContactInfo = async(page) => {
-  await page.waitFor(showSelector, { timeout: 2000 })
+  await page.waitFor(SEE_MORE_SELECTOR, { timeout: 2000 })
     .catch(() => {
       logger.warn('contact-info', 'selector not found')
       return {}
     })
 
-  const element = await page.$(showSelector)
+  const element = await page.$(SEE_MORE_SELECTOR)
   await element.click()
   await new Promise((resolve) => { setTimeout(() => { resolve() }, 500)})
   
   const contactInfo = await scrapSection(page, template)
-  const closeButton = await page.$(closeButtonSelector)
+  const closeButton = await page.$(CLOSE_MODAL_SELECTOR)
   await closeButton.click()
 
   return contactInfo
