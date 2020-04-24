@@ -52,8 +52,13 @@ module.exports = (profile) => {
     }
   })
 
-  profile.recommendations.receivedCount = profile.recommendations.receivedCount.replace(/[^\d]/g, '')
-  profile.recommendations.givenCount = profile.recommendations.givenCount.replace(/[^\d]/g, '')
+  if(profile.recommendations.receivedCount) {
+    profile.recommendations.receivedCount = profile.recommendations.receivedCount.replace(/[^\d]/g, '')
+  }
+
+  if(profile.recommendations.givenCount) {
+    profile.recommendations.givenCount = profile.recommendations.givenCount.replace(/[^\d]/g, '')
+  }
 
   if(profile.recommendations.received) {
     profile.recommendations.received.forEach((recommendation) => {
