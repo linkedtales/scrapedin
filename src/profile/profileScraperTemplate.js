@@ -39,6 +39,10 @@ module.exports = {
     selector: 'section[id=experience-section] li',
     fields: {
       title: 'h3',
+      link: {
+        selector: 'a',
+        attribute: 'href',
+      },
       companyName: '.pv-entity__secondary-title',
       location: '.pv-entity__location span:last-child',
       description: '.pv-entity__description',
