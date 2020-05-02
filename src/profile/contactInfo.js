@@ -27,7 +27,8 @@ const getContactInfo = async(page) => {
   
   const contactInfo = await scrapSection(page, template)
   const closeButton = await page.$(CLOSE_MODAL_SELECTOR)
-  await closeButton.click()
+  if(closeButton)
+    await closeButton.click()
 
   return contactInfo
 }

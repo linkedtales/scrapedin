@@ -41,3 +41,4 @@ module.exports = async (page, section) => {
 
   return Promise.all(scrapedPromises)
 }
+

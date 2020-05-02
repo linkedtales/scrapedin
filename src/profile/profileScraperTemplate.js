@@ -43,6 +43,10 @@ module.exports = {
         selector: 'a',
         attribute: 'href',
       },
+      url: {
+        selector: 'a',
+        attribute: 'href'
+      },
       companyName: '.pv-entity__secondary-title',
       location: '.pv-entity__location span:last-child',
       description: '.pv-entity__description',
@@ -66,7 +70,11 @@ module.exports = {
     fields: {
       title: 'h3',
       degree: 'span[class=pv-entity__comma-item]',
-	  fieldofstudy: 'p.pv-entity__fos span:nth-child(2)',
+      url: {
+        selector: 'a',
+        attribute: 'href'
+      },
+	    fieldOfStudy: 'p.pv-entity__fos span:nth-child(2)',
       date1: '.pv-entity__dates time:nth-child(1)',
       date2: '.pv-entity__dates time:nth-child(2)'
     }
@@ -141,15 +149,15 @@ module.exports = {
     selector: 'li.pv-accomplishment-entity',
     fields: {
       name: '.pv-accomplishment-entity__title',
-      year: '.pv-accomplishment-entity__course-number',
-    },
+      year: '.pv-accomplishment-entity__course-number'
+    }
   },
   languages: {
     selector: 'li.pv-accomplishment-entity',
     fields: {
       name: '.pv-accomplishment-entity__title',
       proficiency: '.pv-accomplishment-entity__proficiency',
-    },
+    }
   },
   projects: {
     selector: 'li.pv-accomplishment-entity',
@@ -159,8 +167,8 @@ module.exports = {
       description: '.pv-accomplishment-entity__description',
       link: {
         selector: '.pv-accomplishment-entity__external-source',
-        attribute: 'href',
-      },
-    },
-  },
+        attribute: 'href'
+      }
+    }
+  }
 }
