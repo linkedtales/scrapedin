@@ -36,7 +36,7 @@ module.exports = {
     }
   },
   positions: {
-    selector: 'section[id=experience-section] li',
+    selector: 'section[id=experience-section] li.pv-profile-section__list-item',
     fields: {
       title: 'h3',
       link: {

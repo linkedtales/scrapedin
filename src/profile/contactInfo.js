@@ -22,15 +22,18 @@ const getContactInfo = async(page) => {
     })
 
   const element = await page.$(SEE_MORE_SELECTOR)
-  await element.click()
-  await new Promise((resolve) => { setTimeout(() => { resolve() }, 500)})
-  
-  const contactInfo = await scrapSection(page, template)
-  const closeButton = await page.$(CLOSE_MODAL_SELECTOR)
-  if(closeButton)
-    await closeButton.click()
+  if(element){
+    await element.click()
+    await new Promise((resolve) => { setTimeout(() => { resolve() }, 500)})
+    
+    const contactInfo = await scrapSection(page, template)
+    const closeButton = await page.$(CLOSE_MODAL_SELECTOR)
+    if(closeButton)
+      await closeButton.click()
 
-  return contactInfo
+    return contactInfo
+  }
+  
 }
 
 module.exports = getContactInfo
