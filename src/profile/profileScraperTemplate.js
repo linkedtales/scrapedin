@@ -39,6 +39,10 @@ module.exports = {
     selector: 'section[id=experience-section] li',
     fields: {
       title: 'h3',
+      link: {
+        selector: 'a',
+        attribute: 'href',
+      },
       companyName: '.pv-entity__secondary-title',
       location: '.pv-entity__location span:last-child',
       description: '.pv-entity__description',
@@ -132,5 +136,31 @@ module.exports = {
       date1: '.pv-entity__date-range span:nth-child(2)',
       date2: '.pv-entity__bullet-item'
     }
-  }
+  },
+  courses: {
+    selector: 'li.pv-accomplishment-entity',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      year: '.pv-accomplishment-entity__course-number',
+    },
+  },
+  languages: {
+    selector: 'li.pv-accomplishment-entity',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      proficiency: '.pv-accomplishment-entity__proficiency',
+    },
+  },
+  projects: {
+    selector: 'li.pv-accomplishment-entity',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      description: '.pv-accomplishment-entity__description',
+      link: {
+        selector: '.pv-accomplishment-entity__external-source',
+        attribute: 'href',
+      },
+    },
+  },
 }

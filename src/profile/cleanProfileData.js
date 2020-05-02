@@ -59,6 +59,7 @@ module.exports = (profile) => {
   if(profile.recommendations.givenCount) {
     profile.recommendations.givenCount = profile.recommendations.givenCount.replace(/[^\d]/g, '')
   }
+
   if(profile.recommendations.received) {
     profile.recommendations.received.forEach((recommendation) => {
       if(recommendation.summary){
@@ -77,5 +78,30 @@ module.exports = (profile) => {
     })
   }
 
+  if(profile.courses){
+    profile.courses = profile.courses.map(({ name, year }) => ({
+      name: name.replace('Course name\n', ''),
+      year: year.replace('Course number\n', ''),
+    }));
+  }
+
+  if(profile.languages){
+    profile.languages = profile.languages.map(({ name, proficiency }) => ({
+      name: name.replace('Language name\n', ''),
+      proficiency,
+    }));
+  }
+
+  if(profile.projects){
+    profile.projects = profile.projects.map(
+      ({ name, date, description, link }) => ({
+        name: name.replace('Project name\n', ''),
+        date,
+        description: description.replace('Project description\n', ''),
+        link,
+      }),
+    );
+  }
+  
   return profile
 }
