@@ -79,10 +79,17 @@ module.exports = (profile) => {
   }
 
   if(profile.courses){
-    profile.courses = profile.courses.map(({ name, year }) => ({
-      name: name.replace('Course name\n', ''),
-      year: year.replace('Course number\n', ''),
-    }));
+    profile.courses = profile.courses.map(({ name, year }) => {
+      const coursesObj = {}
+      if(name) {
+        coursesObj.name = name.replace('Course name\n', '')
+      }
+      if(year) {
+        coursesObj.year = year.replace('Course number\n', '')
+      }
+      return coursesObj
+    }
+    );
   }
 
   if(profile.languages){
