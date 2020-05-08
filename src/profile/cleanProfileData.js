@@ -94,7 +94,7 @@ module.exports = (profile) => {
 
   if(profile.languages){
     profile.languages = profile.languages.map(({ name, proficiency }) => ({
-      name: name.replace('Language name\n', ''),
+      name: name ? name.replace('Language name\n', '') : undefined,
       proficiency,
     }));
   }
@@ -102,9 +102,9 @@ module.exports = (profile) => {
   if(profile.projects){
     profile.projects = profile.projects.map(
       ({ name, date, description, link }) => ({
-        name: name.replace('Project name\n', ''),
+        name: name ? name.replace('Project name\n', '') : undefined,
         date,
-        description: description.replace('Project description\n', ''),
+        description: description ? description.replace('Project description\n', '') : undefined,
         link,
       }),
     );
