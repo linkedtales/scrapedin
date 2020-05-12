@@ -1,5 +1,5 @@
 const path = require('path')
-
+const pkg = require('./package')
 const winston = require('winston')
 const logger = winston.createLogger({
   format: winston.format.combine(
@@ -7,7 +7,7 @@ const logger = winston.createLogger({
     winston.format.simple(),
     winston.format.timestamp(),
     winston.format.colorize(),
-    winston.format.printf(info => `scrapedin: ${info.timestamp} ${info.level}: ${info.message}`)
+    winston.format.printf(info => `${pkg.name}: ${info.timestamp} ${info.level}: ${info.message}`)
   ),
   transports: [new winston.transports.Console()]
 })

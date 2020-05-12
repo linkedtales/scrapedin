@@ -1,4 +1,5 @@
 const logger = require('../logger')(__filename)
+const pkg = require('../package')
 
 module.exports = (profile) => {
   profile.profile = profile.profileLegacy
@@ -7,7 +8,7 @@ module.exports = (profile) => {
   }
 
   if(!profile.profile) {
-    const messageError = 'LinkedIn website changed and scrapedin can\'t read basic data. Please report this issue at https://github.com/linkedtales/scrapedin/issues'
+    const messageError = `LinkedIn website changed and ${pkg.name} ${pkg.version} can't read basic data. Please report this issue at ${pkg.bugs.url}`
     logger.error(messageError, '')
     throw new Error(messageError)
   }

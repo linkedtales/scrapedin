@@ -1,5 +1,6 @@
 const openPage = require('./openPage')
 const logger = require('./logger')(__filename)
+const pkg = require('./package')
 
 module.exports = async (browser, email, password) => {
   const url = 'https://www.linkedin.com/login'
@@ -59,10 +60,10 @@ module.exports = async (browser, email, password) => {
 
       if (page.$(manualChallengeRequested)) {
         logger.warn('manual check was required')
-        return Promise.reject(new Error('linkedin: manual check was required, verify if your login is properly working manually or report this issue: https://github.com/linkedtales/scrapedin/issues'))
+        return Promise.reject(new Error(`linkedin: manual check was required, verify if your login is properly working manually or report this issue: ${pkg.name} ${pkg.version} ${pkg.bugs.url}`))
       }
 
       logger.error('could not find any element to retrieve a proper error')
-      return Promise.reject(new Error('login is not working, please report: https://github.com/linkedtales/scrapedin/issues'))
+      return Promise.reject(new Error(`${pkg.name} ${pkg.version} login is not working, please report: ${pkg.bugs.url}`))
     })
 }
