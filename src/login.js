@@ -59,10 +59,10 @@ module.exports = async (browser, email, password) => {
 
       if (page.$(manualChallengeRequested)) {
         logger.warn('login', 'manual check was required')
-        return Promise.reject(new Error('linkedin: manual check was required, verify if your login is properly working manually or report this issue: https://github.com/leonardiwagner/scrapedin/issues'))
+        return Promise.reject(new Error('linkedin: manual check was required, verify if your login is properly working manually or report this issue: https://github.com/linkedtales/scrapedin/issues'))
       }
 
       logger.error('login', 'could not find any element to retrieve a proper error')
-      return Promise.reject(new Error('login is not working, please report: https://github.com/leonardiwagner/scrapedin/issues'))
+      return Promise.reject(new Error('login is not working, please report: https://github.com/linkedtales/scrapedin/issues'))
     })
 }

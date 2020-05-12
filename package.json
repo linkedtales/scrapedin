@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/leonardiwagner/scrapedin"
+    "url": "https://github.com/linkedtales/scrapedin"
   },
   "bugs": {
-    "url": "https://github.com/leonardiwagner/scrapedin/issues"
+    "url": "https://github.com/linkedtales/scrapedin/issues"
   },
   "author": "Wagner Leonardi <leonardiwagner@gmail.com>",
   "license": "Apache-2.0",

@@ -1,4 +1,4 @@
-![](https://github.com/leonardiwagner/scrapedin/raw/master/logo.png)
+![](https://github.com/linkedtales/scrapedin/raw/master/logo.png)
 [![Build Status](https://travis-ci.org/leonardiwagner/scrapedin.svg?branch=master)](https://travis-ci.org/leonardiwagner/scrapedin)
 [![NPM version](https://img.shields.io/npm/v/scrapedin.svg)](https://www.npmjs.com/package/scrapedin)
 ----
