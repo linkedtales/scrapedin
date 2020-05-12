@@ -1,3 +1,5 @@
+const path = require('path')
+
 const winston = require('winston')
 const logger = winston.createLogger({
   format: winston.format.combine(
@@ -10,12 +12,17 @@ const logger = winston.createLogger({
   transports: [new winston.transports.Console()]
 })
 
-const loggerWrapper = {
-  info: (file, message) => logger.info(`[${file}] ${message}`),
-  warn: (file, message) => logger.warn(`[${file}] ${message}`),
-  error: (file, message, error) => logger.error(`[${file}] ${message}${error && error.stack ? error.stack : (error || '')}`),
-  stopLogging: () => {
-    logger.silent = true
+const loggerWrapper = (absoluteFilePath) => {
+  const file = path.relative(__dirname, absoluteFilePath)
+  // Because this file is in the source code root folder, the above will make all paths relative to it: just the info needed for the log.
+
+  return {
+    info: (message) => logger.info(`[${file}] ${message}`),
+    warn: (message) => logger.warn(`[${file}] ${message}`),
+    error: (message, error) => logger.error(`[${file}] ${message}${error && error.stack ? error.stack : (error || '')}`),
+    stopLogging: () => {
+      logger.silent = true
+    }
   }
 }
 

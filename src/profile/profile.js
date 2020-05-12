@@ -7,31 +7,31 @@ const contactInfo = require('./contactInfo')
 const template = require('./profileScraperTemplate')
 const cleanProfileData = require('./cleanProfileData')
 
-const logger = require('../logger')
+const logger = require('../logger')(__filename)
 
 module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGetContactInfo = false, puppeteerAuthenticate = undefined) => {
-  logger.info('profile', `starting scraping url: ${url}`)
+  logger.info(`starting scraping url: ${url}`)
 
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
   const profilePageIndicatorSelector = '.pv-profile-section'
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
-      logger.warn('profile', 'profile selector was not found')
+      logger.warn('profile selector was not found')
     })
 
-  logger.info('profile', 'scrolling page to the bottom')
+  logger.info('scrolling page to the bottom')
   await scrollToPageBottom(page)
 
   if(waitTimeToScrapMs) {
-    logger.info('profile', `applying 1st delay`)
+    logger.info(`applying 1st delay`)
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
 
-  logger.info('profile', 'clicking on see more buttons')
+  logger.info('clicking on see more buttons')
   await seeMoreButtons.clickAll(page)
 
   if(waitTimeToScrapMs) {
-    logger.info('profile', `applying 2nd delay`)
+    logger.info(`applying 2nd delay`)
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
 
@@ -54,7 +54,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
 
   await page.close()
-  logger.info('profile', `finished scraping url: ${url}`)
+  logger.info(`finished scraping url: ${url}`)
 
   const rawProfile = {
     contact,

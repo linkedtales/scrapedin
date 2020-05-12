@@ -1,7 +1,7 @@
 const faker = require('faker')
 const { expect } = require('chai')
 const profile = require('./profile/profile')
-const logger = require('./logger')
+const logger = require('./logger')(__filename)
 const { mock, match } = require('sinon')
 const profileScraperTemplate = require('./profile/profileScraperTemplate')
 const url = faker.internet.url()

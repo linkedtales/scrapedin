@@ -1,10 +1,10 @@
 const openPage = require('./openPage')
-const logger = require('./logger')
+const logger = require('./logger')(__filename)
 
 module.exports = async (browser, email, password) => {
   const url = 'https://www.linkedin.com/login'
   const page = await openPage({ browser, url })
-  logger.info('login', `logging at: ${url}`)
+  logger.info(`logging at: ${url}`)
 
   await page.goto(url)
   await page.waitFor('#username')
@@ -21,11 +21,11 @@ module.exports = async (browser, email, password) => {
     timeout: 15000
   })
     .then(async () => {
-      logger.info('login', 'logged feed page selector found')
+      logger.info('logged feed page selector found')
       await page.close()
     })
     .catch(async () => {
-      logger.warn('login', 'successful login element was not found')
+      logger.warn('successful login element was not found')
       const emailError = await page.evaluate(() => {
         const e = document.querySelector('div[error-for=username]')
         if (!e) { return false }
@@ -48,21 +48,21 @@ module.exports = async (browser, email, password) => {
       })
 
       if (emailError) {
-        logger.info('login', 'wrong username element found')
+        logger.info('wrong username element found')
         return Promise.reject(new Error(`linkedin: invalid username: ${email}`))
       }
 
       if (passwordError) {
-        logger.info('login', 'wrong password element found')
+        logger.info('wrong password element found')
         return Promise.reject(new Error('linkedin: invalid password'))
       }
 
       if (page.$(manualChallengeRequested)) {
-        logger.warn('login', 'manual check was required')
+        logger.warn('manual check was required')
         return Promise.reject(new Error('linkedin: manual check was required, verify if your login is properly working manually or report this issue: https://github.com/linkedtales/scrapedin/issues'))
       }
 
-      logger.error('login', 'could not find any element to retrieve a proper error')
+      logger.error('could not find any element to retrieve a proper error')
       return Promise.reject(new Error('login is not working, please report: https://github.com/linkedtales/scrapedin/issues'))
     })
 }

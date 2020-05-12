@@ -1,4 +1,4 @@
-const logger = require('../logger')
+const logger = require('../logger')(__filename)
 const seeMoreButtons = [
   {
     id: 'SHOW_MORE_SECTIONS',
@@ -27,7 +27,7 @@ const clickAll = async(page) => {
       elems.map(async(elem) => {
         if (elem) {
           await elem.click()
-            .catch((e) => logger.warn('seeMoreButtons', `couldn't click on ${button.selector}, it's probably invisible`))
+            .catch((e) => logger.warn(`couldn't click on ${button.selector}, it's probably invisible`))
         }
       })
 

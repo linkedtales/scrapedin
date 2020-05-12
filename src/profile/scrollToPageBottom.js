@@ -1,4 +1,4 @@
-const logger = require('../logger')
+const logger = require('../logger')(__filename)
 
 module.exports = async (page) => {
   const MAX_TIMES_TO_SCROLL = 25
@@ -12,7 +12,7 @@ module.exports = async (page) => {
       visible: true,
       timeout: TIMEOUT_BETWEEN_SCROLLS
     }).catch(() => {
-      logger.info('scrollToPageBottom', `scrolling to page bottom (${i + 1})`)
+      logger.info(`scrolling to page bottom (${i + 1})`)
     })
 
     if (hasReachedEnd) {
@@ -20,5 +20,5 @@ module.exports = async (page) => {
     }
   }
 
-  logger.warn('scrollToPageBottom', 'page bottom not found')
+  logger.warn('page bottom not found')
 }

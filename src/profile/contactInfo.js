@@ -1,4 +1,4 @@
-const logger = require('../logger')
+const logger = require('../logger')(__filename)
 const scrapSection = require('../scrapSection')
 
 const SEE_MORE_SELECTOR = 'a[data-control-name=contact_see_more]'
