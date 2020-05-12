@@ -7,6 +7,10 @@ const profileScraperTemplate = require('./profile/profileScraperTemplate')
 const url = faker.internet.url()
 const fakeEvalResult = faker.lorem.words(1)
 
+// Make the linter happy.
+var mocha = require('mocha')
+var it = mocha.it
+
 logger.stopLogging()
 
 it.skip('should get complete profile', async () => {

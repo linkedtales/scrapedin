@@ -19,7 +19,7 @@ module.exports = async (browser, email, password) => {
 
   return page.waitFor('input[role=combobox]', {
     timeout: 15000
-    })
+  })
     .then(async () => {
       logger.info('login', 'logged feed page selector found')
       await page.close()
