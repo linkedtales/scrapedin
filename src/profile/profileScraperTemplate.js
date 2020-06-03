@@ -4,9 +4,9 @@ module.exports = {
   profileLegacy: {
     selector: '.pv-content .pv-top-card--list',
     fields: {
-      name: `${alternativeProfileSelector} .inline`,
-      headline: `${alternativeProfileSelector} .mt1`,
-      location: `${alternativeProfileSelector} .t-16`,
+      name: `.inline`,
+      headline: `.mt1`,
+      location: `.t-16`,
       connections: `.inline-block a`
     }
   },

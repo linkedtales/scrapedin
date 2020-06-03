@@ -2,9 +2,9 @@ const logger = require('../logger')(__filename)
 const pkg = require('../package')
 
 module.exports = (profile) => {
-  profile.profile = profile.profileLegacy
+  profile.profile = profile.profileAlternative
   if(!profile.profile){
-    profile.profile = profile.profileAlternative
+    profile.profile = profile.profileLegacy
   }
 
   if(!profile.profile) {
