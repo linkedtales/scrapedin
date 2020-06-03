@@ -2,12 +2,12 @@ const alternativeProfileSelector = '.core-rail > *:first-child section >'
 
 module.exports = {
   profileLegacy: {
-    selector: '.pv-content .pv-top-card-section',
+    selector: '.pv-content .pv-top-card--list',
     fields: {
-      name: `.pv-top-card-section__name`,
-      headline: `.pv-top-card-section__headline`,
-      location: `.pv-top-card-section__location`,
-      connections: `.pv-top-card-v2-section__connections`
+      name: `${alternativeProfileSelector} .inline`,
+      headline: `${alternativeProfileSelector} .mt1`,
+      location: `${alternativeProfileSelector} .t-16`,
+      connections: `.inline-block a`
     }
   },
   profileAlternative: {
@@ -20,23 +20,23 @@ module.exports = {
 		  attribute: 'src'
 	  },
 	  location: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
-      connections: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`
+    connections: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`
     }
   },
   aboutLegacy: {
-    selector: '.pv-top-card-section__summary',
+    selector: '.pv-oc section',
     fields: {
-      text: '.pv-top-card-section__summary-text'
+      text: 'p'
     }
   },
   aboutAlternative: {
-    selector: '.pv-about-section',
+    selector: '.pv-oc section',
     fields: {
       text: 'p'
     }
   },
   positions: {
-    selector: 'section[id=experience-section] li.pv-profile-section__list-item',
+    selector: 'section[id=experience-section] li .pv-profile-section__card-item-v2',
     fields: {
       title: 'h3',
       link: {
@@ -53,10 +53,10 @@ module.exports = {
       date1: '.pv-entity__date-range span:last-child',
       date2: '.pv-entity__bullet-item-v2',
       roles: {
-        selector: '.pv-entity__role-details',
+        selector: 'section[id=experience-section] li .pv-profile-section__card-item-v2',
         hasChildrenFields: true,
         fields: {
-          title: 'h3 span:last-child',
+          title: 'h3',
           description: '.pv-entity__description',
           date1: '.pv-entity__date-range span:last-child',
           date2: '.pv-entity__bullet-item-v2',
@@ -89,12 +89,12 @@ module.exports = {
   recommendationsCount: {
     selector: '.recommendations-inlining',
     fields: {
-      received: 'artdeco-tab:nth-child(1)',
-      given: 'artdeco-tab:nth-child(2)'
+      received: '.artdeco-tab:nth-child(1)',
+      given: '.artdeco-tab:nth-child(2)'
     }
   },
   recommendationsReceived: {
-    selector: 'artdeco-tabpanel[aria-hidden=false] li.pv-recommendation-entity',
+    selector: '.recommendations-inlining',
     fields: {
       user: {
         selector: '.pv-recommendation-entity__member',
@@ -104,7 +104,7 @@ module.exports = {
     }
   },
   recommendationsGiven: {
-    selector: 'artdeco-tabpanel[aria-hidden=true] li.pv-recommendation-entity',
+    selector: '.artdeco-tabpanel li.pv-recommendation-entity',
     fields: {
       user: {
         selector: '.pv-recommendation-entity__member',
@@ -146,21 +146,21 @@ module.exports = {
     }
   },
   courses: {
-    selector: 'li.pv-accomplishment-entity',
+    selector: '.pv-accomplishments-section',
     fields: {
       name: '.pv-accomplishment-entity__title',
       year: '.pv-accomplishment-entity__course-number'
     }
   },
   languages: {
-    selector: 'li.pv-accomplishment-entity',
+    selector: '.pv-accomplishments-section',
     fields: {
       name: '.pv-accomplishment-entity__title',
       proficiency: '.pv-accomplishment-entity__proficiency',
     }
   },
   projects: {
-    selector: 'li.pv-accomplishment-entity',
+    selector: '.pv-accomplishments-section',
     fields: {
       name: '.pv-accomplishment-entity__title',
       date: '.pv-accomplishment-entity__date',
