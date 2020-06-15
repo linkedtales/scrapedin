@@ -12,8 +12,6 @@ const scrapAccomplishmentPanel = async (page, section) => {
     }, queryString);
 
     return scrapSection(page, template[section]);
-  } else {
-    return new Promise();
   }
 };
 
