@@ -24,7 +24,11 @@ const getContactInfo = async(page) => {
   const element = await page.$(SEE_MORE_SELECTOR)
   if(element){
     await element.click()
-    await new Promise((resolve) => { setTimeout(() => { resolve() }, 500)})
+    const contactInfoIndicatorSelector = '#pv-contact-info'
+    await page.waitFor(contactInfoIndicatorSelector, { timeout: 5000 })
+        .catch(() => {
+          logger.warn('contact info was not found')
+        })
     
     const contactInfo = await scrapSection(page, template)
     const closeButton = await page.$(CLOSE_MODAL_SELECTOR)
