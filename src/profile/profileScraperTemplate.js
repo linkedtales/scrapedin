@@ -1,42 +1,27 @@
-const alternativeProfileSelector = '.core-rail > *:first-child section >'
+const profileSelector = '.core-rail > *:first-child section >'
 
-module.exports = {
-  profileLegacy: {
-    selector: '.pv-content .pv-top-card--list',
+const template = {
+  profile: {
+    selector: '.pv-top-card',
     fields: {
-      name: `.inline`,
-      headline: `.mt1`,
-      location: `.t-16`,
-      connections: `.inline-block a`
-    }
-  },
-  profileAlternative: {
-    selector: '.pv-content',
-    fields: {
-      name: `${alternativeProfileSelector} div:last-child > div:nth-child(2) > div:first-child ul:first-child > li:first-child`,
-      headline: `${alternativeProfileSelector} div:last-child h2`,
+      name: `.pv-top-card--list:first-child li:first-child`,
+      headline: `h2`,
+      location: `.pv-top-card--list:last-child li:first-child`,
+      connections: `.pv-top-card--list:last-child li:nth-child(2)`,
       imageurl: {
-		  selector: `${alternativeProfileSelector} div:last-child > div:first-child > div:first-child [src^="https"]`,
-		  attribute: 'src'
-	  },
-	  location: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
-    connections: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`
+		    selector: `img.pv-top-card__photo`,
+        attribute: 'src'
+      }
     }
   },
-  aboutLegacy: {
-    selector: '.pv-oc section',
-    fields: {
-      text: 'p'
-    }
-  },
-  aboutAlternative: {
-    selector: '.pv-oc section',
+  about: {
+    selector: '.pv-about-section',
     fields: {
       text: 'p'
     }
   },
   positions: {
-    selector: 'section[id=experience-section] li .pv-profile-section__card-item-v2',
+    selector: '#experience-section li',
     fields: {
       title: 'h3',
       link: {
@@ -53,7 +38,7 @@ module.exports = {
       date1: '.pv-entity__date-range span:last-child',
       date2: '.pv-entity__bullet-item-v2',
       roles: {
-        selector: 'section[id=experience-section] li .pv-profile-section__card-item-v2',
+        selector: 'li',
         hasChildrenFields: true,
         fields: {
           title: 'h3',
@@ -66,7 +51,7 @@ module.exports = {
     }
   },
   educations: {
-    selector: 'section[id=education-section] li',
+    selector: '#education-section li',
     fields: {
       title: 'h3',
       degree: 'span[class=pv-entity__comma-item]',
@@ -114,7 +99,7 @@ module.exports = {
     }
   },
   accomplishments: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-section > div',
     fields: {
       count: 'h3 span:last-child',
       title: '.pv-accomplishments-block__title',
@@ -172,3 +157,6 @@ module.exports = {
     }
   }
 }
+
+
+module.exports = template

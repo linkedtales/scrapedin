@@ -16,30 +16,28 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const profilePageIndicatorSelector = '.pv-profile-section'
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
+      //why doesn't throw error instead of continuing scraping?
+      //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
       logger.warn('profile selector was not found')
     })
 
   logger.info('scrolling page to the bottom')
   await scrollToPageBottom(page)
-
+  
   if(waitTimeToScrapMs) {
     logger.info(`applying 1st delay`)
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
 
-  logger.info('clicking on see more buttons')
   await seeMoreButtons.clickAll(page)
 
   if(waitTimeToScrapMs) {
-    logger.info(`applying 2nd delay`)
+    logger.info(`applying 2nd (and last) delay`)
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
 
-  const contact = hasToGetContactInfo ? await contactInfo(page) : {}
-  const [profileLegacy] = await scrapSection(page, template.profileLegacy)
-  const [profileAlternative] = await scrapSection(page, template.profileAlternative)
-  const [aboutLegacy] = await scrapSection(page, template.aboutLegacy)
-  const [aboutAlternative] = await scrapSection(page, template.aboutAlternative)
+  const [profile] = await scrapSection(page, template.profile)
+  const [about] = await scrapSection(page, template.about)
   const positions = await scrapSection(page, template.positions)
   const educations = await scrapSection(page, template.educations)
   const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
@@ -52,16 +50,14 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const projects = await scrapAccomplishmentPanel(page, 'projects')
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
+  const contact = hasToGetContactInfo ? await contactInfo(page) : {}
 
   await page.close()
   logger.info(`finished scraping url: ${url}`)
 
   const rawProfile = {
-    contact,
-    profileLegacy,
-    profileAlternative,
-    aboutLegacy,
-    aboutAlternative,
+    profile,
+    about,
     positions,
     educations,
     skills,
@@ -76,7 +72,8 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     languages,
     projects,
     peopleAlsoViewed,
-    volunteerExperience
+    volunteerExperience,
+    contact
   }
 
   const cleanedProfile = cleanProfileData(rawProfile)
