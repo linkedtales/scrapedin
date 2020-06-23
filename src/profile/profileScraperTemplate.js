@@ -21,7 +21,7 @@ const template = {
     }
   },
   positions: {
-    selector: '#experience-section li',
+    selector: '#experience-section li:not(.pv-entity__position-group-role-item)',
     fields: {
       title: 'h3',
       link: {
