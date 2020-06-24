@@ -12,7 +12,7 @@ const template = {
       selector: '.pv-contact-info__ci-container',
       isMultipleFields: true
     },
-    hrefs: {
+    links: {
       selector: 'a',
       attribute: 'href',
       isMultipleFields: true
