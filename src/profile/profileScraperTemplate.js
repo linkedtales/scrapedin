@@ -124,7 +124,11 @@ const template = {
         selector: 'a',
         attribute: 'href'
       },
-      text: 'p'
+      text: 'p',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      }
     }
   },
   volunteerExperience: {
