@@ -89,6 +89,9 @@ const template = {
       profileImage: {
         selector: 'a img',
         attribute: 'src'
+      },
+      name: {
+        selector: 'a h3'
       }
     }
   },
@@ -103,6 +106,9 @@ const template = {
       profileImage: {
         selector: 'a img',
         attribute: 'src'
+      },
+      name: {
+        selector: 'a h3'
       }
     }
   },
@@ -128,6 +134,9 @@ const template = {
       profileImage: {
         selector: 'a img',
         attribute: 'src'
+      },
+      name: {
+        selector: '.name'
       }
     }
   },
