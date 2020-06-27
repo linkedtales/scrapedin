@@ -85,7 +85,11 @@ const template = {
         selector: '.pv-recommendation-entity__member',
         attribute: 'href'
       },
-      text: 'blockquote.pv-recommendation-entity__text'
+      text: 'blockquote.pv-recommendation-entity__text',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      }
     }
   },
   recommendationsGiven: {
@@ -95,7 +99,11 @@ const template = {
         selector: '.pv-recommendation-entity__member',
         attribute: 'href'
       },
-      text: 'blockquote.pv-recommendation-entity__text'
+      text: 'blockquote.pv-recommendation-entity__text',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      }
     }
   },
   accomplishments: {
