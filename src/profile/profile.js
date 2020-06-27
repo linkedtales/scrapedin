@@ -46,8 +46,13 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const skills = await scrapSection(page, template.skills)
   const accomplishments = await scrapSection(page, template.accomplishments)
   const courses = await scrapAccomplishmentPanel(page, 'courses')
+  const honors = await scrapAccomplishmentPanel(page, 'honors')
   const languages = await scrapAccomplishmentPanel(page, 'languages')
+  const organizations = await scrapAccomplishmentPanel(page, 'organizations')
+  const patents = await scrapAccomplishmentPanel(page, 'patents')
   const projects = await scrapAccomplishmentPanel(page, 'projects')
+  const publications = await scrapAccomplishmentPanel(page, 'publications')
+  const testScores = await scrapAccomplishmentPanel(page, 'testScores');
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
   const contact = hasToGetContactInfo ? await contactInfo(page) : {}
@@ -69,13 +74,17 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     },
     accomplishments,
     courses,
+    honors,
     languages,
+    organizations,
+    patents,
     projects,
+    publications,
+    testScores,
     peopleAlsoViewed,
     volunteerExperience,
     contact
   }
-
   const cleanedProfile = cleanProfileData(rawProfile)
   return cleanedProfile
 }

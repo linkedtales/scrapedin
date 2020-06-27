@@ -131,21 +131,39 @@ const template = {
     }
   },
   courses: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.courses li', 
     fields: {
       name: '.pv-accomplishment-entity__title',
       year: '.pv-accomplishment-entity__course-number'
     }
   },
+  honors: {
+    selector: '.pv-accomplishments-block.honors li',
+    fields: {
+      name: '.pv-accomplishment-entity__title'
+    }  
+  },
   languages: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.languages li',
     fields: {
       name: '.pv-accomplishment-entity__title',
       proficiency: '.pv-accomplishment-entity__proficiency',
     }
   },
+  organizations: {
+    selector: '.pv-accomplishments-block.organizations li',
+    fields: {
+      name: '.pv-accomplishment-entity__title'
+    }  
+  },
+  patents: {
+    selector: '.pv-accomplishments-block.patents li',
+    fields: {
+      name: '.pv-accomplishment-entity__title'
+    }  
+  },
   projects: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.projects li', 
     fields: {
       name: '.pv-accomplishment-entity__title',
       date: '.pv-accomplishment-entity__date',
@@ -155,7 +173,19 @@ const template = {
         attribute: 'href'
       }
     }
-  }
+  },
+  publications: {
+    selector: '.pv-accomplishments-block.publications li',
+    fields: {
+      name: '.pv-accomplishment-entity__title'
+    }  
+  },
+  testScores: {
+    selector: '.pv-accomplishments-block.test-scores li',
+    fields: {
+      name: '.pv-accomplishment-entity__title'
+    }  
+  },
 }
 
 
