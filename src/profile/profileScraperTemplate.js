@@ -140,7 +140,10 @@ const template = {
   honors: {
     selector: '.pv-accomplishments-block.honors li',
     fields: {
-      name: '.pv-accomplishment-entity__title'
+      name: '.pv-accomplishment-entity__title',
+      date: 'pv-accomplishment-entity__date',
+      issuer: 'pv-accomplishment-entity__issuer',
+      description: 'pv-accomplishment-entity__description'
     }  
   },
   languages: {
@@ -153,13 +156,23 @@ const template = {
   organizations: {
     selector: '.pv-accomplishments-block.organizations li',
     fields: {
-      name: '.pv-accomplishment-entity__title'
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      position: '.pv-accomplishment-entity__position',
+      description: '.pv-accomplishment-entity__description'
     }  
   },
   patents: {
     selector: '.pv-accomplishments-block.patents li',
     fields: {
-      name: '.pv-accomplishment-entity__title'
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      issuer: '.pv-accomplishment-entity__issuer',
+      description: '.pv-accomplishment-entity__description',
+      link: {
+        selector: '.pv-accomplishment-entity__external-source',
+        attribute: 'href'
+      }
     }  
   },
   projects: {
@@ -178,12 +191,22 @@ const template = {
     selector: '.pv-accomplishments-block.publications li',
     fields: {
       name: '.pv-accomplishment-entity__title'
-    }  
+    },
+    date: '.pv-accomplishment-entity__date',
+    publisher: '.pv-accomplishment-entity__publisher',
+    description: '.pv-accomplishment-entity__description',
+    link: {
+      selector: '.pv-accomplishment-entity__external-source',
+      attribute: 'href'
+    }
   },
   testScores: {
     selector: '.pv-accomplishments-block.test-scores li',
     fields: {
-      name: '.pv-accomplishment-entity__title'
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      score: '.pv-accomplishment-entity__score',
+      description: '.pv-accomplishment-entity__description'
     }  
   },
 }
