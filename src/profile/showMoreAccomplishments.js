@@ -44,4 +44,4 @@ const showAccomplishments = async (page) => {
   return
 }
 
-module.exports = { showAccomplishments }
+module.exports = showAccomplishments;
