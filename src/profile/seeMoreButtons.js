@@ -1,4 +1,6 @@
 const logger = require('../logger')(__filename)
+const showMoreAccomplishments = require('./showMoreAccomplishments')
+
 const seeMoreButtons = [
   {
     id: 'SHOW_MORE_ABOUT',
@@ -36,7 +38,7 @@ const clickAll = async(page) => {
     }
   }
 
-  return
+  return await showMoreAccomplishments(page);
 }
 
 module.exports = { clickAll }
