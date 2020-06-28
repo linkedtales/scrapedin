@@ -1,6 +1,7 @@
 const openPage = require('../openPage')
 const scrapSection = require('../scrapSection')
 const scrapAccomplishmentPanel = require('./scrapAccomplishmentPanel')
+const scrapConnections = require('./scrapConnections')
 const scrollToPageBottom = require('./scrollToPageBottom')
 const seeMoreButtons = require('./seeMoreButtons')
 const contactInfo = require('./contactInfo')
@@ -36,6 +37,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
 
+
   const [profile] = await scrapSection(page, template.profile)
   const [about] = await scrapSection(page, template.about)
   const positions = await scrapSection(page, template.positions)
@@ -57,8 +59,15 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
   const contact = hasToGetContactInfo ? await contactInfo(page) : {}
 
+
+  const connections = await scrapConnections(browser, page);
+
+
   await page.close()
   logger.info(`finished scraping url: ${url}`)
+
+
+
 
   const rawProfile = {
     profile,
@@ -83,7 +92,8 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     testScores,
     peopleAlsoViewed,
     volunteerExperience,
-    contact
+    contact,
+    connections
   }
   const cleanedProfile = cleanProfileData(rawProfile)
   return cleanedProfile

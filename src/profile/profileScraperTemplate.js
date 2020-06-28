@@ -209,6 +209,19 @@ const template = {
       description: '.pv-accomplishment-entity__description'
     }  
   },
+  connections: {
+    selector: 'li.search-result',
+    fields: {
+      name: '.name.actor-name',
+      distance: '.dist-value',
+      position: 'p.subline-level-1',
+      location: 'p.subline-level-2',
+      link: {
+        selector: 'a.search-result__result-link',
+        attribute: 'href'
+      }
+    }  
+  }
 }
 
 
