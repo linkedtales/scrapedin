@@ -59,16 +59,22 @@ module.exports = (profile) => {
   }
 
   if(profile.courses){
-    profile.courses = profile.courses.map(({ name, year }) => {
-      const coursesObj = {}
-      if(name) {
-        coursesObj.name = name.replace('Course name\n', '')
-      }
-      if(year) {
-        coursesObj.year = year.replace('Course number\n', '')
-      }
-      return coursesObj
-    }
+    profile.courses = profile.courses.map(
+      ({ name, year }) => ({
+        name: name ? name.replace('Course name\n', '') : undefined,
+        year: year ? year.replace('Course number\n', '') :undefined
+      })
+    );
+  }
+
+  if(profile.honors){
+    profile.honors = profile.honors.map(
+      ({ name, date, issuer, description }) => ({
+        name: name ? name.replace('honor title\n', '') : undefined,
+        date,
+        issuer: issuer ? issuer.replace('honor issuer\n', '') : undefined,
+        description: description ? description.replace('honor description\n', '') : undefined
+      })
     );
   }
 
@@ -90,5 +96,51 @@ module.exports = (profile) => {
     );
   }
   
+  if (profile.organizations){
+    profile.organizations = profile.organizations.map(
+       ({ name, date, position, description }) => ({
+         name: name ? name.replace('organization name\n', '') : undefined,
+         date,
+         position: position ? position.replace('organization position\n', '') : undefined,
+         description: description ? description.replace('organization description\n', '') : undefined         
+       })
+    );
+  }
+
+  if(profile.patents){
+    profile.patents = profile.patents.map(
+      ({ name, date, issuer, description, link }) => ({
+        name: name ? name.replace('Patent title\n', '') : undefined,
+        date,
+        issuer: issuer ? issuer.replace('Patent issuer and number\n', '') : undefined,
+        description: description ? description.replace('Patent description\n', '') : undefined,
+        link
+      })
+    );
+  }
+
+  if(profile.publications){
+    profile.publications = profile.publications.map(
+      ({ name, date, publisher, description, link }) => ({
+        name: name ? name.replace('publication title\n','') : undefined,
+        date,
+        publisher: publisher ? publisher.replace('publication description\n','') : undefined,
+        description: description ? description.replace('publication description\n', '') : undefined,
+        link
+      })
+    );
+  }
+
+  if (profile.testScores){
+    profile.testScores = profile.testScores.map(
+      ({ name, date, score, description }) => ({
+        name: name ? name.replace('Test name\n', '') : undefined,
+        date,
+        score,
+        description: description ? description.replace('Description\n', '') : undefined
+      })
+    )
+  }
+
   return profile
 }

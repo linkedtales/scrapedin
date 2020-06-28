@@ -52,7 +52,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const patents = await scrapAccomplishmentPanel(page, 'patents')
   const projects = await scrapAccomplishmentPanel(page, 'projects')
   const publications = await scrapAccomplishmentPanel(page, 'publications')
-  const testScores = await scrapAccomplishmentPanel(page, 'testScores');
+  const testScores = await scrapAccomplishmentPanel(page, 'test-scores');
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
   const contact = hasToGetContactInfo ? await contactInfo(page) : {}
