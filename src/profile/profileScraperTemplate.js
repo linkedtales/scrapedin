@@ -92,6 +92,9 @@ const template = {
       },
       name: {
         selector: 'a h3'
+      },
+      userDescription: {
+        selector: '.pv-recommendation-entity__headline'
       }
     }
   },
@@ -109,6 +112,9 @@ const template = {
       },
       name: {
         selector: 'a h3'
+      },
+      userDescription: {
+        selector: '.pv-recommendation-entity__headline'
       }
     }
   },
