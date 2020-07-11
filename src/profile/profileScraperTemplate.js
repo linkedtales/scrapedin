@@ -61,7 +61,8 @@ const template = {
       },
 	    fieldOfStudy: 'p.pv-entity__fos span:nth-child(2)',
       date1: '.pv-entity__dates time:nth-child(1)',
-      date2: '.pv-entity__dates time:nth-child(2)'
+      date2: '.pv-entity__dates time:nth-child(2)',
+      description: '.pv-entity__description'
     }
   },
   skills: {
