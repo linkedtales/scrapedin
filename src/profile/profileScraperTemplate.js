@@ -85,7 +85,17 @@ const template = {
         selector: '.pv-recommendation-entity__member',
         attribute: 'href'
       },
-      text: 'blockquote.pv-recommendation-entity__text'
+      text: 'blockquote.pv-recommendation-entity__text',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      },
+      name: {
+        selector: 'a h3'
+      },
+      userDescription: {
+        selector: '.pv-recommendation-entity__headline'
+      }
     }
   },
   recommendationsGiven: {
@@ -95,7 +105,17 @@ const template = {
         selector: '.pv-recommendation-entity__member',
         attribute: 'href'
       },
-      text: 'blockquote.pv-recommendation-entity__text'
+      text: 'blockquote.pv-recommendation-entity__text',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      },
+      name: {
+        selector: 'a h3'
+      },
+      userDescription: {
+        selector: '.pv-recommendation-entity__headline'
+      }
     }
   },
   accomplishments: {
@@ -116,7 +136,14 @@ const template = {
         selector: 'a',
         attribute: 'href'
       },
-      text: 'p'
+      text: 'p',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      },
+      name: {
+        selector: '.name'
+      }
     }
   },
   volunteerExperience: {
