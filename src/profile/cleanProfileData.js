@@ -1,34 +1,14 @@
-const logger = require('../logger')
+const logger = require('../logger')(__filename)
+const pkg = require('../package')
 
 module.exports = (profile) => {
-  profile.profile = profile.profileLegacy
-  if(!profile.profile){
-    profile.profile = profile.profileAlternative
-  }
-
-  if(!profile.profile) {
-    const messageError = 'LinkedIn website changed and scrapedin can\'t read basic data. Please report this issue at https://github.com/linkedtales/scrapedin/issues'
-    logger.error('cleanMessageData', messageError, '')
+  if(!profile.profile.name) {
+    const messageError = `LinkedIn website changed and ${pkg.name} ${pkg.version} can't read basic data. Please report this issue at ${pkg.bugs.url}`
+    logger.error(messageError, '')
     throw new Error(messageError)
   }
 
-  if(profile.profile.connections) {
-    profile.profile.connections = profile.profile.connections.replace(' connections', '')
-
-    if(profile.profile.connections.indexOf('followers') > -1){
-      profile.profile.followers = profile.profile.connections
-                                                  .replace(' followers', '')
-                                                  .replace(',', '')
-    }
-  }
-
-  //backward compatibility only
-  if(profile.aboutLegacy && profile.aboutLegacy.text) {
-    profile.profile.summary = profile.aboutLegacy.text
-  }
-  if(profile.aboutAlternative && profile.aboutAlternative.text) {
-    profile.profile.summary = profile.aboutAlternative.text
-  }
+  profile.profile.summary = profile.about.text
 
   profile.positions.forEach((position) => {
     if(position.title){
@@ -52,8 +32,13 @@ module.exports = (profile) => {
     }
   })
 
-  profile.recommendations.receivedCount = profile.recommendations.receivedCount.replace(/[^\d]/g, '')
-  profile.recommendations.givenCount = profile.recommendations.givenCount.replace(/[^\d]/g, '')
+  if(profile.recommendations.receivedCount) {
+    profile.recommendations.receivedCount = profile.recommendations.receivedCount.replace(/[^\d]/g, '')
+  }
+
+  if(profile.recommendations.givenCount) {
+    profile.recommendations.givenCount = profile.recommendations.givenCount.replace(/[^\d]/g, '')
+  }
 
   if(profile.recommendations.received) {
     profile.recommendations.received.forEach((recommendation) => {
@@ -73,5 +58,37 @@ module.exports = (profile) => {
     })
   }
 
+  if(profile.courses){
+    profile.courses = profile.courses.map(({ name, year }) => {
+      const coursesObj = {}
+      if(name) {
+        coursesObj.name = name.replace('Course name\n', '')
+      }
+      if(year) {
+        coursesObj.year = year.replace('Course number\n', '')
+      }
+      return coursesObj
+    }
+    );
+  }
+
+  if(profile.languages){
+    profile.languages = profile.languages.map(({ name, proficiency }) => ({
+      name: name ? name.replace('Language name\n', '') : undefined,
+      proficiency,
+    }));
+  }
+
+  if(profile.projects){
+    profile.projects = profile.projects.map(
+      ({ name, date, description, link }) => ({
+        name: name ? name.replace('Project name\n', '') : undefined,
+        date,
+        description: description ? description.replace('Project description\n', '') : undefined,
+        link,
+      }),
+    );
+  }
+  
   return profile
 }

@@ -1,86 +1,270 @@
 const faker = require('faker')
 const { expect } = require('chai')
 const profile = require('./profile/profile')
-const logger = require('./logger')
+const logger = require('./logger')(__filename)
 const { mock, match } = require('sinon')
 const profileScraperTemplate = require('./profile/profileScraperTemplate')
 const url = faker.internet.url()
 const fakeEvalResult = faker.lorem.words(1)
 
+// Make the linter happy.
+var mocha = require('mocha')
+var it = mocha.it
+
 logger.stopLogging()
 
-it.skip('should get complete profile', async () => {
+it('should get complete profile', async () => {
   const browserMock = prepareBrowserMock()
-  const result = await profile(browserMock, url, 0)
+  const result = await profile(browserMock, [], url, 0)
   const expectedResult = {
+    aboutAlternative: {
+      text: fakeEvalResult
+    },
+    aboutLegacy: {
+      text: fakeEvalResult
+    },
+    accomplishments: [
+      {
+        count: fakeEvalResult,
+        items: [fakeEvalResult],
+        title: fakeEvalResult
+      }
+    ],
+    contact: {},
+    courses: [
+      {
+        name: fakeEvalResult,
+        year: fakeEvalResult
+      }
+    ],
+    educations: [
+      {
+        date1: fakeEvalResult,
+        date2: fakeEvalResult,
+        degree: fakeEvalResult,
+        fieldOfStudy: fakeEvalResult,
+        url: fakeEvalResult,
+        title: fakeEvalResult
+      }
+    ],
+    languages: [
+      {
+        name: fakeEvalResult,
+        proficiency: fakeEvalResult
+      }
+    ],
+    peopleAlsoViewed: [
+      {
+        text: fakeEvalResult,
+        user: fakeEvalResult
+      }
+    ],
+    positions: [
+      {
+        companyName: fakeEvalResult,
+        date1: fakeEvalResult,
+        date2: fakeEvalResult,
+        description: fakeEvalResult,
+        link: fakeEvalResult,
+        location: fakeEvalResult,
+        roles: [
+          {
+            date1: fakeEvalResult,
+            date2: fakeEvalResult,
+            description: fakeEvalResult,
+            location: fakeEvalResult,
+            title: fakeEvalResult
+          }
+        ],
+        title: fakeEvalResult,
+        url: fakeEvalResult
+      }
+    ],
     profile: {
-      name: fakeEvalResult,
+      connections: fakeEvalResult,
       headline: fakeEvalResult,
       location: fakeEvalResult,
-      summary: fakeEvalResult,
-      connections: fakeEvalResult
+      name: fakeEvalResult,
+      summary: fakeEvalResult
     },
-    positions: [{
-      title: fakeEvalResult,
-      companyName: fakeEvalResult,
+    profileAlternative: {
+      connections: fakeEvalResult,
+      headline: fakeEvalResult,
+      imageurl: fakeEvalResult,
       location: fakeEvalResult,
-      description: fakeEvalResult,
-      date1: fakeEvalResult,
-      date2: fakeEvalResult,
-      roles: [
-        { title: fakeEvalResult, date1: fakeEvalResult, date2: fakeEvalResult, location: fakeEvalResult }
-      ]
-    }],
-    educations: [{
-      title: fakeEvalResult,
-      degree: fakeEvalResult,
-      date1: fakeEvalResult,
-      date2: fakeEvalResult
-    }],
-    skills: [
-      { title: fakeEvalResult, count: fakeEvalResult }
+      name: fakeEvalResult
+    },
+    profileLegacy: {
+      connections: fakeEvalResult,
+      headline: fakeEvalResult,
+      location: fakeEvalResult,
+      name: fakeEvalResult,
+      summary: fakeEvalResult
+    },
+    projects: [
+      {
+        date: fakeEvalResult,
+        description: fakeEvalResult,
+        link: fakeEvalResult,
+        name: fakeEvalResult
+      }
     ],
     recommendations: {
+      given: [
+        {
+          text: fakeEvalResult,
+          user: fakeEvalResult
+        }
+      ],
       givenCount: '',
-      receivedCount: '',
-      given: [{ text: fakeEvalResult, user: fakeEvalResult }],
-      received: [{ text: fakeEvalResult, user: fakeEvalResult }]
+      received: [
+        {
+          text: fakeEvalResult,
+          user: fakeEvalResult
+        }
+      ],
+      receivedCount: ''
     },
-    accomplishments: [{
-      count: fakeEvalResult,
-      items: [fakeEvalResult],
-      title: fakeEvalResult
-    }],
-    volunteerExperience: [{
-      title: fakeEvalResult,
-      description: fakeEvalResult,
-      location: fakeEvalResult,
-      date1: fakeEvalResult,
-      date2: fakeEvalResult,
-      experience: fakeEvalResult
-    }],
-    peopleAlsoViewed: [{
-      user: fakeEvalResult,
-      text: fakeEvalResult
-    }]
+    skills: [
+      {
+        count: fakeEvalResult,
+        title: fakeEvalResult
+      }
+    ],
+    volunteerExperience: [
+      {
+        date1: fakeEvalResult,
+        date2: fakeEvalResult,
+        description: fakeEvalResult,
+        experience: fakeEvalResult,
+        location: fakeEvalResult,
+        title: fakeEvalResult
+      }
+    ]
   }
 
   expect(result).to.deep.equals(expectedResult)
 })
 
-it.skip('should get an incomplete profile', async () => {
+it('should get an incomplete profile', async () => {
   const browser = prepareBrowserMock(true)
 
-  const result = await profile(browser, url, 0)
+  const result = await profile(browser, [], url, 0)
   const expectedResult = {
-    profile: { name: '', headline: '', location: '', summary: '', connections: '' },
-    positions: [{ companyName: '', description: '', date1: '', date2: '', location: '', roles: [{ title: '', date1: '', date2: '', location: '' }] }],
-    educations: [{ degree: '', date1: '', date2: '' }],
-    skills: [{ title: '', count: '' }],
-    recommendations: { givenCount: '', receivedCount: '', given: [{ user: '', text: '' }], received: [{ user: '', text: '' }] },
-    accomplishments: [{ count: '', items: [fakeEvalResult], title: '' }],
-    volunteerExperience: [{ experience: '', date1: '', date2: '', description: '', location: '' }],
-    peopleAlsoViewed: [{ user: '', text: '' }]
+    aboutAlternative: {
+      text: ''
+    },
+    aboutLegacy: {
+      text: ''
+    },
+    accomplishments: [
+      {
+        count: '',
+        items: [fakeEvalResult],
+        title: ''
+      }
+    ],
+    contact: {},
+    courses: [{}],
+    educations: [
+      {
+        date1: '',
+        date2: '',
+        degree: '',
+        fieldOfStudy: '',
+        url: ''
+      }
+    ],
+    languages: [
+      {
+        name: undefined,
+        proficiency: ''
+      }
+    ],
+    peopleAlsoViewed: [
+      {
+        text: '',
+        user: ''
+      }
+    ],
+    positions: [
+      {
+        companyName: '',
+        date1: '',
+        date2: '',
+        description: '',
+        link: '',
+        location: '',
+        roles: [
+          {
+            date1: '',
+            date2: '',
+            description: '',
+            location: '',
+            title: ''
+          }
+        ],
+        url: ''
+      }
+    ],
+    profile: {
+      connections: '',
+      headline: '',
+      location: '',
+      name: ''
+    },
+    profileAlternative: {
+      connections: '',
+      headline: '',
+      imageurl: '',
+      location: '',
+      name: ''
+    },
+    profileLegacy: {
+      connections: '',
+      headline: '',
+      location: '',
+      name: ''
+    },
+    projects: [
+      {
+        date: '',
+        description: undefined,
+        link: '',
+        name: undefined
+      }
+    ],
+    recommendations: {
+      given: [
+        {
+          text: '',
+          user: ''
+        }
+      ],
+      givenCount: '',
+      received: [
+        {
+          text: '',
+          user: ''
+        }
+      ],
+      receivedCount: ''
+    },
+    skills: [
+      {
+        count: '',
+        title: ''
+      }
+    ],
+    volunteerExperience: [
+      {
+        date1: '',
+        date2: '',
+        description: '',
+        experience: '',
+        location: ''
+      }
+    ]
   }
 
   expect(result).to.deep.equals(expectedResult)
@@ -94,20 +278,41 @@ const prepareBrowserMock = (isIncompleteProfile) => {
     this.setViewport = mock().once().resolves()
     this.waitFor = mock().once().resolves()
 
-    this.evaluate = mock().twice().withExactArgs(match.func).atLeast(1).resolves()
-    this.waitForSelector = mock().withExactArgs(match.string, match.object)
+    this.evaluate = mock()
       .twice()
-      .onCall(0).rejects()
-      .onCall(1).resolves(true)
+      .withExactArgs(match.func)
+      .atLeast(1)
+      .resolves()
+    this.waitForSelector = mock()
+      .withExactArgs(match.string, match.object)
+      .twice()
+      .onCall(0)
+      .rejects()
+      .onCall(1)
+      .resolves(true)
+
+    this.setCookie = mock().once().withExactArgs().resolves()
 
     this.click = mock().atLeast(1).withExactArgs().resolves()
-    this.$$eval = mock().withExactArgs(match.string, match.func).atLeast(1)
-      .callsArgWith(1, [fakeEvalResult])
+    this.$$eval = mock()
+      .withExactArgs(match.string, match.func)
+      .atLeast(1)
+      .callsArgWith(1, [{ innerText: fakeEvalResult }])
       .resolves([fakeEvalResult])
 
     this.$eval = mock()
-      .withExactArgs(match.string, match.func).atLeast(1)
-      .callsArgWith(1, isIncompleteProfile ? undefined : fakeEvalResult)
+      .withExactArgs(match.string, match.func)
+      .atLeast(1)
+      .callsArgWith(
+        1,
+        isIncompleteProfile
+          ? undefined
+          : {
+            innerText: fakeEvalResult,
+            src: fakeEvalResult,
+            href: fakeEvalResult
+          }
+      )
       .resolves(isIncompleteProfile ? '' : fakeEvalResult)
 
     this.close = mock().once().resolves()
@@ -118,8 +323,9 @@ const prepareBrowserMock = (isIncompleteProfile) => {
   if (isIncompleteProfile) {
     // I couldn't do that with sinon :(
     Page.prototype.$ = (arg) =>
-      (arg === profileScraperTemplate.positions.fields.title)
-        ? undefined : Promise.resolve(new Page())
+      arg === profileScraperTemplate.positions.fields.title
+        ? undefined
+        : Promise.resolve(new Page())
   }
 
   Page.prototype.$$ = () => [new Page()]

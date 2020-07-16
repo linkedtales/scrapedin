@@ -1,6 +1,6 @@
 {
   "name": "scrapedin",
-  "version": "1.0.12",
+  "version": "1.0.20",
   "description": "linkedin scraper for 2019 website",
   "keywords": [
     "linkedin",
@@ -15,25 +15,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/leonardiwagner/scrapedin"
+    "url": "https://github.com/linkedtales/scrapedin"
   },
   "bugs": {
-    "url": "https://github.com/leonardiwagner/scrapedin/issues"
+    "url": "https://github.com/linkedtales/scrapedin/issues"
   },
   "author": "Wagner Leonardi <leonardiwagner@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "puppeteer": "^1.13.0",
-    "winston": "^3.1.0"
+    "puppeteer": "1.13.0",
+    "winston": "3.1.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "coveralls": "^3.0.2",
-    "faker": "^4.1.0",
-    "mocha": "^5.2.0",
+    "chai": "4.2.0",
+    "coveralls": "3.0.2",
+    "faker": "4.1.0",
+    "mocha": "5.2.0",
     "nyc": "^13.1.0",
-    "sinon": "^7.2.2",
-    "standard": "^12.0.1"
+    "sinon": "7.2.2",
+    "standard": "12.0.1"
   },
   "engines": {
     "node": ">= 7.6.0"

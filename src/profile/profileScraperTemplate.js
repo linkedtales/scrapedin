@@ -1,54 +1,47 @@
-const alternativeProfileSelector = '.core-rail > *:first-child section >'
+const profileSelector = '.core-rail > *:first-child section >'
 
-module.exports = {
-  profileLegacy: {
-    selector: '.pv-content .pv-top-card-section',
+const template = {
+  profile: {
+    selector: '.pv-top-card',
     fields: {
-      name: `.pv-top-card-section__name`,
-      headline: `.pv-top-card-section__headline`,
-      location: `.pv-top-card-section__location`,
-      connections: `.pv-top-card-v2-section__connections`
-    }
-  },
-  profileAlternative: {
-    selector: '.pv-content',
-    fields: {
-      name: `${alternativeProfileSelector} div:last-child > div:nth-child(2) > div:first-child ul:first-child > li:first-child`,
-      headline: `${alternativeProfileSelector} div:last-child h2`,
+      name: `.pv-top-card--list:first-child li:first-child`,
+      headline: `h2`,
+      location: `.pv-top-card--list:last-child li:first-child`,
+      connections: `.pv-top-card--list:last-child li:nth-child(2)`,
       imageurl: {
-		  selector: `${alternativeProfileSelector} div:last-child > div:first-child > div:first-child [src^="https"]`,
-		  attribute: 'src'
-	  },
-	  location: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:first-child`,
-      connections: `${alternativeProfileSelector} div:last-child > div:last-child > div:first-child ul:last-child > li:nth-child(2)`
+		    selector: `img.pv-top-card__photo`,
+        attribute: 'src'
+      }
     }
   },
-  aboutLegacy: {
-    selector: '.pv-top-card-section__summary',
-    fields: {
-      text: '.pv-top-card-section__summary-text'
-    }
-  },
-  aboutAlternative: {
+  about: {
     selector: '.pv-about-section',
     fields: {
       text: 'p'
     }
   },
   positions: {
-    selector: 'section[id=experience-section] li',
+    selector: '#experience-section li:not(.pv-entity__position-group-role-item)',
     fields: {
       title: 'h3',
+      link: {
+        selector: 'a',
+        attribute: 'href',
+      },
+      url: {
+        selector: 'a',
+        attribute: 'href'
+      },
       companyName: '.pv-entity__secondary-title',
       location: '.pv-entity__location span:last-child',
       description: '.pv-entity__description',
       date1: '.pv-entity__date-range span:last-child',
       date2: '.pv-entity__bullet-item-v2',
       roles: {
-        selector: '.pv-entity__role-details',
+        selector: 'li',
         hasChildrenFields: true,
         fields: {
-          title: 'h3 span:last-child',
+          title: 'h3',
           description: '.pv-entity__description',
           date1: '.pv-entity__date-range span:last-child',
           date2: '.pv-entity__bullet-item-v2',
@@ -58,11 +51,15 @@ module.exports = {
     }
   },
   educations: {
-    selector: 'section[id=education-section] li',
+    selector: '#education-section li',
     fields: {
       title: 'h3',
       degree: 'span[class=pv-entity__comma-item]',
-	  fieldofstudy: 'p.pv-entity__fos span:nth-child(2)',
+      url: {
+        selector: 'a',
+        attribute: 'href'
+      },
+	    fieldOfStudy: 'p.pv-entity__fos span:nth-child(2)',
       date1: '.pv-entity__dates time:nth-child(1)',
       date2: '.pv-entity__dates time:nth-child(2)'
     }
@@ -77,12 +74,12 @@ module.exports = {
   recommendationsCount: {
     selector: '.recommendations-inlining',
     fields: {
-      received: 'artdeco-tab:nth-child(1)',
-      given: 'artdeco-tab:nth-child(2)'
+      received: '.artdeco-tab:nth-child(1)',
+      given: '.artdeco-tab:nth-child(2)'
     }
   },
   recommendationsReceived: {
-    selector: 'artdeco-tabpanel[aria-hidden=false] li.pv-recommendation-entity',
+    selector: '.recommendations-inlining',
     fields: {
       user: {
         selector: '.pv-recommendation-entity__member',
@@ -92,7 +89,7 @@ module.exports = {
     }
   },
   recommendationsGiven: {
-    selector: 'artdeco-tabpanel[aria-hidden=true] li.pv-recommendation-entity',
+    selector: '.artdeco-tabpanel li.pv-recommendation-entity',
     fields: {
       user: {
         selector: '.pv-recommendation-entity__member',
@@ -102,7 +99,7 @@ module.exports = {
     }
   },
   accomplishments: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-section > div',
     fields: {
       count: 'h3 span:last-child',
       title: '.pv-accomplishments-block__title',
@@ -132,5 +129,34 @@ module.exports = {
       date1: '.pv-entity__date-range span:nth-child(2)',
       date2: '.pv-entity__bullet-item'
     }
+  },
+  courses: {
+    selector: '.pv-accomplishments-section',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      year: '.pv-accomplishment-entity__course-number'
+    }
+  },
+  languages: {
+    selector: '.pv-accomplishments-section',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      proficiency: '.pv-accomplishment-entity__proficiency',
+    }
+  },
+  projects: {
+    selector: '.pv-accomplishments-section',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      description: '.pv-accomplishment-entity__description',
+      link: {
+        selector: '.pv-accomplishment-entity__external-source',
+        attribute: 'href'
+      }
+    }
   }
 }
+
+
+module.exports = template
