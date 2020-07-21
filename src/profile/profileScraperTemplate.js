@@ -61,7 +61,8 @@ const template = {
       },
 	    fieldOfStudy: 'p.pv-entity__fos span:nth-child(2)',
       date1: '.pv-entity__dates time:nth-child(1)',
-      date2: '.pv-entity__dates time:nth-child(2)'
+      date2: '.pv-entity__dates time:nth-child(2)',
+      description: '.pv-entity__description'
     }
   },
   skills: {
@@ -85,7 +86,17 @@ const template = {
         selector: '.pv-recommendation-entity__member',
         attribute: 'href'
       },
-      text: 'blockquote.pv-recommendation-entity__text'
+      text: 'blockquote.pv-recommendation-entity__text',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      },
+      name: {
+        selector: 'a h3'
+      },
+      userDescription: {
+        selector: '.pv-recommendation-entity__headline'
+      }
     }
   },
   recommendationsGiven: {
@@ -95,7 +106,17 @@ const template = {
         selector: '.pv-recommendation-entity__member',
         attribute: 'href'
       },
-      text: 'blockquote.pv-recommendation-entity__text'
+      text: 'blockquote.pv-recommendation-entity__text',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      },
+      name: {
+        selector: 'a h3'
+      },
+      userDescription: {
+        selector: '.pv-recommendation-entity__headline'
+      }
     }
   },
   accomplishments: {
@@ -116,7 +137,14 @@ const template = {
         selector: 'a',
         attribute: 'href'
       },
-      text: 'p'
+      text: 'p',
+      profileImage: {
+        selector: 'a img',
+        attribute: 'src'
+      },
+      name: {
+        selector: '.name'
+      }
     }
   },
   volunteerExperience: {

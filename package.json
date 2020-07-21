@@ -1,10 +1,11 @@
 {
   "name": "scrapedin",
-  "version": "1.0.20",
-  "description": "linkedin scraper for 2019 website",
+  "version": "1.0.21",
+  "description": "linkedin scraper for 2020 website",
   "keywords": [
     "linkedin",
-    "scraper"
+    "scraper",
+    "crawler"
   ],
   "main": "src/scrapedin.js",
   "scripts": {

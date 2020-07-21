@@ -57,7 +57,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const testScores = await scrapAccomplishmentPanel(page, 'test-scores');
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
-  const contact = hasToGetContactInfo ? await contactInfo(page) : {}
+  const contact = hasToGetContactInfo ? await contactInfo(page) : []
   const connections = await scrapConnections(page);
 
   await page.close()
