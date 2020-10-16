@@ -173,7 +173,7 @@ const template = {
     }
   },
   projects: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.projects li',
     fields: {
       name: '.pv-accomplishment-entity__title',
       date: '.pv-accomplishment-entity__date',
