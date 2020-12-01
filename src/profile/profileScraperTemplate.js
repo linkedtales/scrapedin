@@ -23,7 +23,7 @@ const template = {
   positions: {
     selector: '#experience-section li:not(.pv-entity__position-group-role-item)',
     fields: {
-      title: 'h3',
+      title: 'h3 span:last-child',
       link: {
         selector: 'a',
         attribute: 'href',
@@ -41,7 +41,7 @@ const template = {
         selector: 'li',
         hasChildrenFields: true,
         fields: {
-          title: 'h3',
+          title: 'h3 span:last-child',
           description: '.pv-entity__description',
           date1: '.pv-entity__date-range span:last-child',
           date2: '.pv-entity__bullet-item-v2',
