@@ -4,7 +4,7 @@ const template = {
   profile: {
     selector: '.pv-top-card',
     fields: {
-      name: `.pv-top-card--list:first-child li:first-child`,
+      name: `#main h1`,
       headline: `h2`,
       location: `.pv-top-card--list:last-child li:first-child`,
       connections: `.pv-top-card--list:last-child li:nth-child(2)`,
