@@ -17,7 +17,7 @@ const template = {
   about: {
     selector: '.pv-about-section',
     fields: {
-      text: 'p'
+      text: 'div'
     }
   },
   positions: {
