@@ -2,7 +2,7 @@ const logger = require('../logger')(__filename)
 const seeMoreButtons = [
   {
     id: 'SHOW_MORE_ABOUT',
-    selector: '#line-clamp-show-more-button'
+    selector: '.pv-about-section inline-show-more-text__button'
   },{
     id: 'SHOW_MORE_EXPERIENCES',
     selector: '#experience-section .pv-profile-section__see-more-inline'
