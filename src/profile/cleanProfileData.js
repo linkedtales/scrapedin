@@ -2,6 +2,7 @@ const logger = require('../logger')(__filename)
 const pkg = require('../package')
 
 module.exports = (profile) => {
+  logger.info(`Raw profile: ${profile}`);
   if(!profile.profile.name) {
     const messageError = `LinkedIn website changed and ${pkg.name} ${pkg.version} can't read basic data. Please report this issue at ${pkg.bugs.url}`
     logger.error(messageError, '')
