@@ -77,5 +77,6 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   }
 
   const cleanedProfile = cleanProfileData(rawProfile)
+  logger.info(`Cleaned profile: ${cleanedProfile}`);
   return cleanedProfile
 }
