@@ -39,6 +39,7 @@ const scrapSelector = (selector, section) =>
   Object.keys(section.fields)
     .reduce(scrapSelectorFields(selector, section), Promise.resolve({}))
 
+
 module.exports = async (page, section) => {
   const sectionSelectors = await page.$$(section.selector)
 

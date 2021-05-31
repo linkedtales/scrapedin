@@ -159,21 +159,52 @@ const template = {
     }
   },
   courses: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.courses li', 
     fields: {
       name: '.pv-accomplishment-entity__title',
       year: '.pv-accomplishment-entity__course-number'
     }
   },
+  honors: {
+    selector: '.pv-accomplishments-block.honors li',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      issuer: '.pv-accomplishment-entity__issuer',
+      description: '.pv-accomplishment-entity__description'
+    }  
+  },
   languages: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.languages li',
     fields: {
       name: '.pv-accomplishment-entity__title',
       proficiency: '.pv-accomplishment-entity__proficiency',
     }
   },
+  organizations: {
+    selector: '.pv-accomplishments-block.organizations li',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      position: '.pv-accomplishment-entity__position',
+      description: '.pv-accomplishment-entity__description'
+    }  
+  },
+  patents: {
+    selector: '.pv-accomplishments-block.patents li',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      issuer: '.pv-accomplishment-entity__issuer',
+      description: '.pv-accomplishment-entity__description',
+      link: {
+        selector: '.pv-accomplishment-entity__external-source',
+        attribute: 'href'
+      }
+    }  
+  },
   projects: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.projects li', 
     fields: {
       name: '.pv-accomplishment-entity__title',
       date: '.pv-accomplishment-entity__date',
@@ -183,6 +214,41 @@ const template = {
         attribute: 'href'
       }
     }
+  },
+  publications: {
+    selector: '.pv-accomplishments-block.publications li',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      publisher: '.pv-accomplishment-entity__publisher',
+      description: '.pv-accomplishment-entity__description',
+      link: {
+        selector: '.pv-accomplishment-entity__external-source',
+        attribute: 'href'
+      }
+    }
+  },
+  'test-scores': {
+    selector: '.pv-accomplishments-block.test-scores li',
+    fields: {
+      name: '.pv-accomplishment-entity__title',
+      date: '.pv-accomplishment-entity__date',
+      score: '.pv-accomplishment-entity__score',
+      description: '.pv-accomplishment-entity__description'
+    }  
+  },
+  connections: {
+    selector: 'li.search-result',
+    fields: {
+      name: '.name.actor-name',
+      distance: '.dist-value',
+      position: 'p.subline-level-1',
+      location: 'p.subline-level-2',
+      link: {
+        selector: 'a.search-result__result-link',
+        attribute: 'href'
+      }
+    }  
   }
 }
 

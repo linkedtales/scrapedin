@@ -1,6 +1,7 @@
 const openPage = require('../openPage')
 const scrapSection = require('../scrapSection')
 const scrapAccomplishmentPanel = require('./scrapAccomplishmentPanel')
+const scrapConnections = require('./scrapConnections')
 const scrollToPageBottom = require('./scrollToPageBottom')
 const seeMoreButtons = require('./seeMoreButtons')
 const contactInfo = require('./contactInfo')
@@ -36,6 +37,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
 
+
   const [profile] = await scrapSection(page, template.profile)
   const [about] = await scrapSection(page, template.about)
   const positions = await scrapSection(page, template.positions)
@@ -46,11 +48,17 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const skills = await scrapSection(page, template.skills)
   const accomplishments = await scrapSection(page, template.accomplishments)
   const courses = await scrapAccomplishmentPanel(page, 'courses')
+  const honors = await scrapAccomplishmentPanel(page, 'honors')
   const languages = await scrapAccomplishmentPanel(page, 'languages')
+  const organizations = await scrapAccomplishmentPanel(page, 'organizations')
+  const patents = await scrapAccomplishmentPanel(page, 'patents')
   const projects = await scrapAccomplishmentPanel(page, 'projects')
+  const publications = await scrapAccomplishmentPanel(page, 'publications')
+  const testScores = await scrapAccomplishmentPanel(page, 'test-scores');
   const volunteerExperience = await scrapSection(page, template.volunteerExperience)
   const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
   const contact = hasToGetContactInfo ? await contactInfo(page) : []
+  const connections = await scrapConnections(page);
 
   await page.close()
   logger.info(`finished scraping url: ${url}`)
@@ -69,11 +77,17 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     },
     accomplishments,
     courses,
+    honors,
     languages,
+    organizations,
+    patents,
     projects,
+    publications,
+    testScores,
     peopleAlsoViewed,
     volunteerExperience,
-    contact
+    contact,
+    connections
   }
 
   const cleanedProfile = cleanProfileData(rawProfile)
