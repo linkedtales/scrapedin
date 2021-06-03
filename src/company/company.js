@@ -13,7 +13,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, puppetee
   if(url.includes('legacySchoolId=')){
       page = await openPage({ browser, cookies, url, puppeteerAuthenticate });
 
-      const aboutSelector = 'a[data-control-name=page_member_main_nav_about_tab]';
+      const aboutSelector = 'a[href$="/about/"]';
 
       company.url = page.url();
       
