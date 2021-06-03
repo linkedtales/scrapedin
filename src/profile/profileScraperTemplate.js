@@ -131,7 +131,7 @@ const template = {
     }
   },
   peopleAlsoViewed: {
-    selector: 'li.pv-browsemap-section__member-container',
+    selector: 'li.pv-browsemap-section__member-container, li.pv-browsemap-section__member-container-new-rail',
     fields: {
       user: {
         selector: 'a',
