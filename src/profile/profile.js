@@ -13,6 +13,14 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   logger.info(`starting scraping url: ${url}`)
 
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
+  let authIssues;
+  page.on('request', req => {
+    const url = req.url();
+    if (url.includes('authwall') || url.includes('checkpoint')) {
+      authIssues = url
+    }
+  })
+
   const profilePageIndicatorSelector = '.pv-profile-section'
   await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
     .catch(() => {
@@ -20,6 +28,11 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
       //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
       logger.warn('profile selector was not found')
     })
+
+  // Check for auth issues
+  if (authIssues) {
+    throw new Error(`Credentials issue! You have been redirected to ${authIssues}`)
+  }
 
   logger.info('scrolling page to the bottom')
   await scrollToPageBottom(page)
