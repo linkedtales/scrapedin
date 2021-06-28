@@ -14,16 +14,23 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
 
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
   const profilePageIndicatorSelector = '.pv-profile-section'
-  await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
-    .catch(() => {
-      //why doesn't throw error instead of continuing scraping?
-      //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
-      logger.warn('profile selector was not found')
-    })
+  try {
+    await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
+  }
+  catch(errSelector) {
+    //why doesn't throw error instead of continuing scraping?
+    //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
+    const notLogged = await page.$('.hidden-summary')
+    if (notLogged) {
+      browser.close()
+      throw new Error('NOT_LOGGED');
+    }
+    logger.warn('profile selector was not found', errSelector.message)
+  }
+  try {
 
   logger.info('scrolling page to the bottom')
   await scrollToPageBottom(page)
-  
   if(waitTimeToScrapMs) {
     logger.info(`applying 1st delay`)
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
@@ -77,5 +84,11 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   }
 
   const cleanedProfile = cleanProfileData(rawProfile)
+  browser.close()
   return cleanedProfile
+  }
+  catch (unhandledError) {
+    browser.close()
+    throw unhandledError
+  }
 }
