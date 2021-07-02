@@ -21,7 +21,8 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     //why doesn't throw error instead of continuing scraping?
     //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
     const notLogged = await page.$('.hidden-summary')
-    if (notLogged) {
+    const noResult = await page.$('.no-results')
+    if (notLogged || noResult) {
       browser.close()
       throw new Error('NOT_LOGGED');
     }
