@@ -2,20 +2,20 @@ const profileSelector = '.core-rail > *:first-child section >'
 
 const template = {
   profile: {
-    selector: '.pv-top-card',
+    selector: '.top-card-layout',
     fields: {
-      name: `#main h1`,
-      headline: `h2`,
-      location: `.pv-top-card--list:last-child li:first-child`,
-      connections: `.pv-top-card--list:last-child li:nth-child(2)`,
+      name: `.top-card-layout__title`,
+      headline: `.top-card-layout__headline`,
+      location: `.top-card-layout__first-subline span:first-child`,
+      connections: `.top-card-layout__first-subline span:nth-child(2)`,
       imageurl: {
-		    selector: `img.pv-top-card__photo`,
+		    selector: `img.top-card__profile-image`,
         attribute: 'src'
       }
     }
   },
   about: {
-    selector: '.pv-about-section',
+    selector: '.summary > .core-section-container__content',
     fields: {
       text: 'div'
     }
