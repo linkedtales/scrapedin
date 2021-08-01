@@ -15,9 +15,9 @@ const template = {
     }
   },
   about: {
-    selector: '.summary > .core-section-container__content',
+    selector: '.summary',
     fields: {
-      text: 'div'
+      text: 'div.core-section-container__content'
     }
   },
   positions: {
