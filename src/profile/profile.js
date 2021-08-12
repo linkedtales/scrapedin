@@ -14,7 +14,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
 
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
   const profilePageIndicatorSelector = '.pv-profile-wrapper'
-  await page.waitFor(profilePageIndicatorSelector, { timeout: 10000 })
+  await page.waitForSelector(profilePageIndicatorSelector, { timeout: 10000 })
     .catch((e) => {
       //why doesn't throw error instead of continuing scraping?
       //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
