@@ -14,7 +14,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
 
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
   const profilePageIndicatorSelector = '#profile-wrapper'
-  let bodyHTML = await page.evaluate(() => document.body.innerHTML);
+  let bodyHTML = await page.content()
   logger.info("Body HTML: " + bodyHTML);
   await page.waitForSelector(profilePageIndicatorSelector, { timeout: 10000 })
     .catch((e) => {
