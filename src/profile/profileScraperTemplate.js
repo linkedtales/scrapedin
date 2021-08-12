@@ -2,7 +2,7 @@ const profileSelector = '.core-rail > *:first-child section >'
 
 const template = {
   profile: {
-    selector: '.top-card-layout',
+    selector: '.pv-top-card',
     fields: {
       name: `.text-heading-xlarge`,
       headline: `.text-body-medium`,
