@@ -2,14 +2,14 @@ const profileSelector = '.core-rail > *:first-child section >'
 
 const template = {
   profile: {
-    selector: '.pv-top-card',
+    selector: '.top-card-layout',
     fields: {
-      name: `#main h1`,
-      headline: `h2`,
-      location: `.pv-top-card--list:last-child li:first-child`,
-      connections: `.pv-top-card--list:last-child li:nth-child(2)`,
+      name: `.pv-top-card .text-heading-xlarge`,
+      headline: `.pv-top-card .text-body-medium`,
+      location: `.pv-top-card .pb2 .text-body-small`,
+      connections: `.pv-top-card--list .text-body-small span.t-bold`,
       imageurl: {
-		    selector: `img.pv-top-card__photo`,
+		    selector: `.pv-top-card-profile-picture img.pv-top-card-profile-picture__image`,
         attribute: 'src'
       }
     }
