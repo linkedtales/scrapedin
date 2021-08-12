@@ -13,7 +13,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   logger.info(`starting scraping url: ${url}`)
 
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
-  const profilePageIndicatorSelector = '#profile-wrapper'
+  const profilePageIndicatorSelector = 'body'
   await page.waitForSelector(profilePageIndicatorSelector, { timeout: 10000 })
     .catch((e) => {
       //why doesn't throw error instead of continuing scraping?
