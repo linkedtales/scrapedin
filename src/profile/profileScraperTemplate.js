@@ -4,20 +4,20 @@ const template = {
   profile: {
     selector: '.top-card-layout',
     fields: {
-      name: `.top-card-layout__title`,
-      headline: `.top-card-layout__headline`,
-      location: `.top-card-layout__first-subline span:first-child`,
-      connections: `.top-card-layout__first-subline span:nth-child(2)`,
+      name: `.pv-top-card .text-heading-xlarge`,
+      headline: `.pv-top-card .text-body-medium`,
+      location: `.pv-top-card .pb2 .text-body-small`,
+      connections: `.pv-top-card--list .text-body-small span.t-bold`,
       imageurl: {
-		    selector: `img.top-card__profile-image`,
+		    selector: `.pv-top-card-profile-picture img.pv-top-card-profile-picture__image`,
         attribute: 'src'
       }
     }
   },
   about: {
-    selector: '.summary',
+    selector: '.pv-about-section',
     fields: {
-      text: 'div.core-section-container__content'
+      text: 'div'
     }
   },
   positions: {
