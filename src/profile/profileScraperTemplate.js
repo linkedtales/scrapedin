@@ -4,12 +4,12 @@ const template = {
   profile: {
     selector: '.top-card-layout',
     fields: {
-      name: `.pv-top-card .text-heading-xlarge`,
-      headline: `.pv-top-card .text-body-medium`,
-      location: `.pv-top-card .pb2 .text-body-small`,
-      connections: `.pv-top-card--list .text-body-small span.t-bold`,
+      name: `.text-heading-xlarge`,
+      headline: `.text-body-medium`,
+      location: `.pb2 .text-body-small`,
+      connections: `li.text-body-small`,
       imageurl: {
-		    selector: `.pv-top-card-profile-picture img.pv-top-card-profile-picture__image`,
+		    selector: `img.pv-top-card__photo`,
         attribute: 'src'
       }
     }

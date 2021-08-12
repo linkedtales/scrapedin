@@ -10,8 +10,9 @@ const agents = [
   // "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 ]
 
-module.exports = async ({ browser, cookies, url, puppeteerAuthenticate }) => {
+module.exports = ({ browser, cookies, url, puppeteerAuthenticate }) => new Promise( async (resolve, reject) => {
   const page = await browser.newPage()
+  page.on('error', err => {reject(err)})
 
   if (cookies) {
     await page.setCookie(...cookies)
@@ -29,5 +30,5 @@ module.exports = async ({ browser, cookies, url, puppeteerAuthenticate }) => {
 
   await page.goto(url)
 
-  return page
-}
+  resolve(page)
+})
