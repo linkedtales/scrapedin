@@ -9,7 +9,7 @@ const template = {
       location: `.pb2 .text-body-small`,
       connections: `li.text-body-small`,
       imageurl: {
-		    selector: `img.pv-top-card__photo`,
+	selector: `img.pv-top-card-profile-picture__image`,
         attribute: 'src'
       }
     }
