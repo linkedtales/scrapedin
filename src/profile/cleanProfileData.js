@@ -34,7 +34,7 @@ module.exports = (profile) => {
     }
   })
 
-  if(profile.recommendations.receivedCount) {
+  /*if(profile.recommendations.receivedCount) {
     profile.recommendations.receivedCount = profile.recommendations.receivedCount.replace(/[^\d]/g, '')
   }
 
@@ -90,7 +90,7 @@ module.exports = (profile) => {
         link,
       }),
     );
-  }
+  }*/
   
   return profile
 }
