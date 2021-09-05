@@ -39,18 +39,18 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const [profile] = await scrapSection(page, template.profile)
   const [about] = await scrapSection(page, template.about)
   const positions = await scrapSection(page, template.positions)
-  const educations = await scrapSection(page, template.educations)
-  const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
-  const recommendationsReceived = await scrapSection(page, template.recommendationsReceived)
-  const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
+  //const educations = await scrapSection(page, template.educations)
+  //const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
+  //const recommendationsReceived = await scrapSection(page, template.recommendationsReceived)
+  //const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
   const skills = await scrapSection(page, template.skills)
-  const accomplishments = await scrapSection(page, template.accomplishments)
-  const courses = await scrapAccomplishmentPanel(page, 'courses')
-  const languages = await scrapAccomplishmentPanel(page, 'languages')
-  const projects = await scrapAccomplishmentPanel(page, 'projects')
-  const volunteerExperience = await scrapSection(page, template.volunteerExperience)
-  const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
-  const contact = hasToGetContactInfo ? await contactInfo(page) : []
+  //const accomplishments = await scrapSection(page, template.accomplishments)
+  //const courses = await scrapAccomplishmentPanel(page, 'courses')
+  //const languages = await scrapAccomplishmentPanel(page, 'languages')
+  //const projects = await scrapAccomplishmentPanel(page, 'projects')
+  //const volunteerExperience = await scrapSection(page, template.volunteerExperience)
+  //const peopleAlsoViewed = await scrapSection(page, template.peopleAlsoViewed)
+  //const contact = hasToGetContactInfo ? await contactInfo(page) : []
 
   await page.close()
   logger.info(`finished scraping url: ${url}`)
@@ -59,9 +59,9 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     profile,
     about,
     positions,
-    educations,
+    //educations,
     skills,
-    recommendations: {
+    /*recommendations: {
       givenCount: recommendationsCount ? recommendationsCount.given : "0",
       receivedCount: recommendationsCount ? recommendationsCount.received : "0",
       given: recommendationsReceived,
@@ -73,7 +73,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     projects,
     peopleAlsoViewed,
     volunteerExperience,
-    contact
+    contact*/
   }
 
   const cleanedProfile = cleanProfileData(rawProfile)

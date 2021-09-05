@@ -50,7 +50,7 @@ const template = {
       }
     }
   },
-  educations: {
+  /* educations: {
     selector: '#education-section li',
     fields: {
       title: 'h3',
@@ -64,7 +64,7 @@ const template = {
       date2: '.pv-entity__dates time:nth-child(2)',
       description: '.pv-entity__description'
     }
-  },
+  }, */
   skills: {
     selector: '.pv-skill-category-entity__skill-wrapper',
     fields: {
@@ -72,7 +72,7 @@ const template = {
       count: '.pv-skill-category-entity__endorsement-count'
     }
   },
-  recommendationsCount: {
+  /*recommendationsCount: {
     selector: '.recommendations-inlining',
     fields: {
       received: '.artdeco-tab:nth-child(1)',
@@ -183,7 +183,7 @@ const template = {
         attribute: 'href'
       }
     }
-  }
+  }*/
 }
 
 
