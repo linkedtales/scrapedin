@@ -18,12 +18,14 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     .catch((e) => {
       //why doesn't throw error instead of continuing scraping?
       //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
-      logger.error('profile selector was not found', e)
+      // logger.error('profile selector was not found', e)
+      const messageError = 'You are not authorised to see the information';
+      logger.error(messageError, e)
+      throw new Error(messageError)
     })
 
-  logger.info('scrolling page to the bottom', page)
+  logger.info('scrolling page to the bottom')
   await scrollToPageBottom(page)
-  logger.info('after page scroll', page)
   
   if(waitTimeToScrapMs) {
     logger.info(`applying 1st delay`)
@@ -36,9 +38,6 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     logger.info(`applying 2nd (and last) delay`)
     await new Promise((resolve) => { setTimeout(() => { resolve() }, waitTimeToScrapMs / 2)})
   }
-
-
-  logger.info('after delay', page)
 
   const [profile] = await scrapSection(page, template.profile)
   const [about] = await scrapSection(page, template.about)

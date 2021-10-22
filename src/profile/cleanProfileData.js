@@ -4,16 +4,8 @@ const pkg = require('../package')
 module.exports = (profile) => {
   const rawProfileJson = JSON.stringify(profile);
   logger.info(`Raw profile: ${rawProfileJson}`);
-  let messageError;
-  if(!profile) {
-    messageError= 'You are not authorised to view the information'
-  } else if(!profile.profile) {
-    messageError= 'Pofile selector was not found'
-  } else if(!profile.profile.name) {
-    messageError = `LinkedIn website changed and ${pkg.name} ${pkg.version} can't read basic data. Please report this issue at ${pkg.bugs.url}`
-  }
-
-  if(messageError) {
+  if(!profile.profile.name) {
+    const messageError = `LinkedIn website changed and ${pkg.name} ${pkg.version} can't read basic data. Please report this issue at ${pkg.bugs.url}`
     logger.error(messageError, '')
     throw new Error(messageError)
   }
