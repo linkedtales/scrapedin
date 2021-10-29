@@ -18,7 +18,10 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     .catch((e) => {
       //why doesn't throw error instead of continuing scraping?
       //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
-      logger.error('profile selector was not found', e)
+      // logger.error('profile selector was not found', e)
+      const messageError = 'You are not authorised to see the information';
+      logger.error(messageError, e)
+      throw new Error(messageError)
     })
 
   logger.info('scrolling page to the bottom')
