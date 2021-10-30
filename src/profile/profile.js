@@ -6,22 +6,37 @@ const seeMoreButtons = require('./seeMoreButtons')
 const contactInfo = require('./contactInfo')
 const template = require('./profileScraperTemplate')
 const cleanProfileData = require('./cleanProfileData')
+const pkg = require('../package')
 
 const logger = require('../logger')(__filename)
 
 module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGetContactInfo = false, puppeteerAuthenticate = undefined) => {
   logger.info(`starting scraping url: ${url}`)
 
-  const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
+  let page;
+  try {
+    page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
+    const [userProfile] = await scrapSection(page, template.profile)
+    logger.info(userProfile)
+    if(!userProfile && userProfile.name) {
+      const messageError = 'INVALID_COOKIE'
+      logger.error(messageError, '')
+      throw new Error(messageError)
+    }
+  } catch (error) {
+    const messageError = 'INVALID_COOKIE'
+    logger.error(messageError, error)
+    throw new Error(messageError, error)
+  }
+
   const profilePageIndicatorSelector = '#profile-wrapper'
   await page.waitForSelector(profilePageIndicatorSelector, { timeout: 5000 })
     .catch((e) => {
       //why doesn't throw error instead of continuing scraping?
       //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
-      // logger.error('profile selector was not found', e)
-      const messageError = 'You are not authorised to see the information';
+      const messageError = `LinkedIn website changed and ${pkg.name} ${pkg.version} can't read basic data. Please report this issue at ${pkg.bugs.url}`;
       logger.error(messageError, e)
-      throw new Error(messageError)
+      throw new Error(messageError, e)
     })
 
   logger.info('scrolling page to the bottom')
