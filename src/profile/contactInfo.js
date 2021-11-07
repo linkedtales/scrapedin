@@ -1,13 +1,13 @@
 const logger = require('../logger')(__filename)
 const scrapSection = require('../scrapSection')
 
-const SEE_MORE_SELECTOR = 'a[data-control-name=contact_see_more]'
+const SEE_MORE_SELECTOR = 'a[href*="contact-info]'
 const CLOSE_MODAL_SELECTOR = '.artdeco-modal__dismiss';
 
 const template = {
   selector: '.pv-contact-info__contact-type',
   fields: {
-    type: 'header',
+    type: 'h3',
     values: {
       selector: '.pv-contact-info__ci-container',
       isMultipleFields: true
@@ -18,7 +18,7 @@ const template = {
       isMultipleFields: true
     }
   }
-} 
+}
 const getContactInfo = async(page) => {
   await page.waitFor(SEE_MORE_SELECTOR, { timeout: 2000 })
     .catch(() => {
@@ -34,7 +34,7 @@ const getContactInfo = async(page) => {
         .catch(() => {
           logger.warn('contact info was not found')
         })
-    
+
     const contactInfo = await scrapSection(page, template)
     const closeButton = await page.$(CLOSE_MODAL_SELECTOR)
     if(closeButton)
@@ -42,7 +42,7 @@ const getContactInfo = async(page) => {
 
     return contactInfo
   }
-  
+
 }
 
 module.exports = getContactInfo
