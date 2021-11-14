@@ -57,7 +57,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const [profile] = await scrapSection(page, template.profile)
   const [about] = await scrapSection(page, template.about)
   const positions = await scrapSection(page, template.positions)
-  //const educations = await scrapSection(page, template.educations)
+  const educations = await scrapSection(page, template.educations)
   //const [recommendationsCount] = await scrapSection(page, template.recommendationsCount)
   //const recommendationsReceived = await scrapSection(page, template.recommendationsReceived)
   //const recommendationsGiven = await scrapSection(page, template.recommendationsGiven)
@@ -77,7 +77,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
     profile,
     about,
     positions,
-    //educations,
+    educations,
     skills,
     /*recommendations: {
       givenCount: recommendationsCount ? recommendationsCount.given : "0",
