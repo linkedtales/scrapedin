@@ -72,6 +72,33 @@ const template = {
       count: '.pv-skill-category-entity__endorsement-count'
     }
   },
+  company: {
+    selector: '#main',
+    fields: {
+      logo: {
+		    selector: `img.org-top-card-primary-content__logo`,
+        attribute: 'src'
+      },
+      name: `.block.mt2 h1 span`,
+      tagline: `.block.mt2 .org-top-card-summary__tagline`,
+      industry: `.org-top-card-summary-info-list__info-item:first-child`,
+      location: `.inline-block .org-top-card-summary-info-list__info-item:first-child`,
+      followers: `.inline-block .org-top-card-summary-info-list__info-item:last-child`,
+      employeesOnLinkedIn: `.org-top-card .mt1 span`,
+      website: {
+        selector: 'a.ember-view.org-top-card-primary-actions__action',
+        attribute: 'href'
+      },
+      about: {
+        selector: `.org-grid__content-height-enforcer > div:first-child > div:first-child .artdeco-card`,
+        hasChildrenFields: true,
+        fields: {
+          description: `.ph5.pb5 .t-14`,
+          phone: `.org-contact-info__content.ph2.pb2 a:nth-child(2) span:first-child`
+        }
+      }
+    }
+  },
   /*recommendationsCount: {
     selector: '.recommendations-inlining',
     fields: {
