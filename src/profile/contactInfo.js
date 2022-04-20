@@ -1,13 +1,13 @@
 const logger = require('../logger')(__filename)
 const scrapSection = require('../scrapSection')
 
-const SEE_MORE_SELECTOR = 'a[data-control-name=contact_see_more]'
+const SEE_MORE_SELECTOR = 'a[href*="contact-info]'
 const CLOSE_MODAL_SELECTOR = '.artdeco-modal__dismiss';
 
 const template = {
   selector: '.pv-contact-info__contact-type',
   fields: {
-    type: 'header',
+    type: 'h3',
     values: {
       selector: '.pv-contact-info__ci-container',
       isMultipleFields: true

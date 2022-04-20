@@ -15,7 +15,7 @@ module.exports = async (browser, cookies, url, waitTimeToScrapMs = 500, hasToGet
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate })
   const profilePageIndicatorSelector = '.pv-profile-section'
   try {
-    await page.waitFor(profilePageIndicatorSelector, { timeout: 5000 })
+    await page.waitForSelector(profilePageIndicatorSelector, { timeout: 5000 })
   }
   catch(errSelector) {
     //why doesn't throw error instead of continuing scraping?

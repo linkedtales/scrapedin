@@ -9,21 +9,21 @@ const template = {
       location: `.pb2 .text-body-small`,
       connections: `li.text-body-small`,
       imageurl: {
-		    selector: `img.pv-top-card__photo`,
+		    selector: `img.pv-top-card-profile-picture__image`,
         attribute: 'src'
       }
     }
   },
   about: {
-    selector: '.pv-about-section',
+    selector: 'div .pv-shared-text-with-see-more.t-14.t-normal.t-black.display-flex.align-items-center',
     fields: {
-      text: 'p'
+      text: 'span[class=visually-hidden]'
     }
   },
   positions: {
-    selector: '#experience-section li:not(.pv-entity__position-group-role-item)',
+    selector: 'div .pvs-list__outer-container > .pvs-list.ph5.display-flex.flex-row.flex-wrap',
     fields: {
-      title: 'h3',
+      title: '.display-flex.align-items-center',
       link: {
         selector: 'a',
         attribute: 'href',
@@ -159,21 +159,21 @@ const template = {
     }
   },
   courses: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.courses li',
     fields: {
       name: '.pv-accomplishment-entity__title',
       year: '.pv-accomplishment-entity__course-number'
     }
   },
   languages: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.languages li',
     fields: {
       name: '.pv-accomplishment-entity__title',
       proficiency: '.pv-accomplishment-entity__proficiency',
     }
   },
   projects: {
-    selector: '.pv-accomplishments-section',
+    selector: '.pv-accomplishments-block.projects li',
     fields: {
       name: '.pv-accomplishment-entity__title',
       date: '.pv-accomplishment-entity__date',
