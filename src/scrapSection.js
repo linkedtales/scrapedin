@@ -8,7 +8,7 @@ const scrapSelectorFields = (selector, section) => async (scrapedObjectPromise, 
     : field
 
     let isFieldPresent
-    if (!fieldSelectorString.includes('/')) {
+    if (!fieldSelectorString.startsWith('/')) {
       isFieldPresent = await selector.$(fieldSelectorString)
     } else {
       isFieldPresent = await selector.$x(fieldSelectorString)
@@ -46,7 +46,7 @@ const scrapSelector = (selector, section) =>
 
 module.exports = async (page, section) => {
   let sectionSelectors;
-  if (!section.selector.includes('/')) {
+  if (!section.selector.startsWith('/')) {
     sectionSelectors = await page.$$(section.selector)
   } else {
     sectionSelectors = await page.$x(section.selector)

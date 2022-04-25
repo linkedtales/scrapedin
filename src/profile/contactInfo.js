@@ -1,7 +1,7 @@
 const logger = require('../logger')(__filename)
 const scrapSection = require('../scrapSection')
 
-const SEE_MORE_SELECTOR = 'a[href*="contact-info]'
+const SEE_MORE_SELECTOR = '#top-card-text-details-contact-info'
 const CLOSE_MODAL_SELECTOR = '.artdeco-modal__dismiss';
 
 const template = {
@@ -29,7 +29,7 @@ const getContactInfo = async(page) => {
   const element = await page.$(SEE_MORE_SELECTOR)
   if(element){
     await element.click()
-    const contactInfoIndicatorSelector = '#pv-contact-info'
+    const contactInfoIndicatorSelector = '.pv-profile-section__section-info'
     await page.waitFor(contactInfoIndicatorSelector, { timeout: 5000 })
         .catch(() => {
           logger.warn('contact info was not found')

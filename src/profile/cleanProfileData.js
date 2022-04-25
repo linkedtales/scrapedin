@@ -12,7 +12,7 @@ module.exports = (profile) => {
 
   profile.positions?.forEach((position) => {
     if(position.title){
-        position.title = position.title.replace('Company Name\n', '')
+        position.title = position.title.replace('Company Name\n', '')?.substring(0, position.title.indexOf('\n'))
     }
     if(position.description) {
       position.description = position.description.replace('See more', '');
@@ -29,6 +29,19 @@ module.exports = (profile) => {
           role.description = role.description.replace('see more', '')
         }
       })
+    }
+    if (position?.date1?.includes('-')) {
+      const splittedDate = position.date1.split('-')
+      position.date1 = splittedDate?.[0].trim()
+      position.date2 = splittedDate?.[1]?.substring(0, splittedDate?.[1]?.indexOf('·')).trim()
+    }
+  })
+
+  profile.educations?.forEach((position) => {
+    if (position?.date1?.includes('-')) {
+      const splittedDate = position.date1.split('-')
+      position.date1 = splittedDate?.[0].trim()
+      position.date2 = splittedDate?.[1]?.trim()
     }
   })
 
@@ -74,8 +87,8 @@ module.exports = (profile) => {
 
   if(profile.languages){
     profile.languages = profile.languages.map(({ name, proficiency }) => ({
-      name: name ? name.replace('Language name\n', '') : undefined,
-      proficiency,
+      name: name ? name.replace('Language name\n', '')?.substring(0, name.indexOf('\n')) : undefined,
+      proficiency: proficiency?.substring(0, proficiency.indexOf('\n')),
     }));
   }
 
@@ -88,6 +101,15 @@ module.exports = (profile) => {
         link,
       }),
     );
+  }
+
+  if (profile?.skills?.title) {
+    profile.skills = profile.skills.map((skill) => {
+      return {
+        title: skill?.title?.substring(0, skill?.title?.indexOf('\n')),
+        count: skill?.count ? skill?.count?.substring(0, skill?.count?.indexOf('\n'))?.replace('· ', '').trim() : 0
+      }
+    })
   }
   
   return profile
