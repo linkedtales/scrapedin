@@ -7,7 +7,12 @@ const scrapSelectorFields = (selector, section) => async (scrapedObjectPromise, 
     ? field.selector
     : field
 
-  const isFieldPresent = await selector.$(fieldSelectorString)
+    let isFieldPresent
+    if (!fieldSelectorString.startsWith('/')) {
+      isFieldPresent = await selector.$(fieldSelectorString)
+    } else {
+      isFieldPresent = await selector.$x(fieldSelectorString)
+    }
 
   if (!isFieldPresent) { return scrapedObject }
 
@@ -40,8 +45,12 @@ const scrapSelector = (selector, section) =>
     .reduce(scrapSelectorFields(selector, section), Promise.resolve({}))
 
 module.exports = async (page, section) => {
-  const sectionSelectors = await page.$$(section.selector)
-
+  let sectionSelectors;
+  if (!section.selector.startsWith('/')) {
+    sectionSelectors = await page.$$(section.selector)
+  } else {
+    sectionSelectors = await page.$x(section.selector)
+  }
   const scrapedPromises = sectionSelectors
     .map((selector) => scrapSelector(selector, section))
 

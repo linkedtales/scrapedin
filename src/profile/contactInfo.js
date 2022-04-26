@@ -1,13 +1,13 @@
 const logger = require('../logger')(__filename)
 const scrapSection = require('../scrapSection')
 
-const SEE_MORE_SELECTOR = 'a[data-control-name=contact_see_more]'
+const SEE_MORE_SELECTOR = '#top-card-text-details-contact-info'
 const CLOSE_MODAL_SELECTOR = '.artdeco-modal__dismiss';
 
 const template = {
   selector: '.pv-contact-info__contact-type',
   fields: {
-    type: 'header',
+    type: 'h3',
     values: {
       selector: '.pv-contact-info__ci-container',
       isMultipleFields: true
@@ -29,7 +29,7 @@ const getContactInfo = async(page) => {
   const element = await page.$(SEE_MORE_SELECTOR)
   if(element){
     await element.click()
-    const contactInfoIndicatorSelector = '#pv-contact-info'
+    const contactInfoIndicatorSelector = '.pv-profile-section__section-info'
     await page.waitFor(contactInfoIndicatorSelector, { timeout: 5000 })
         .catch(() => {
           logger.warn('contact info was not found')

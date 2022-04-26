@@ -1,4 +1,4 @@
-const profileSelector = '.core-rail > *:first-child section >'
+const profileSelector = '.core-rail > *:first-child section >';
 
 const template = {
   profile: {
@@ -9,67 +9,72 @@ const template = {
       location: `.pb2 .text-body-small`,
       connections: `li.text-body-small`,
       imageurl: {
-		    selector: `img.pv-top-card__photo`,
+        selector: `img.pv-top-card-profile-picture__image`,
         attribute: 'src'
       }
     }
   },
   about: {
-    selector: '.pv-about-section',
+    selector:
+      'div .pv-shared-text-with-see-more.t-14.t-normal.t-black.display-flex.align-items-center',
     fields: {
-      text: 'p'
+      text: 'span[class=visually-hidden]'
     }
   },
   positions: {
-    selector: '#experience-section li:not(.pv-entity__position-group-role-item)',
+    selector: "//*[@id='experience']/following-sibling::div/ul/li",
     fields: {
-      title: 'h3',
+      title: 'div.display-flex.flex-column.full-width > div > span',
       link: {
         selector: 'a',
-        attribute: 'href',
+        attribute: 'href'
       },
       url: {
         selector: 'a',
         attribute: 'href'
       },
-      companyName: '.pv-entity__secondary-title',
-      location: '.pv-entity__location span:last-child',
-      description: '.pv-entity__description',
-      date1: '.pv-entity__date-range span:last-child',
+      companyName: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > div.display-flex.flex-column.full-width > span:nth-child(2) > span:nth-child(1)',
+      location: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div > div.display-flex.flex-column.full-width > span:nth-child(4) > span:nth-child(1)',
+      description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li > div > ul > li > div > div > div > div > span:nth-child(1)',
+      date1: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > div.display-flex.flex-column.full-width > span:nth-child(3) > span:nth-child(1)',
       date2: '.pv-entity__bullet-item-v2',
       roles: {
         selector: 'li',
         hasChildrenFields: true,
         fields: {
-          title: 'h3',
-          description: '.pv-entity__description',
-          date1: '.pv-entity__date-range span:last-child',
+          title: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(1) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > div > span > span:nth-child(1)',
+          description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(3) > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li > div > ul > li > div > div > div > div',
+          date1: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(3) > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > span.t-14.t-normal.t-black--light > span:nth-child(1)',
           date2: '.pv-entity__bullet-item-v2',
-          location: '.pv-entity__location span:last-child'
+          location: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(2) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > span:nth-child(4) > span:nth-child(1)'
         }
       }
     }
   },
   educations: {
-    selector: '#education-section li',
+    selector: "//*[@id='education']/following-sibling::div/ul/li",
     fields: {
-      title: 'h3',
-      degree: 'span[class=pv-entity__comma-item]',
+      title:
+        'div > div.display-flex.flex-column.full-width.align-self-center > div > a > div > span > span:nth-child(1)',
+      degree:
+        'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div > a > span:nth-child(2) > span:nth-child(1)',
       url: {
         selector: 'a',
         attribute: 'href'
       },
-	    fieldOfStudy: 'p.pv-entity__fos span:nth-child(2)',
-      date1: '.pv-entity__dates time:nth-child(1)',
+      fieldOfStudy: 'div.pvs-list__outer-container > ul > li:nth-child(2) > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > span:nth-child(2) > span:nth-child(1)',
+      date1: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div > a > span.t-14.t-normal.t-black--light > span:nth-child(1)',
       date2: '.pv-entity__dates time:nth-child(2)',
-      description: '.pv-entity__description'
+      description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li > div > ul > li > div > div > div > div > span:nth-child(1)'
     }
   },
   skills: {
-    selector: '.pv-skill-category-entity__skill-wrapper',
+    selector: "//*[@id='skills']/following-sibling::div/ul/li",
     fields: {
-      title: '.pv-skill-category-entity__name-text',
-      count: '.pv-skill-category-entity__endorsement-count'
+      title:
+        'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div',
+      count:
+        'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div > span.pvs-entity__supplementary-info.t-14.t-black--light.t-normal.mr1'
     }
   },
   recommendationsCount: {
@@ -80,13 +85,13 @@ const template = {
     }
   },
   recommendationsReceived: {
-    selector: '.recommendations-inlining',
+    selector: "//*[@id='recommendations']/following-sibling::div/div/following-sibling::div/div/ul/li",
     fields: {
       user: {
-        selector: '.pv-recommendation-entity__member',
+        selector: 'div > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div > span.mr1.hoverable-link-text.t-bold > span:nth-child(1)',
         attribute: 'href'
       },
-      text: 'blockquote.pv-recommendation-entity__text',
+      text: 'div > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li > div > ul > li > div > div > div > div > span:nth-child(1)',
       profileImage: {
         selector: 'a img',
         attribute: 'src'
@@ -95,7 +100,7 @@ const template = {
         selector: 'a h3'
       },
       userDescription: {
-        selector: '.pv-recommendation-entity__headline'
+        selector: 'div > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > span:nth-child(2) > span:nth-child(1)'
       }
     }
   },
@@ -159,32 +164,32 @@ const template = {
     }
   },
   courses: {
-    selector: '.pv-accomplishments-section',
+    selector: "//*[@id='courses']/following-sibling::div/ul/li",
     fields: {
       name: '.pv-accomplishment-entity__title',
       year: '.pv-accomplishment-entity__course-number'
     }
   },
   languages: {
-    selector: '.pv-accomplishments-section',
+    selector: "//*[@id='languages']/following-sibling::div/ul/li",
     fields: {
-      name: '.pv-accomplishment-entity__title',
-      proficiency: '.pv-accomplishment-entity__proficiency',
+      name: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div > div.display-flex.flex-column.full-width > div',
+      proficiency:
+        'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div > div.display-flex.flex-column.full-width > span'
     }
   },
   projects: {
-    selector: '.pv-accomplishments-section',
+    selector: "//*[@id='projects']/following-sibling::div/ul/li",
     fields: {
-      name: '.pv-accomplishment-entity__title',
-      date: '.pv-accomplishment-entity__date',
-      description: '.pv-accomplishment-entity__description',
+      name: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > div.display-flex.flex-column.full-width > div > span > span:nth-child(1)',
+      date: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > div.display-flex.flex-column.full-width > span > span:nth-child(1)',
+      description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(3) > div > ul > li > div > div > div',
       link: {
-        selector: '.pv-accomplishment-entity__external-source',
+        selector: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(2) > div > a',
         attribute: 'href'
       }
     }
   }
-}
+};
 
-
-module.exports = template
+module.exports = template;
