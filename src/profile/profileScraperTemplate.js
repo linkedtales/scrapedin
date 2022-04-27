@@ -43,8 +43,8 @@ const template = {
         hasChildrenFields: true,
         fields: {
           title: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(1) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > div > span > span:nth-child(1)',
-          description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(3) > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li > div > ul > li > div > div > div > div',
-          date1: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(3) > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > span.t-14.t-normal.t-black--light > span:nth-child(1)',
+          description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(2) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > span:nth-child(2) > span:nth-child(1)',
+          date1: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(2) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > span:nth-child(3) > span:nth-child(1)',
           date2: '.pv-entity__bullet-item-v2',
           location: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(2) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > span:nth-child(4) > span:nth-child(1)'
         }
@@ -71,8 +71,7 @@ const template = {
   skills: {
     selector: "//*[@id='skills']/following-sibling::div/ul/li",
     fields: {
-      title:
-        'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div',
+      title: 'div.pvs-list__outer-container > ul > li > div',
       count:
         'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div > span.pvs-entity__supplementary-info.t-14.t-black--light.t-normal.mr1'
     }
