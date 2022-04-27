@@ -71,8 +71,7 @@ const template = {
   skills: {
     selector: "//*[@id='skills']/following-sibling::div/ul/li",
     fields: {
-      title:
-        'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div',
+      title: 'div.pvs-list__outer-container > ul > li > div',
       count:
         'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div > span.pvs-entity__supplementary-info.t-14.t-black--light.t-normal.mr1'
     }
