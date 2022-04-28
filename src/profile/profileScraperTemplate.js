@@ -33,7 +33,7 @@ const template = {
         selector: 'a',
         attribute: 'href'
       },
-      companyName: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > div.display-flex.flex-column.full-width > span:nth-child(2) > span:nth-child(1)',
+      companyName: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div',
       location: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div > div.display-flex.flex-column.full-width > span:nth-child(4) > span:nth-child(1)',
       description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li > div > ul > li > div > div > div > div > span:nth-child(1)',
       date1: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > div.display-flex.flex-column.full-width > span:nth-child(3) > span:nth-child(1)',
@@ -42,9 +42,9 @@ const template = {
         selector: 'li',
         hasChildrenFields: true,
         fields: {
-          title: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(1) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > div > span > span:nth-child(1)',
-          description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(3) > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li > div > ul > li > div > div > div > div',
-          date1: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(3) > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > span.t-14.t-normal.t-black--light > span:nth-child(1)',
+          title: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(1) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > div',
+          description: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(1) > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container',
+          date1: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(1) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > span:nth-child(3) > span:nth-child(1)',
           date2: '.pv-entity__bullet-item-v2',
           location: 'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.pvs-list__outer-container > ul > li:nth-child(2) > div > div.display-flex.flex-column.full-width.align-self-center > div > a > span:nth-child(4) > span:nth-child(1)'
         }
