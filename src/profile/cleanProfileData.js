@@ -29,6 +29,8 @@ module.exports = (profile) => {
           role.description = role.description.replace('see more', '')
         }
       })
+
+      position.roles = position?.roles?.filter((role) => Object.keys(role)?.length > 0 )
     }
     if (position?.date1?.includes('-')) {
       const splittedDate = position.date1.split('-')
