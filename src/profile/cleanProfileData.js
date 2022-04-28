@@ -31,13 +31,14 @@ module.exports = (profile) => {
       })
 
       position.roles = position?.roles?.filter((role) => Object.keys(role)?.length > 0 )
+      position.roles = position?.roles?.filter((role) => role.title !== undefined )
     }
     if (position?.date1?.includes('-')) {
       const splittedDate = position.date1.split('-')
       position.date1 = splittedDate?.[0].trim()
       position.date2 = splittedDate?.[1]?.substring(0, splittedDate?.[1]?.indexOf('·')).trim()
     }
-  })
+   })
 
   profile.educations?.forEach((position) => {
     if (position?.date1?.includes('-')) {
