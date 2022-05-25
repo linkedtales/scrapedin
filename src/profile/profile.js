@@ -26,7 +26,8 @@ module.exports = async (
     //why doesn't throw error instead of continuing scraping?
     //because it can be just a false negative meaning LinkedIn only changed that selector but everything else is fine :)
     const notLogged = await page.$(".show-login");
-    if (notLogged) {
+    const authWall = await page.$(".authwall-join-form__title");
+    if (notLogged || authWall) {
       browser.close();
       throw new Error("NOT_LOGGED");
     }
