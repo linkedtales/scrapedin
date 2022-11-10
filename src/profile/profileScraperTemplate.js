@@ -67,11 +67,9 @@ const template = {
     }
   },
   skills: {
-    selector: "//*[@id='skills']/following-sibling::div/ul/li",
+    selector: '//*[@id="main"]/section[9]/div[3]/div/div/a/span',
     fields: {
-      title: 'div.pvs-list__outer-container > ul > li > div',
-      count:
-        'div.pvs-list__outer-container > ul > li > div > div.display-flex.flex-column.full-width.align-self-center > div.display-flex.flex-row.justify-space-between > a > div > span.pvs-entity__supplementary-info.t-14.t-black--light.t-normal.mr1'
+      title: '#main > section > div.artdeco-tabs.artdeco-tabs--size-t-48.ember-view > div.artdeco-tabpanel.active.ember-view > div > div > div.scaffold-finite-scroll__content > ul > li > div > div > div > div > a > div > span  > span:nth-child(1)',
     }
   },
   recommendationsCount: {

@@ -105,15 +105,6 @@ module.exports = (profile) => {
       }),
     );
   }
-
-  if (profile?.skills) {
-    profile.skills = profile.skills?.map((skill) => {
-      return {
-        title: skill?.title?.substring(0, skill?.title?.indexOf('\n')),
-        count: skill?.count ? skill?.count?.substring(0, skill?.count?.indexOf('\n'))?.replace('· ', '').trim() : 0
-      }
-    })
-  }
   
   return profile
 }
