@@ -1,5 +1,6 @@
 const openPage = require("../openPage");
 const scrapSection = require("../scrapSection");
+const scrapSectionHardskills = require('../scrapSkillsSection')
 const scrollToPageBottom = require("./scrollToPageBottom");
 const seeMoreButtons = require("./seeMoreButtons");
 const contactInfo = require("./contactInfo");
@@ -74,7 +75,6 @@ module.exports = async (
       page,
       template.recommendationsGiven
     );
-    const skills = await scrapSection(page, template.skills);
     const accomplishments = await scrapSection(page, template.accomplishments);
     const courses = await scrapSection(page, template.courses);
     const languages = await scrapSection(page, template.languages);
@@ -88,6 +88,8 @@ module.exports = async (
       template.peopleAlsoViewed
     );
     const contact = hasToGetContactInfo ? await contactInfo(page) : [];
+
+    const skills = await scrapSectionHardskills(page, template.skills);
 
     await page.close();
     logger.info(`finished scraping url: ${url}`);
