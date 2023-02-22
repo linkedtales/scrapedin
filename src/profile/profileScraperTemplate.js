@@ -67,7 +67,7 @@ const template = {
     }
   },
   skills: {
-    selector: '//*[@id="main"]/section[9]/div[3]/div/div/a/span',
+    selector: '//a[contains(@href, "details/skills")]',
     fields: {
       title: '#main > section > div.artdeco-tabs.artdeco-tabs--size-t-48.ember-view > div.artdeco-tabpanel.active.ember-view > div > div > div.scaffold-finite-scroll__content > ul > li > div > div > div > div > a > div > span  > span:nth-child(1)',
     }

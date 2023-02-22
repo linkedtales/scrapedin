@@ -20,7 +20,7 @@ module.exports = async (
   logger.info(`starting scraping url: ${url}`);
 
   const page = await openPage({ browser, cookies, url, puppeteerAuthenticate });
-  const profilePageIndicatorSelector = ".pv-profile-section";
+  const profilePageIndicatorSelector = ".pv-top-card";
   try {
     await page.waitForSelector(profilePageIndicatorSelector, {
       timeout: 30000,

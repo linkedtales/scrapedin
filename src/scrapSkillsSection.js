@@ -1,9 +1,9 @@
 module.exports = async (page, section) => {
   const elements = await page.$x(section.selector);
+  console.log("TEST : ",elements);
   await Promise.all([elements[0].click(), page.waitForNavigation()]);
-  await page.waitForXPath(
-    '//*[@id="profilePagedListComponent-ACoAACRK7OQBs6rHhP6cNWG8SC0lysjD9Unu3Wo-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-0"]/div/div/div[2]/div[1]/a/div'
-  );
+  await page.waitForSelector('.pvs-list');
+  //await page.waitForXPath('//*[@id="profilePagedListComponent-ACoAACRK7OQBs6rHhP6cNWG8SC0lysjD9Unu3Wo-SKILLS-VIEW-DETAILS-profileTabSection-ALL-SKILLS-NONE-en-US-0"]/div/div/div[2]/div[1]/a/div');
 
   const skills = await page.evaluate(() =>
     Array.from(
